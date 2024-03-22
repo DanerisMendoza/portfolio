@@ -7,7 +7,7 @@
     <div class="text-h3 mt-6" style="color: black;">PROJECTS</div>
     <div class="card-container">
 
-      <v-card width="500" height="650" density="comforable" elevation="20" outlined style="justify-content: center" class="pt-2 pl-2">
+      <v-card width="500" height="650" density="comfortable" elevation="20" outlined style="justify-content: center" class="pt-2 pl-2">
         <v-img class="align-end text-white" height="350" src="../assets/system.png" >
         </v-img>
         <v-card-title class="d-flex justify-center">E-Palengke</v-card-title>
