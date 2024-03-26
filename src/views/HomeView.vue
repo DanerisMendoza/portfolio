@@ -1,8 +1,11 @@
 <script setup>
+import hero from '@/components/hero.vue'
 </script>
 
 <template>
   <main>
-    <h1>Vue3</h1>
+    <div >
+      <hero/>
+    </div>
   </main>
 </template>
