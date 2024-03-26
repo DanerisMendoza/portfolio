@@ -14,7 +14,7 @@
             },
         }">
             <swiper-slide v-for="(project, key) in recent_projects" :key="key" style="height: 65vh;">
-                <div class="flex flex-col justify-between drop-shadow-2xl bg-white w-80 h-96 p-6 ml-4 mt-3">
+                <div class="flex flex-col justify-between drop-shadow-2xl bg-white w-80 h-96 p-6 m-center">
                     <div class="badge badge-outline mb-2 self-end">{{ project.type }}</div>
                     <div class="flex flex-col items-center text-center">
                         <img src="../assets/system.png" style="width: 40% " />
