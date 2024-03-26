@@ -1,10 +1,10 @@
 <template>
-    <div class="h-screen w-screen  flex flex-col justify-center items-center ">
-        <div class="flex-col items-start max-w-7xl">
+    <div class="h-screen w-screen flex flex-col justify-center items-center ">
+        <div class="flex-col items-start  lg:h-1/3 lg:w-3/6 m-4">
             <h2 class="font-extrabold text-5xl mr-12 text-black">
                 Daneris Mendoza
             </h2>
-            <h3 class="text-lg mr-12 text-gray-500">Fullstack Developer</h3>
+            <h3 class="text-lg mr-12 text-gray-500 mt-2 mb-2">Fullstack Developer</h3>
             <h5 class="text-sm text-gray-500">
                 I'm a recent computer science graduate,
                 currently working on freelance projects
