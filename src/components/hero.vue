@@ -11,6 +11,7 @@
                 from my 4th year of school to the present.
                 My current stack includes Laravel and VueJS
             </h5>
+            <a class="btn bg-black text-white mt-6 "  href="mailto:danerismendoza096@gmail.com">Contact Me<font-awesome-icon  :icon="'paper-plane'" /></a>
         </div>
     </div>
 </template>
