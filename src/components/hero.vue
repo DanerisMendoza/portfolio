@@ -1,6 +1,6 @@
 <template>
     <div class="h-screen max-w-7xl flex flex-col justify-center items-center " style="margin: 0px auto;">
-        <div class="flex flex-col items-start  lg:h-1/3 lg:w-3/6 m-4">
+        <div class="flex flex-col items-start  lg:h-1/3 lg:w-3/6 m-4 mb-52 md:mb-20 ">
             <h2 class="font-extrabold text-5xl text-black mr-12">
                 Daneris Mendoza
             </h2>
