@@ -1,13 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-weight: normal;
+  font-family: "Lexend Deca";
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+.f-gray {
+  color: var(--gray);
+}
+
+.f-black {
+  color: var(--black);
+}
+
+.f-blue {
+  color: var(--blue);
+}
+
+.f-dark-blue {
+  color: var(--dark-blue);
+}
+
+.f-white {
+  color: var(--white);
+}
+
+
+.h-screen-100 {
+  height: 100vh;
+}
+
+.h-screen-90 {
+  height: 90vh;
+}
+
+.h-screen-80 {
+  height: 80vh;
+}
+
+.h-screen-70 {
+  height: 70vh;
+}
+
+.h-screen-60 {
+  height: 60vh;
+}
+
+.h-screen-50 {
+  height: 50vh;
+}
+
+
+.left-center {
+  left: 45%;
+}
+
+
+.m-center {
+  margin: 0px auto;
+}
+
+.m-auto {
+  margin: auto;
 }
