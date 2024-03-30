@@ -19,7 +19,7 @@ export default function CustomizedTimeline() {
 
                 <TimelineItem>
                     <TimelineSeparator>
-                        <TimelineDot color="primary" variant="outlined">
+                        <TimelineDot color="primary" variant="outlined" className="enlarge">
                             <LaptopMacIcon />
                         </TimelineDot>
                         <TimelineConnector />
@@ -40,7 +40,7 @@ export default function CustomizedTimeline() {
                     </TimelineOppositeContent>
                     <TimelineSeparator>
                         <TimelineConnector />
-                        <TimelineDot>
+                        <TimelineDot className="enlarge">
                             <School />
                         </TimelineDot>
                         <TimelineConnector />
@@ -55,7 +55,7 @@ export default function CustomizedTimeline() {
                 <TimelineItem>
                     <TimelineSeparator>
                         <TimelineConnector />
-                        <TimelineDot color="primary" variant="outlined">
+                        <TimelineDot color="primary" variant="outlined" className="enlarge"> 
                             <Work />
                         </TimelineDot>
 
