@@ -1,12 +1,3 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import { Height } from '@mui/icons-material';
-
 export default function BasicCard() {
     return (
         <div className="w-screen flex flex-col items-center justify-center pb-48 pr-8">

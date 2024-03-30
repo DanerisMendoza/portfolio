@@ -9,7 +9,6 @@ import TimelineDot from '@mui/lab/TimelineDot';
 import School from '@mui/icons-material/School';
 import LaptopMacIcon from '@mui/icons-material/LaptopMac';
 import Work from '@mui/icons-material/Work';
-import Typography from '@mui/material/Typography';
 
 export default function CustomizedTimeline() {
     return (
@@ -48,7 +47,7 @@ export default function CustomizedTimeline() {
                     <TimelineContent >
                         <h3 className="text-l md:text-2xl text-black-500">Graduation</h3>
                         <h3 className="text-l md:text-2xl text-black-500">BS Computer Science</h3>
-                        <h3 className="text-l md:text-2xl text-gray-500"> July 2024</h3>
+                        <h3 className="text-l md:text-2xl text-gray-500"> July 2020 - July 2024</h3>
                     </TimelineContent>
                 </TimelineItem>
 

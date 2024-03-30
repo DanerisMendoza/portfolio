@@ -14,20 +14,15 @@ class Hero extends Component {
                     </h2>
                     <h3 className="text-lg mr-12 text-gray-500 mt-2 mb-2">Fullstack Developer</h3>
                     <h5 className="text-sm text-gray-500">
-                        I'm a recent computer science graduate at University Of Caloocan City,
-                        started working on freelance projects
-                        on my 4th year of school to the present.
-                        My current stacks includes Laravel in Backend then
-                        React or Vue in Frontend.
-                    </h5>
+                        I am a recent computer science graduate from the University of Caloocan City with a strong foundation in programming and well-rounded skills. I began working on freelance projects during my fourth year of school and continue to do so presently. My current stack includes Laravel for backend development and either React or Vue for frontend development                    </h5>
                     <div className="mt-6 flex flex-row items-center gap-2">
                         <a className="enlarge" href="mailto:danerismendoza096@gmail.com" >
                             <Button variant="contained" style={{ backgroundColor: '#000000' }} endIcon={<FontAwesomeIcon icon={faEnvelope} />}>Contact Me </Button>
                         </a>
-                        <a className="enlarge" href="https://github.com/DanerisMendoza" target="_blank" >
+                        <a className="enlarge" href="https://github.com/DanerisMendoza" target="_blank" rel="noreferrer" >
                             <FontAwesomeIcon icon={faGithub} size="2xl" />
                         </a>
-                        <a className="enlarge" href="https://www.linkedin.com/in/danerismendoza/" target="_blank" >
+                        <a className="enlarge" href="https://www.linkedin.com/in/danerismendoza/" target="_blank" rel="noreferrer" >
                             <FontAwesomeIcon icon={faLinkedin} size="2xl" />
                         </a>
                     </div>

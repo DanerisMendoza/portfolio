@@ -3,20 +3,20 @@ import 'swiper/css';
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from 'swiper/modules';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
-import Button from '@mui/material/Button';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import { faLink, faEllipsis } from '@fortawesome/free-solid-svg-icons'
 import Chip from '@mui/material/Chip';
 
 export default () => {
     const slidesData = [{
         name: "E-Palengke",
-        project_link: "https://epalengke.shop/",
+        project_link: "",
         project_logo: "images/system.png",
         description: "Laravel + VueJS + Ionic",
         platform: 'Web & Mobile',
         type: 'Academic Thesis',
-        class: "project_image",
+        source_code: [],
     },
     {
         name: "Research Monitoring System",
@@ -25,16 +25,16 @@ export default () => {
         description: "Laravel + VueJS",
         platform: 'Web',
         type: 'Freelance',
-        class: "project_image",
+        source_code: [],
     },
     {
         name: "Cloud Based Disaster and Risked Geosptial Management System",
         project_link: "",
         project_logo: "images/system.png",
-        description: "Laravel + VueJS",
+        description: "Laravel + Vue3",
         platform: 'Web',
         type: 'Freelance',
-        class: "project_image",
+        source_code: [],
     },
     {
         name: "Web Based Ordering Management System",
@@ -43,7 +43,7 @@ export default () => {
         description: "jQuery + PHP",
         platform: 'Web & Mobile',
         type: 'Academic Case Study',
-        class: "project_image",
+        source_code: '',
     },
     {
         name: "Cash Management Tracker",
@@ -52,16 +52,16 @@ export default () => {
         description: "Java Mobile",
         platform: 'Mobile',
         type: 'Academic Case Study',
-        class: "project_image",
+        source_code: '',
     },
     {
         name: "Portfolio",
-        project_link: "",
+        project_link: "sampleLink",
         project_logo: "images/system.png",
         description: "ReactJS + Tailwind + MUI",
         platform: 'Web',
         type: 'Personal',
-        class: "project_image",
+        source_code: 'https://github.com/DanerisMendoza/DanerisMendoza',
     },
     ];
 
@@ -90,16 +90,22 @@ export default () => {
                             <Chip label={project.type} className="mb-2 self-end">
                             </Chip>
                             <div className="flex flex-col items-center text-center">
-                                <img src="images/system.png" style={{ width: '40%' }} />
+                                <img src="images/system.png" alt='app' style={{ width: '40%' }} />
                                 <p className=' text-l font-semibold'>{project.name}</p>
                                 <p className=' text-s text-gray-400'>{project.description}</p>
                             </div>
-                            <div className="self-center">
+                            <div className="self-center flex flex-row gap-3 items-center">
                                 {project.project_link && (
-                                    <a href={project.project_link} target="_blank" className="btn grow mr-2">
-                                        <Button variant="contained" style={{ backgroundColor: '#000000' }}>View Site</Button>
+                                    <a href={project.project_link} target="_blank" className="btn grow enlarge">
+                                        <FontAwesomeIcon icon={faLink} size="2xl" />
                                     </a>
                                 )}
+                                {!Array.isArray(project.source_code) && project.source_code && (
+                                    <a href={project.source_code} target="_blank" className="btn grow enlarge">
+                                        <FontAwesomeIcon icon={faGithub} size="2xl" />
+                                    </a>
+                                )}
+                                <FontAwesomeIcon className='enlarge pl-2 pr-2' style={{ color: '#000000', border: '1px solid #000000', borderRadius: '12%' }} icon={faEllipsis} size="2xl" />
                             </div>
                         </div>
                     </SwiperSlide>
