@@ -68,3 +68,22 @@ body {
 .m-auto {
   margin: auto;
 }
+
+.card-mini {
+  transition: all 0.2s ease-in-out;
+  max-height: 75px;
+  max-width: 75px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  cursor: pointer;
+
+  span {
+    font-size: 12px;
+  }
+
+  &:hover {
+    transform: scale(1.3);
+  }
+}
