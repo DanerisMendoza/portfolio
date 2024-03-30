@@ -13,7 +13,7 @@ export default () => {
         name: "E-Palengke",
         project_link: "",
         project_logo: "images/system.png",
-        description: "Laravel + VueJS + Ionic",
+        description: "Laravel + VueJS + Vuetify + Ionic",
         platform: 'Web & Mobile',
         type: 'Academic Thesis',
         source_code: [],
@@ -22,7 +22,7 @@ export default () => {
         name: "Research Monitoring System",
         project_link: "",
         project_logo: "images/system.png",
-        description: "Laravel + VueJS",
+        description: "Laravel + VueJS + Vuetify",
         platform: 'Web',
         type: 'Freelance',
         source_code: [],
@@ -31,7 +31,7 @@ export default () => {
         name: "Cloud Based Disaster and Risked Geosptial Management System",
         project_link: "",
         project_logo: "images/system.png",
-        description: "Laravel + Vue3",
+        description: "Laravel + Vue3 + Vuetify",
         platform: 'Web',
         type: 'Freelance',
         source_code: [],
@@ -40,10 +40,19 @@ export default () => {
         name: "Web Based Ordering Management System",
         project_link: "",
         project_logo: "images/system.png",
-        description: "jQuery + PHP",
+        description: "jQuery + PHP + Bootstrap",
         platform: 'Web & Mobile',
         type: 'Academic Case Study',
         source_code: '',
+    },
+    {
+        name: "Portfolio",
+        project_link: "https://danerismendoza.github.io/DanerisMendoza/",
+        project_logo: "images/system.png",
+        description: "ReactJS + Tailwind + MUI",
+        platform: 'Web',
+        type: 'Personal',
+        source_code: 'https://github.com/DanerisMendoza/DanerisMendoza',
     },
     {
         name: "Cash Management Tracker",
@@ -55,13 +64,13 @@ export default () => {
         source_code: '',
     },
     {
-        name: "Portfolio",
-        project_link: "sampleLink",
+        name: "Vaccination System",
+        project_link: "",
         project_logo: "images/system.png",
-        description: "ReactJS + Tailwind + MUI",
-        platform: 'Web',
-        type: 'Personal',
-        source_code: 'https://github.com/DanerisMendoza/DanerisMendoza',
+        description: "C# + Mysql",
+        platform: 'Window',
+        type: 'Academic Case Study',
+        source_code: '',
     },
     ];
 
@@ -90,7 +99,7 @@ export default () => {
                             <Chip label={project.type} className="mb-2 self-end">
                             </Chip>
                             <div className="flex flex-col items-center text-center">
-                                <img src="images/system.png" alt='app' style={{ width: '40%' }} />
+                                <img src="/DanerisMendoza/images/system.png" alt='app' style={{ width: '40%' }} />
                                 <p className=' text-l font-semibold'>{project.name}</p>
                                 <p className=' text-s text-gray-400'>{project.description}</p>
                             </div>

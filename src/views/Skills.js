@@ -28,7 +28,7 @@ export default function BasicCard() {
                         </div>
                         <div className="p-1 card-mini">
                             <img
-                                src="images/logo/ionic.png"
+                                src="/DanerisMendoza/images/logo/ionic.png"
                                 className="h-14"
                                 alt="Ionic"
                             />
@@ -36,7 +36,7 @@ export default function BasicCard() {
                         </div>
                         <div className="p-1 card-mini">
                             <img
-                                src="images/logo/Jquery.png"
+                                src="/DanerisMendoza/images/logo/Jquery.png"
                                 className="h-14"
                                 alt="Jquery"
                             />
@@ -61,7 +61,7 @@ export default function BasicCard() {
 
                         <div className="p-1 card-mini">
                             <img
-                                src="images/logo/vuetify.png"
+                                src="/DanerisMendoza/images/logo/vuetify.png"
                                 className="h-14"
                                 alt="Vuetify"
                             />
@@ -109,7 +109,7 @@ export default function BasicCard() {
                         </div>
                         <div className="p-1 card-mini">
                             <img
-                                src="images/logo/sass.png"
+                                src="/DanerisMendoza/images/logo/sass.png"
                                 className="h-14"
                                 alt="SASS"
                             />
