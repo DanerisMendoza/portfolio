@@ -35,7 +35,7 @@ export default () => {
         platform: 'Web & Mobile',
         type: 'Academic Thesis',
         source_code: [],
-        images_path: '/DanerisMendoza/images/e-palengke/',
+        images_path: '/portfolio/images/e-palengke/',
         images_num: [0, 1, 2],
     },
     {
@@ -48,7 +48,7 @@ export default () => {
         platform: 'Web',
         type: 'Freelance',
         source_code: [],
-        images_path: '/DanerisMendoza/images/rms/',
+        images_path: '/portfolio/images/rms/',
         images_num: [],
     },
     {
@@ -61,7 +61,7 @@ export default () => {
         platform: 'Web',
         type: 'Freelance',
         source_code: [],
-        images_path: '/DanerisMendoza/images/cbdrgms/',
+        images_path: '/portfolio/images/cbdrgms/',
         images_num: [],
     },
     {
@@ -74,20 +74,20 @@ export default () => {
         platform: 'Web & Mobile',
         type: 'Academic 3rd Year Case Study',
         source_code: 'https://github.com/DanerisMendoza/Web-based-ordering-management-system',
-        images_path: '/DanerisMendoza/images/weboms/',
+        images_path: '/portfolio/images/weboms/',
         images_num: [],
     },
     {
         name: "Portfolio",
-        project_link: "https://danerismendoza.github.io/DanerisMendoza/",
+        project_link: "https://danerismendoza.github.io/portfolio/",
         project_logo: "images/system.png",
         description: "ReactJS + Tailwind + MUI",
         long_description: "Compilation of my highlight projects.",
         technology: ['ReactJS', 'Tailwind', 'MUI'],
         platform: 'Web',
         type: 'Personal',
-        source_code: 'https://github.com/DanerisMendoza/DanerisMendoza',
-        images_path: '/DanerisMendoza/images/portfolio/',
+        source_code: 'https://github.com/DanerisMendoza/portfolio',
+        images_path: '/portfolio/images/portfolio/',
         images_num: [],
     },
     {
@@ -100,7 +100,7 @@ export default () => {
         platform: 'Mobile',
         type: 'Academic 2nd Year Case Study',
         source_code: 'https://github.com/DanerisMendoza/cashManagementTracker',
-        images_path: '/DanerisMendoza/images/cmt/',
+        images_path: '/portfolio/images/cmt/',
         images_num: [],
     },
     {
@@ -113,7 +113,7 @@ export default () => {
         platform: 'Window',
         type: 'Academic 2nd Year Case Study',
         source_code: 'https://github.com/DanerisMendoza/Vaccination-Consensus-System',
-        images_path: '/DanerisMendoza/images/vc/',
+        images_path: '/portfolio/images/vc/',
         images_num: [],
     },
     ];
@@ -166,7 +166,7 @@ export default () => {
                             ) : (
                                 <SwiperSlide>
                                     <div className="flex flex-col items-center text-center mb-6">
-                                        <img className='h-48 md:h-96' src='/DanerisMendoza/images/system.png' alt='app' />
+                                        <img className='h-48 md:h-96' src='/portfolio/images/system.png' alt='app' />
                                     </div>
                                 </SwiperSlide>
                             )}
@@ -220,7 +220,7 @@ export default () => {
                             <Chip label={project.type} className="mb-2 self-end">
                             </Chip>
                             <div className="flex flex-col items-center text-center">
-                                <img src="/DanerisMendoza/images/system.png" alt='app' style={{ width: '40%' }} />
+                                <img src="/portfolio/images/system.png" alt='app' style={{ width: '40%' }} />
                                 <p className=' text-l font-semibold'>{project.name}</p>
                                 <p className=' text-s text-gray-400'>{project.description}</p>
                             </div>
