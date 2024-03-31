@@ -2,7 +2,7 @@ export default function BasicCard() {
     return (
         <div className="w-screen flex flex-col items-center justify-center pb-48 pr-8">
             <h2 className="text-4xl text-black text-center ">Skills</h2>
-            <div className="skill-details flex mt-20 flex-col lg:flex-row gap-10">
+            <div className="flex mt-20 flex-col lg:flex-row gap-10">
                 <div
                     className="bg-white drop-shadow-2xl " style={{height:'28rem'}}
                 >
