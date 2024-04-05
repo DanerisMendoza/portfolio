@@ -9,6 +9,9 @@ body {
   font-family: "Lexend Deca";
 }
 
+.wavy{
+  position: absolute;
+}
 
 .f-gray {
   color: var(--gray);
