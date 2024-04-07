@@ -71,7 +71,8 @@ export default function CustomizedTimeline() {
                                 }}
                             >
                                 <div className='h-full flex flex-col justify-center '>
-                                    <h3 className="text-center text-base md:text-2xl text-gray-100  pt-2">Graduation | BS Computer Science</h3>
+                                    <h3 className="text-center text-base md:text-2xl text-gray-100  pt-2">Graduation</h3>
+                                    <h3 className="text-center text-base md:text-2xl text-gray-100  pt-2">BS Computer Science</h3>
                                 </div>
                             </CardMedia>
 
