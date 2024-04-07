@@ -189,8 +189,8 @@ export default () => {
                         </Toolbar>
                     </AppBar>
                     <DialogContent className='mr-3'>
-                        <Card >
-                            <CardContent>
+                        <Card className='drop-shadow-2xl'>
+                            <CardContent className='drop-shadow-2xl'>
                                 <Swiper
                                     pagination={{
                                         dynamicBullets: true,
@@ -266,10 +266,10 @@ export default () => {
                     <SwiperSlide key={project.name} style={{ height: '65vh', display: 'flex', alignItems: 'center' }} >
                         <Card>
                             <CardContent>
-                                <div className="flex flex-col justify-between bg-white w-full h-96 p-6  m-center  drop-shadow-2xl">
+                                <div className="flex flex-col justify-start bg-white w-full h-96 p-6  m-center  drop-shadow-2xl ">
                                     <Chip label={project.type} className="mb-2 self-end ">
                                     </Chip>
-                                    <div className="flex flex-col items-center text-center">
+                                    <div className="grow flex flex-col items-center text-center">
                                         <img src="/portfolio/images/system.png" alt='app' style={{ width: '40%' }} />
                                         <p className=' text-2xl font-semibold'>{project.name}</p>
                                         <p className=' text-xl text-gray-400'>{project.description}</p>
