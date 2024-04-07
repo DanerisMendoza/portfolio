@@ -23,7 +23,7 @@ export default function CustomizedTimeline() {
                 <TimelineItem>
                     <TimelineSeparator>
                         <TimelineDot color="primary" variant="outlined" className="enlarge">
-                            <LaptopMacIcon sx={{ fontSize: 45 }} />
+                            <LaptopMacIcon fontSize="large"/>
                         </TimelineDot>
                         <TimelineConnector />
                     </TimelineSeparator>
@@ -58,7 +58,7 @@ export default function CustomizedTimeline() {
                     <TimelineSeparator>
                         <TimelineConnector />
                         <TimelineDot className="enlarge">
-                            <School sx={{ fontSize: 45 }} />
+                            <School fontSize="large" />
                         </TimelineDot>
                         <TimelineConnector />
                     </TimelineSeparator>
@@ -86,7 +86,7 @@ export default function CustomizedTimeline() {
                     <TimelineSeparator>
                         <TimelineConnector />
                         <TimelineDot color="primary" variant="outlined" className="enlarge">
-                            <Work sx={{ fontSize: 45 }} />
+                            <Work fontSize="large" />
                         </TimelineDot>
 
                     </TimelineSeparator>
