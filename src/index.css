@@ -7,10 +7,24 @@
 body {
   font-weight: normal;
   font-family: "Lexend Deca";
+  position: absolute;
+  /* zoom: 90%; */
+  /* overflow-x: hidden; */
+  
 }
+@media (max-width: 640px) {
+  body {
+    font-weight: normal;
+    font-family: "Lexend Deca";
+    position: absolute;
+    zoom: 90%;
+  }
+}
+
 
 .wavy{
   position: absolute;
+  width: 100%;
 }
 
 .f-gray {

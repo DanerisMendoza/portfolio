@@ -13,7 +13,7 @@ import Work from '@mui/icons-material/Work';
 export default function CustomizedTimeline() {
     return (
         <div className="h-screen max-w-7xl m-center pb-20">
-            <h2 className="text-4xl text-black text-center mb-6">My Journey</h2>
+            <h2 className="text-5xl text-black text-center mb-6">My Journey</h2>
             <Timeline position="alternate">
 
                 <TimelineItem>
@@ -24,8 +24,8 @@ export default function CustomizedTimeline() {
                         <TimelineConnector />
                     </TimelineSeparator>
                     <TimelineContent >
-                        <h3 className="text-l md:text-2xl text-black-500"> Freelance</h3>
-                        <h3 className="text-l md:text-2xl text-gray-500">November 2023 - Present</h3>
+                        <h3 className="text-base  text-black-500"> Freelance</h3>
+                        <h3 className="text-base  text-gray-500">November 2023 - Present</h3>
                     </TimelineContent>
                 </TimelineItem>
 
@@ -45,9 +45,9 @@ export default function CustomizedTimeline() {
                         <TimelineConnector />
                     </TimelineSeparator>
                     <TimelineContent >
-                        <h3 className="text-l md:text-2xl text-black-500">Graduation</h3>
-                        <h3 className="text-l md:text-2xl text-black-500">BS Computer Science</h3>
-                        <h3 className="text-l md:text-2xl text-gray-500"> July 2020 - July 2024</h3>
+                        <h3 className="text-base md:text-2xl text-black-500">Graduation</h3>
+                        <h3 className="text-base md:text-2xl text-black-500">BS Computer Science</h3>
+                        <h3 className="text-base md:text-2xl text-gray-500"> July 2020 - July 2024</h3>
                     </TimelineContent>
                 </TimelineItem>
 
@@ -60,8 +60,8 @@ export default function CustomizedTimeline() {
 
                     </TimelineSeparator>
                     <TimelineContent >
-                        <h3 className="text-l md:text-2xl text-black-500">   Fullstack Developer Internship at Ingco PH</h3>
-                        <h3 className="text-l md:text-2xl text-gray-500"> June 2023 - August 2023</h3>
+                        <h3 className="text-base md:text-2xl text-black-500">   Fullstack Developer Internship at Ingco PH</h3>
+                        <h3 className="text-base md:text-2xl text-gray-500"> June 2023 - August 2023</h3>
                     </TimelineContent>
                 </TimelineItem>
 

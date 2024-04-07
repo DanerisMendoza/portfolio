@@ -22,6 +22,9 @@ import { useState, useEffect } from 'react';
 import AppBar from '@mui/material/AppBar';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
 
 
 export default () => {
@@ -70,7 +73,7 @@ export default () => {
         project_logo: "images/system.png",
         description: "Laravel + VueJS + Vuetify",
         long_description: "Maintained and implemented updates in the existing ticketing system, including multiple label filtering for tickets, geolocation filtering for nearby branches, a feature to suggest tickets to agents with a low-ticket assignment count, and bug fixes. Additionally developed a web-based application for end users to integrate with an in-house ticketing system, utilizing Laravel scheduler for synchronizing cloud and local databases.",
-        technology: ['Laravel','Laravel Schuduler', 'VueJS', 'Vuetify', 'Vuex', 'Axios', 'Websocket' ,'Leaflet'],
+        technology: ['Laravel', 'Laravel Schuduler', 'VueJS', 'Vuetify', 'Vuex', 'Axios', 'Websocket', 'Leaflet'],
         platform: 'Web',
         type: 'Internship',
         source_code: [],
@@ -83,7 +86,7 @@ export default () => {
         project_logo: "images/system.png",
         description: "jQuery + Bootstrap + PHP + MySQL",
         long_description: "I collaborated on coding with students from other computer studies courses. Our team consisted of four developers and four QA testers.",
-        technology: ['jQuery','Bootstrap', 'PHP', 'MySQL', 'PHP Mailer', 'Cron Jobs'],
+        technology: ['jQuery', 'Bootstrap', 'PHP', 'MySQL', 'PHP Mailer', 'Cron Jobs'],
         platform: 'Web',
         type: 'Practicum 2',
         source_code: [],
@@ -133,7 +136,7 @@ export default () => {
         name: "Cash Management Tracker",
         project_link: "",
         project_logo: "images/system.png",
-        description: "Java Native Mobile + SQLITE" ,
+        description: "Java Native Mobile + SQLITE",
         long_description: "Expenses tracker with date analytics.",
         technology: ['Java Native Mobile', 'SQLITE'],
         platform: 'Mobile',
@@ -171,7 +174,7 @@ export default () => {
     };
 
     return (
-        <div className="h-screen w-screen max-w-7xl m-center pr-8">
+        <div className="h-screen w-screen max-w-7xl m-center ">
             <React.Fragment>
                 <Dialog
                     fullScreen
@@ -186,67 +189,73 @@ export default () => {
                         </Toolbar>
                     </AppBar>
                     <DialogContent className='mr-3'>
-                        <Swiper
-                            pagination={{
-                                dynamicBullets: true,
-                            }}
+                        <Card >
+                            <CardContent>
+                                <Swiper
+                                    pagination={{
+                                        dynamicBullets: true,
+                                    }}
 
-                            modules={[Pagination]}
-                            className="mySwiper "
-                        >
-                            {selectedProject && selectedProject.images_num && selectedProject.images_num.length > 0 ? (
-                                selectedProject.images_num.map((project, index) => (
-                                    <SwiperSlide key={index}>
-                                        <div className="flex flex-col items-center text-center mb-6">
-                                            <img className='h-48 md:h-96' src={`${selectedProject.images_path}${index}.png`} alt='app' />
+                                    modules={[Pagination]}
+                                    className="mySwiper "
+                                >
+                                    {selectedProject && selectedProject.images_num && selectedProject.images_num.length > 0 ? (
+                                        selectedProject.images_num.map((project, index) => (
+                                            <SwiperSlide key={index}>
+                                                <div className="flex flex-col items-center text-center mb-6">
+                                                    <img className='h-48 md:h-96' src={`${selectedProject.images_path}${index}.png`} alt='app' />
+                                                </div>
+                                            </SwiperSlide>
+                                        ))
+                                    ) : (
+                                        <SwiperSlide>
+                                            <div className="flex flex-col items-center text-center mb-6">
+                                                <img className='h-48 md:h-96' src='/portfolio/images/system.png' alt='app' />
+                                            </div>
+                                        </SwiperSlide>
+                                    )}
+                                </Swiper>
+                                <div className='flex flex-col items-center'>
+                                    <div className='text-center p-3'>{selectedProject.name}</div>
+                                    <div className='flex flex-col items-start gap-3 '>
+                                        <div className='flex flex-row flex-wrap gap-1' >
+                                            <div>Technology:&nbsp;</div>
+                                            {selectedProject && selectedProject.technology && selectedProject.technology.map((item, index) => (
+                                                <Chip key={index} label={item} />
+                                            ))}
                                         </div>
-                                    </SwiperSlide>
-                                ))
-                            ) : (
-                                <SwiperSlide>
-                                    <div className="flex flex-col items-center text-center mb-6">
-                                        <img className='h-48 md:h-96' src='/portfolio/images/system.png' alt='app' />
+
+                                        <div className='flex flex-row gap-2 items-center'>
+                                            <div>Project Type:&nbsp;</div>
+                                            <Chip label={selectedProject.type}></Chip>
+                                        </div>
+
+                                        <div className='flex flex-row gap-2 items-center'>
+                                            <div>Platform:&nbsp;</div>
+                                            <Chip label={selectedProject.platform}></Chip>
+                                        </div>
+                                        <div className='text-sm max-w-xl md:max-w-3xl '>{selectedProject.long_description}</div>
+
+
+
                                     </div>
-                                </SwiperSlide>
-                            )}
-                        </Swiper>
-                        <div className='flex flex-col items-center'>
-                            <div className='text-center p-3'>{selectedProject.name}</div>
-                            <div className='flex flex-col items-start gap-3 '>
-                                <div className='flex flex-row flex-wrap gap-1' >
-                                    <div>Technology:&nbsp;</div>
-                                    {selectedProject && selectedProject.technology && selectedProject.technology.map((item, index) => (
-                                        <Chip key={index} label={item} />
-                                    ))}
                                 </div>
-
-                                <div className='flex flex-row gap-2 items-center'>
-                                    <div>Project Type:&nbsp;</div>
-                                    <Chip label={selectedProject.type}></Chip>
-                                </div>
-
-                                <div className='flex flex-row gap-2 items-center'>
-                                    <div>Platform:&nbsp;</div>
-                                    <Chip label={selectedProject.platform}></Chip>
-                                </div>
-                                <div className='text-sm max-w-xl md:max-w-3xl '>{selectedProject.long_description}</div>
-
-
-
-                            </div>
-                        </div>
+                            </CardContent>
+                        </Card>
                     </DialogContent>
                 </Dialog>
             </React.Fragment>
             <h2 className="text-5xl text-black text-center mb-6">Portfolio</h2>
             <Swiper
                 slidesPerView={3}
-                spaceBetween={0}
+                spaceBetween={30}
                 centeredSlides={true}
                 modules={modules}
                 pagination={{ clickable: true }}
                 breakpoints={{
-                    200: { slidesPerView: 1 },
+                    200: { 
+                        slidesPerView: 1, 
+                    },
                     600: { slidesPerView: 2 },
                     768: { slidesPerView: 3 }
                 }}
@@ -254,29 +263,33 @@ export default () => {
             >
 
                 {slidesData.map((project, index) => (
-                    <SwiperSlide key={project.name} style={{ height: '65vh', display: 'flex', alignItems: 'center' }}>
-                        <div className="flex flex-col justify-between drop-shadow-2xl bg-white w-80 h-96 p-6  m-center ">
-                            <Chip label={project.type} className="mb-2 self-end">
-                            </Chip>
-                            <div className="flex flex-col items-center text-center">
-                                <img src="/portfolio/images/system.png" alt='app' style={{ width: '40%' }} />
-                                <p className=' text-l font-semibold'>{project.name}</p>
-                                <p className=' text-s text-gray-400'>{project.description}</p>
-                            </div>
-                            <div className="self-center flex flex-row gap-3 items-center">
-                                {project.project_link && (
-                                    <a href={project.project_link} target="_blank" className="btn grow enlarge">
-                                        <FontAwesomeIcon icon={faLink} size="2xl" />
-                                    </a>
-                                )}
-                                {!Array.isArray(project.source_code) && project.source_code && (
-                                    <a href={project.source_code} target="_blank" className="btn grow enlarge">
-                                        <FontAwesomeIcon icon={faGithub} size="2xl" />
-                                    </a>
-                                )}
-                                <FontAwesomeIcon onClick={() => handleClickOpen(project)} className='enlarge pl-2 pr-2' style={{ color: '#000000', border: '1px solid #000000', borderRadius: '12%' }} icon={faEllipsis} size="2xl" />
-                            </div>
-                        </div>
+                    <SwiperSlide key={project.name} style={{ height: '65vh', display: 'flex', alignItems: 'center' }} >
+                        <Card>
+                            <CardContent>
+                                <div className="flex flex-col justify-between bg-white w-full h-96 p-6  m-center  drop-shadow-2xl">
+                                    <Chip label={project.type} className="mb-2 self-end ">
+                                    </Chip>
+                                    <div className="flex flex-col items-center text-center">
+                                        <img src="/portfolio/images/system.png" alt='app' style={{ width: '40%' }} />
+                                        <p className=' text-2xl font-semibold'>{project.name}</p>
+                                        <p className=' text-xl text-gray-400'>{project.description}</p>
+                                    </div>
+                                    <div className="self-center flex flex-row gap-3 items-center">
+                                        {project.project_link && (
+                                            <a href={project.project_link} target="_blank" className="btn grow enlarge">
+                                                <FontAwesomeIcon icon={faLink} size="2xl" />
+                                            </a>
+                                        )}
+                                        {!Array.isArray(project.source_code) && project.source_code && (
+                                            <a href={project.source_code} target="_blank" className="btn grow enlarge">
+                                                <FontAwesomeIcon icon={faGithub} size="2xl" />
+                                            </a>
+                                        )}
+                                        <FontAwesomeIcon onClick={() => handleClickOpen(project)} className='enlarge pl-2 pr-2' style={{ color: '#000000', border: '1px solid #000000', borderRadius: '12%' }} icon={faEllipsis} size="2xl" />
+                                    </div>
+                                </div>
+                            </CardContent>
+                        </Card>
                     </SwiperSlide>
                 ))}
             </Swiper>
