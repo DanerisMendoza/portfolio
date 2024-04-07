@@ -28,7 +28,7 @@ export default function CustomizedTimeline() {
                         <TimelineConnector />
                     </TimelineSeparator>
                     <TimelineContent >
-                        <Card >
+                        <Card className='bg-white drop-shadow-2xl'>
                             <CardMedia
                                 sx={{
                                     height: 100,
@@ -63,7 +63,7 @@ export default function CustomizedTimeline() {
                         <TimelineConnector />
                     </TimelineSeparator>
                     <TimelineContent >
-                        <Card >
+                        <Card className='bg-white drop-shadow-2xl'>
                             <CardMedia
                                 sx={{
                                     height: 100,
@@ -92,7 +92,7 @@ export default function CustomizedTimeline() {
 
                     </TimelineSeparator>
                     <TimelineContent >
-                        <Card >
+                        <Card className='bg-white drop-shadow-2xl'>
                             <CardMedia
                                 sx={{
                                     height: 100,
