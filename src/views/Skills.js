@@ -4,7 +4,7 @@ import CardContent from '@mui/material/CardContent';
 
 export default function BasicCard() {
     return (
-        <div className="w-screen flex flex-col items-center justify-center pb-48 ">
+        <div className="w-screen flex flex-col items-center justify-center pb-48 pt-48 ">
             <h2 className="text-5xl text-black text-center ">Skills</h2>
             <div className="flex mt-20 flex-col lg:flex-row gap-10">
                 <Card >

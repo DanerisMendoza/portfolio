@@ -9,23 +9,41 @@ import TimelineDot from '@mui/lab/TimelineDot';
 import School from '@mui/icons-material/School';
 import LaptopMacIcon from '@mui/icons-material/LaptopMac';
 import Work from '@mui/icons-material/Work';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
 
 export default function CustomizedTimeline() {
     return (
-        <div className="h-screen max-w-7xl m-center pb-20">
+        <div className="h-screen max-w-7xl m-center pb-20 ">
             <h2 className="text-5xl text-black text-center mb-6">My Journey</h2>
-            <Timeline position="alternate">
 
+            <Timeline position="alternate">
                 <TimelineItem>
                     <TimelineSeparator>
                         <TimelineDot color="primary" variant="outlined" className="enlarge">
-                            <LaptopMacIcon />
+                            <LaptopMacIcon sx={{ fontSize: 45 }} />
                         </TimelineDot>
                         <TimelineConnector />
                     </TimelineSeparator>
                     <TimelineContent >
-                        <h3 className="text-base  md:text-2xl text-black-500"> Freelance</h3>
-                        <h3 className="text-base   md:text-2xl text-gray-500">November 2023 - Present</h3>
+                        <Card >
+                            <CardMedia
+                                sx={{
+                                    height: 100,
+                                    bgcolor: 'gray',
+                                }}
+                            >
+                                <div className='h-full flex flex-col justify-center '>
+                                    <h3 className="text-center text-base  md:text-2xl text-gray-100 pt-2"> Freelance</h3>
+                                </div>
+                            </CardMedia>
+
+                            <CardContent>
+                                <h3 className="text-center text-base md:text-2xl text-gray-500">November 2023 - Present</h3>
+                            </CardContent>
+                        </Card>
                     </TimelineContent>
                 </TimelineItem>
 
@@ -40,33 +58,61 @@ export default function CustomizedTimeline() {
                     <TimelineSeparator>
                         <TimelineConnector />
                         <TimelineDot className="enlarge">
-                            <School />
+                            <School sx={{ fontSize: 45 }} />
                         </TimelineDot>
                         <TimelineConnector />
                     </TimelineSeparator>
                     <TimelineContent >
-                        <h3 className="text-base md:text-2xl text-black-500">Graduation</h3>
-                        <h3 className="text-base md:text-2xl text-black-500">BS Computer Science</h3>
-                        <h3 className="text-base md:text-2xl text-gray-500"> July 2020 - July 2024</h3>
+                        <Card >
+                            <CardMedia
+                                sx={{
+                                    height: 100,
+                                    bgcolor: 'gray',
+                                }}
+                            >
+                                <div className='h-full flex flex-col justify-center '>
+                                    <h3 className="text-center text-base md:text-2xl text-gray-100  pt-2">Graduation | BS Computer Science</h3>
+                                </div>
+                            </CardMedia>
+
+                            <CardContent>
+                                <h3 className="text-center text-base md:text-2xl text-gray-500"> July 2020 - July 2024</h3>
+                            </CardContent>
+                        </Card>
                     </TimelineContent>
                 </TimelineItem>
 
                 <TimelineItem>
                     <TimelineSeparator>
                         <TimelineConnector />
-                        <TimelineDot color="primary" variant="outlined" className="enlarge"> 
-                            <Work />
+                        <TimelineDot color="primary" variant="outlined" className="enlarge">
+                            <Work sx={{ fontSize: 45 }} />
                         </TimelineDot>
 
                     </TimelineSeparator>
                     <TimelineContent >
-                        <h3 className="text-base md:text-2xl text-black-500">   Fullstack Developer Internship at Ingco PH</h3>
-                        <h3 className="text-base md:text-2xl text-gray-500"> June 2023 - August 2023</h3>
+                        <Card >
+                            <CardMedia
+                                sx={{
+                                    height: 100,
+                                    bgcolor: 'gray',
+                                }}
+                            >
+                                <div className='h-full flex flex-col justify-center '>
+                                    <h3 className="text-center text-base md:text-2xl text-gray-100 pt-2">   Fullstack Developer Internship at Ingco PH</h3>
+                                </div>
+                            </CardMedia>
+
+                            <CardContent>
+                                <h3 className="text-center text-base md:text-2xl text-gray-500"> June 2023 - August 2023</h3>
+                            </CardContent>
+                        </Card>
                     </TimelineContent>
                 </TimelineItem>
 
 
             </Timeline>
+
         </div>
     );
 }
