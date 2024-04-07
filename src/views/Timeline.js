@@ -24,8 +24,8 @@ export default function CustomizedTimeline() {
                         <TimelineConnector />
                     </TimelineSeparator>
                     <TimelineContent >
-                        <h3 className="text-base  text-black-500"> Freelance</h3>
-                        <h3 className="text-base  text-gray-500">November 2023 - Present</h3>
+                        <h3 className="text-base  md:text-2xl text-black-500"> Freelance</h3>
+                        <h3 className="text-base   md:text-2xl text-gray-500">November 2023 - Present</h3>
                     </TimelineContent>
                 </TimelineItem>
 
