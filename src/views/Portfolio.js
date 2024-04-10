@@ -30,7 +30,7 @@ import CardContent from '@mui/material/CardContent';
 export default () => {
     const slidesData = [{
         name: "E-Palengke",
-        project_link: "",
+        project_link: "https://epalengke.shop/",
         project_logo: "images/system.png",
         description: "Laravel + VueJS + Vuetify + Ionic",
         long_description: "Nearby e-commerce geolocation and radius based. User can have multiple user role through applying to gain more access, it consist of 4 user role Admin, Seller, Customer and Delivery.",
@@ -245,7 +245,7 @@ export default () => {
                     </DialogContent>
                 </Dialog>
             </React.Fragment>
-            <h2 className="text-5xl text-black text-center mb-6">Portfolio</h2>
+            <h2 className="text-5xl text-black text-center">Portfolio</h2>
             <Swiper
                 slidesPerView={3}
                 spaceBetween={30}
@@ -263,7 +263,7 @@ export default () => {
             >
 
                 {slidesData.map((project, index) => (
-                    <SwiperSlide key={project.name} style={{ height: '65vh', display: 'flex', alignItems: 'center' }} >
+                    <SwiperSlide key={project.name} style={{ height: '33rem', display: 'flex', alignItems: 'center' }} >
                         <Card>
                             <CardContent>
                                 <div className="flex flex-col justify-start bg-white w-full h-96 p-6  m-center  drop-shadow-2xl ">
