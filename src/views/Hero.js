@@ -14,7 +14,8 @@ class Hero extends Component {
                     </h2>
                     <h3 className="text-xl mr-12 text-gray-500 mt-2 mb-2">Fullstack Developer</h3>
                     <h5 className="text-base text-gray-500">
-                        I am a graduating computer science major from the University of Caloocan City with a strong foundation in programming and well-rounded skills. I began working on freelance projects during my fourth year of school and continue to do so presently. My current stack includes Laravel for backend development and Vue JS for frontend development                    </h5>
+                        I am a graduating computer science major from the University of Caloocan City with a strong foundation in programming and well-rounded skills. My expertise in reverse engineering, along with my proficiency in quickly learning new things, enables me to breakdown and understand complex systems easily.
+                        I began working on freelance projects during my fourth year of school and continue to do so presently.                    </h5>
                     <div className="mt-6  flex flex-row items-center gap-2">
                         <a className="enlarge" href="mailto:danerismendoza096@gmail.com" >
                             <Button variant="contained" style={{ backgroundColor: '#000000' }} endIcon={<FontAwesomeIcon icon={faEnvelope} />}>Contact Me </Button>

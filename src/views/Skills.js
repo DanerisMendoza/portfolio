@@ -10,7 +10,7 @@ export default function BasicCard() {
                 <Card >
                     <CardContent>
                         <div
-                            className="bg-white drop-shadow-2xl "
+                            className="bg-white drop-shadow-2xl " style={{ height: '28rem' }}
                         >
                             <h2 className="text-2xl  text-center pt-5">Frontend</h2>
                             <div
@@ -153,11 +153,27 @@ export default function BasicCard() {
                                 </div>
                                 <div className="p-1 card-mini">
                                     <img
+                                        src="https://nodejs.org/static/logos/nodejsStackedDark.svg"
+                                        className="h-14"
+                                        alt="Node JS"
+                                    />
+                                    <span className="">Node JS</span>
+                                </div>
+                                <div className="p-1 card-mini">
+                                    <img
                                         src="https://www.freepnglogos.com/uploads/logo-mysql-png/logo-mysql-mysql-logo-png-images-are-download-crazypng-21.png"
                                         className="h-14"
                                         alt="Mysql"
                                     />
                                     <span className="">Mysql</span>
+                                </div>
+                                <div className="p-1 card-mini">
+                                    <img
+                                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Mongodb-icon.svg/640px-Mongodb-icon.svg.png"
+                                        className="h-14"
+                                        alt="Mongo DB"
+                                    />
+                                    <span className="">Mongo DB</span>
                                 </div>
 
                             </div>
