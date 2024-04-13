@@ -253,8 +253,8 @@ export default () => {
                 modules={modules}
                 pagination={{ clickable: true }}
                 breakpoints={{
-                    200: { 
-                        slidesPerView: 1, 
+                    200: {
+                        slidesPerView: 1,
                     },
                     600: { slidesPerView: 2 },
                     768: { slidesPerView: 3 }
@@ -263,7 +263,7 @@ export default () => {
             >
 
                 {slidesData.map((project, index) => (
-                    <SwiperSlide key={project.name} style={{ height: '33rem', display: 'flex', alignItems: 'center' }} >
+                    <SwiperSlide key={project.name} style={{ height: '33rem', display: 'flex', alignItems: 'center', padding: '1rem' }} >
                         <Card>
                             <CardContent>
                                 <div className="flex flex-col justify-start bg-white w-full h-96 p-6  m-center  drop-shadow-2xl ">

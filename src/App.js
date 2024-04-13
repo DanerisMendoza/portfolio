@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       <img src={Wavy} className='wavy' />
-      <div className="p-5">
+      <div  className='m-auto'>
         <Hero />
         <Portfolio />
         <Timeline />

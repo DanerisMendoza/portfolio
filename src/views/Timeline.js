@@ -13,17 +13,18 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import { Padding } from '@mui/icons-material';
 
 export default function CustomizedTimeline() {
     return (
-        <div className="h-screen max-w-7xl m-center pb-20 ">
-            <h2 className="text-5xl text-black text-center mb-6">My Journey</h2>
+        <div className="h-screen w-screen max-w-7xl m-center pb-20 ">
+            <h2 className="text-5xl text-black text-center">My Journey</h2>
 
-            <Timeline position="alternate">
+            <Timeline position="alternate" className='mt-8'>
                 <TimelineItem>
                     <TimelineSeparator>
                         <TimelineDot color="primary" variant="outlined" className="enlarge">
-                            <LaptopMacIcon fontSize="large"/>
+                            <LaptopMacIcon fontSize="large" />
                         </TimelineDot>
                         <TimelineConnector />
                     </TimelineSeparator>
@@ -66,13 +67,12 @@ export default function CustomizedTimeline() {
                         <Card className='bg-white drop-shadow-2xl'>
                             <CardMedia
                                 sx={{
-                                    height: 100,
                                     bgcolor: 'gray',
                                 }}
+                                
                             >
-                                <div className='h-full flex flex-col justify-center '>
-                                    <h3 className="text-center text-base md:text-2xl text-gray-100  pt-2">Graduation</h3>
-                                    <h3 className="text-center text-base md:text-2xl text-gray-100  pt-2">BS Computer Science</h3>
+                                <div className='flex flex-col justify-center p-2'>
+                                    <h3 className="text-center text-base md:text-2xl text-gray-100  ">BS Computer Science at University of Caloocan City</h3>
                                 </div>
                             </CardMedia>
 

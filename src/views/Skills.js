@@ -6,11 +6,11 @@ export default function BasicCard() {
     return (
         <div className="w-screen flex flex-col items-center justify-center pb-48 pt-48 ">
             <h2 className="text-5xl text-black text-center ">Skills</h2>
-            <div className="flex mt-20 flex-col lg:flex-row gap-10">
+            <div className="flex  flex-col lg:flex-row mt-8 gap-10" style={{ padding: '1rem' }}>
                 <Card >
                     <CardContent>
                         <div
-                            className="bg-white drop-shadow-2xl " style={{ height: '28rem' }}
+                            className="bg-white drop-shadow-2xl "
                         >
                             <h2 className="text-2xl  text-center pt-5">Frontend</h2>
                             <div

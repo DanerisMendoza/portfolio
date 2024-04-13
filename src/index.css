@@ -7,19 +7,8 @@
 body {
   font-weight: normal;
   font-family: "Lexend Deca";
-  position: absolute;
-  /* zoom: 90%; */
-  /* overflow-x: hidden; */
-  
 }
-@media (max-width: 640px) {
-  body {
-    font-weight: normal;
-    font-family: "Lexend Deca";
-    position: absolute;
-    zoom: 90%;
-  }
-}
+
 
 
 .wavy{
@@ -88,8 +77,8 @@ body {
 
 .card-mini {
   transition: all 0.2s ease-in-out;
-  max-height: 75px;
-  max-width: 75px;
+  max-height: 70px;
+  max-width: 70px;
   display: flex;
   justify-content: center;
   flex-direction: column;
