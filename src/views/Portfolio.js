@@ -25,6 +25,8 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
+import { SimpleTreeView } from '@mui/x-tree-view/SimpleTreeView';
+import { TreeItem } from '@mui/x-tree-view/TreeItem';
 
 
 export default () => {
@@ -40,6 +42,12 @@ export default () => {
         source_code: [],
         images_path: '/portfolio/images/e-palengke/',
         images_num: [0, 1, 2],
+        demo_accounts: [
+            { role: 'Admin', username: 'admin', password: 'admin' },
+            { role: 'Customer', username: 'patrick', password: '123' },
+            { role: 'Seller', username: 'thomas', password: '123' },
+            { role: 'Delivery', username: 'antonio', password: '123' },
+        ],
     },
     {
         name: "Research Repository Management System",
@@ -230,9 +238,9 @@ export default () => {
                                 </Swiper>
                                 <div className='flex flex-col items-center'>
                                     <div className='text-center p-3'>{selectedProject.name}</div>
-                                    <div className='flex flex-col items-start gap-3 '>
+                                    <div className='flex flex-col items-start gap-2 '>
                                         <div className='flex flex-row flex-wrap gap-1' >
-                                            <div>Technology:&nbsp;</div>
+                                            <div>Technology Used:&nbsp;</div>
                                             {selectedProject && selectedProject.technology && selectedProject.technology.map((item, index) => (
                                                 <Chip key={index} label={item} />
                                             ))}
@@ -247,9 +255,24 @@ export default () => {
                                             <div>Platform:&nbsp;</div>
                                             <Chip label={selectedProject.platform}></Chip>
                                         </div>
+
                                         <div className='text-sm max-w-xl md:max-w-3xl '>{selectedProject.long_description}</div>
 
-
+                                        {selectedProject && selectedProject.demo_accounts && (
+                                            <>
+                                                <div className='flex flex-col flex-wrap gap-1 text-sm '>
+                                                    <div>Demo Accounts:&nbsp;</div>
+                                                    <SimpleTreeView >
+                                                        {selectedProject.demo_accounts.map((item, index) => (
+                                                            <TreeItem key={`role${item.role}${index}`} itemId={`role${item.role}${index}`} label={item.role}>
+                                                                <TreeItem itemId={`username${item.username}${index}`} label={`Username: ${item.username}`}></TreeItem>
+                                                                <TreeItem itemId={`password${item.password}${index}`} label={`Password: ${item.password}`}></TreeItem>
+                                                            </TreeItem>
+                                                        ))}
+                                                    </SimpleTreeView>
+                                                </div>
+                                            </>
+                                        )}
 
                                     </div>
                                 </div>
