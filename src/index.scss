@@ -9,9 +9,29 @@ body {
   font-family: "Lexend Deca";
 }
 
+/* mobile */
+@media (max-width: 640px) {
+  .imgSlide {
+    width: 100%;
+  }
+  .imgSlide2 {
+    width: 50%;
+  }
+}
+
+/* higer width than mobile */
+@media (min-width: 640px) {
+  .imgSlide {
+    width: 60%;
+  }
+}
 
 
-.wavy{
+
+
+
+
+.wavy {
   position: absolute;
   width: 100%;
 }

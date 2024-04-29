@@ -1,7 +1,9 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import "swiper/css/pagination";
-import { Pagination } from 'swiper/modules';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { faLink, faEllipsis } from '@fortawesome/free-solid-svg-icons'
@@ -35,8 +37,8 @@ export default () => {
         project_link: "https://epalengke.shop/",
         project_logo: "images/system.png",
         description: "Laravel + VueJS + Vuetify + Ionic",
-        long_description: "Nearby e-commerce geolocation and radius based. User can have multiple user role through applying to gain more access, it consist of 4 user role Admin, Seller, Customer and Delivery.",
-        technology: ['Laravel', 'Websocket', 'PusherJs', 'VueJs', 'Vuetify', 'Vuex', 'Axios', 'Ionic/Vue', 'Capacitor', 'Leaflet'],
+        long_description: "Nearby e-commerce geolocation and radius based. User can have multiple user role through applying to gain more access, it consist of 4 user role Admin, Seller, Customer and Delivery. End-user can buy, sell and deliver within their registered radius vicinity.",
+        technology: ['Laravel', 'Websocket', 'PusherJs', 'VueJs', 'Vuetify', 'Vuex', 'Axios', 'Ionic/Vue', 'Capacitor', 'Leaflet', 'Firebase(Push Notification)'],
         platform: 'Web & Mobile',
         type: 'Academic Thesis',
         source_code: [],
@@ -158,7 +160,7 @@ export default () => {
         project_link: "",
         project_logo: "images/system.png",
         description: "Java Native Mobile + SQLITE",
-        long_description: "Expenses tracker with date analytics.",
+        long_description: "Expenses tracker with Dynamic Analytics of expenses by date and category.",
         technology: ['Java Native Mobile', 'SQLITE'],
         platform: 'Mobile',
         type: 'Academic 2nd Year Case Study',
@@ -171,7 +173,7 @@ export default () => {
         project_link: "",
         project_logo: "images/system.png",
         description: "C# + MySQL",
-        long_description: "Vaccination Simulation with Analytics by user barangay.",
+        long_description: "Vaccination Simulation System with Dynamic Graph Analytics of Vaccinated and Unvaccinated User per barangay, generate and read QR code functionality.",
         technology: ['C#', 'MySQL'],
         platform: 'Window',
         type: 'Academic 2nd Year Case Study',
@@ -217,29 +219,30 @@ export default () => {
                                         dynamicBullets: true,
                                     }}
 
-                                    modules={[Pagination]}
+                                    modules={[Navigation, Pagination]}
+                                    navigation
                                     className="mySwiper "
                                 >
                                     {selectedProject && selectedProject.images_num && selectedProject.images_num.length > 0 ? (
                                         selectedProject.images_num.map((project, index) => (
                                             <SwiperSlide key={index}>
-                                                <div className="flex flex-col items-center text-center mb-6">
-                                                    <img className='h-48 md:h-96' src={`${selectedProject.images_path}${index}.png`} alt='app' />
+                                                <div className="flex flex-col items-center text-center ">
+                                                    <img className='imgSlide'  src={`${selectedProject.images_path}${index}.png`} alt='app' />
                                                 </div>
                                             </SwiperSlide>
                                         ))
                                     ) : (
                                         <SwiperSlide>
-                                            <div className="flex flex-col items-center text-center mb-6">
-                                                <img className='h-48 md:h-96' src='/portfolio/images/system.png' alt='app' />
+                                            <div className="flex flex-col items-center text-center ">
+                                                <img className='imgSlide2' src='/portfolio/images/system.png' alt='app' />
                                             </div>
                                         </SwiperSlide>
                                     )}
                                 </Swiper>
-                                <div className='flex flex-col items-center'>
+                                <div className='flex flex-col items-center lg:w-3/5 lg:m-auto'>
                                     <div className='text-center p-3'>{selectedProject.name}</div>
-                                    <div className='flex flex-col items-start gap-2 '>
-                                        <div className='flex flex-row flex-wrap gap-1' >
+                                    <div className='flex flex-col items-start gap-4 '>
+                                        <div className='flex flex-row flex-wrap gap-1 ' >
                                             <div>Technology Used:&nbsp;</div>
                                             {selectedProject && selectedProject.technology && selectedProject.technology.map((item, index) => (
                                                 <Chip key={index} label={item} />
@@ -256,7 +259,7 @@ export default () => {
                                             <Chip label={selectedProject.platform}></Chip>
                                         </div>
 
-                                        <div className='text-sm max-w-xl md:max-w-3xl '>{selectedProject.long_description}</div>
+                                        <div className='text-sm  text-justify lg:max-w-5xl'>{selectedProject.long_description}</div>
 
                                         {selectedProject && selectedProject.demo_accounts && (
                                             <>
