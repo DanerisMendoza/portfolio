@@ -10,21 +10,26 @@ body {
 }
 
 /* mobile */
-@media (max-width: 640px) {
-  .imgSlide {
-    width: 100%;
-  }
-  .imgSlide2 {
-    width: 50%;
-  }
-}
+// @media (max-width: 640px) {
+//   .imgSlide {
+//     width: 100%;
+  
+//   }
+//   .imgSlide2 {
+//     width: 40%;
+//   }
+// }
 
-/* higer width than mobile */
-@media (min-width: 640px) {
-  .imgSlide {
-    width: 60%;
-  }
-}
+// /* higer width than mobile */
+// @media (min-width: 640px) {
+//   .imgSlide {
+//     // width: 60%;
+//   }
+//   .project_description{
+//     // margin-top: 0.5rem;
+//   }
+// }
+
 
 
 

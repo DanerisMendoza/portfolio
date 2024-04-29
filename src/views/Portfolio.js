@@ -213,34 +213,37 @@ export default () => {
                     </AppBar>
                     <DialogContent className='mr-3'>
                         <Card className='drop-shadow-2xl'>
-                            <CardContent className='drop-shadow-2xl'>
+                            <CardContent className='lg:drop-shadow-2xl flex flex-col lg:flex-row lg:gap-5'>
                                 <Swiper
                                     pagination={{
                                         dynamicBullets: true,
                                     }}
-
+                                    centeredSlides={true}
                                     modules={[Navigation, Pagination]}
                                     navigation
-                                    className="mySwiper "
+                                    className="mySwiper  w-full self-center lg:w-3/5"
                                 >
                                     {selectedProject && selectedProject.images_num && selectedProject.images_num.length > 0 ? (
                                         selectedProject.images_num.map((project, index) => (
                                             <SwiperSlide key={index}>
-                                                <div className="flex flex-col items-center text-center ">
-                                                    <img className='imgSlide'  src={`${selectedProject.images_path}${index}.png`} alt='app' />
+                                                <div className=" ">
+                                                    <img className='imgSlide lg:pb-8' style={{ width: '90%', margin: 'auto' }} src={`${selectedProject.images_path}${index}.png`} alt='app' />
                                                 </div>
                                             </SwiperSlide>
                                         ))
                                     ) : (
                                         <SwiperSlide>
                                             <div className="flex flex-col items-center text-center ">
-                                                <img className='imgSlide2' src='/portfolio/images/system.png' alt='app' />
+                                                <img className='imgSlide2 lg:pb-8' src='/portfolio/images/system.png' alt='app' />
                                             </div>
                                         </SwiperSlide>
                                     )}
                                 </Swiper>
-                                <div className='flex flex-col items-center lg:w-3/5 lg:m-auto'>
-                                    <div className='text-center p-3'>{selectedProject.name}</div>
+                                <div className='flex flex-col lg:w-2/5 project_description'>
+                                    <p className='text-center p-3 lg:mb-8 lg:border border-black border-opacity-50 rounded-lg'>
+                                        {selectedProject.name}
+                                    </p>
+
                                     <div className='flex flex-col items-start gap-4 '>
                                         <div className='flex flex-row flex-wrap gap-1 ' >
                                             <div>Technology Used:&nbsp;</div>
@@ -259,7 +262,7 @@ export default () => {
                                             <Chip label={selectedProject.platform}></Chip>
                                         </div>
 
-                                        <div className='text-sm  text-justify lg:max-w-5xl'>{selectedProject.long_description}</div>
+                                        <div className='text-sm  text-justify pr-6'>{selectedProject.long_description}</div>
 
                                         {selectedProject && selectedProject.demo_accounts && (
                                             <>
