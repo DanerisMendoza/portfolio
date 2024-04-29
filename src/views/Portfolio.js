@@ -239,12 +239,12 @@ export default () => {
                                         </SwiperSlide>
                                     )}
                                 </Swiper>
-                                <div className='flex flex-col lg:w-2/5 project_description'>
+                                <div className='h-auto flex flex-col  lg:w-2/5 project_description'>
                                     <p className='text-center p-3 lg:mb-8 lg:border border-black border-opacity-50 rounded-lg'>
                                         {selectedProject.name}
                                     </p>
 
-                                    <div className='flex flex-col items-start gap-4 '>
+                                    <div className='h-full flex flex-col items-start gap-4 '>
                                         <div className='flex flex-row flex-wrap gap-1 ' >
                                             <div>Technology Used:&nbsp;</div>
                                             {selectedProject && selectedProject.technology && selectedProject.technology.map((item, index) => (
@@ -264,6 +264,7 @@ export default () => {
 
                                         <div className='text-sm  text-justify pr-6'>{selectedProject.long_description}</div>
 
+
                                         {selectedProject && selectedProject.demo_accounts && (
                                             <>
                                                 <div className='flex flex-col flex-wrap gap-1 text-sm '>
@@ -279,7 +280,19 @@ export default () => {
                                                 </div>
                                             </>
                                         )}
-
+                                        <div className='grow'></div>
+                                        <div className='self-end flex flex-row gap-2'>
+                                            {selectedProject && selectedProject.project_link && (
+                                                <a href={selectedProject.project_link} target="_blank" className="btn grow enlarge ">
+                                                    <FontAwesomeIcon icon={faLink} size="2xl" />
+                                                </a>
+                                            )}
+                                            {!Array.isArray(selectedProject.source_code) && selectedProject.source_code && (
+                                                <a href={selectedProject.source_code} target="_blank" className="btn grow enlarge ">
+                                                    <FontAwesomeIcon icon={faGithub} size="2xl" />
+                                                </a>
+                                            )}
+                                        </div>
                                     </div>
                                 </div>
                             </CardContent>
