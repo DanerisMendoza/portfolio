@@ -24,6 +24,8 @@ import { useState, useEffect } from 'react';
 import AppBar from '@mui/material/AppBar';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import CodeIcon from '@mui/icons-material/Code';
+import DeveloperModeIcon from '@mui/icons-material/DeveloperMode';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -267,7 +269,7 @@ export default () => {
 
                                         {selectedProject && selectedProject.demo_accounts && (
                                             <>
-                                                <div className='flex flex-col flex-wrap gap-1 text-sm '>
+                                                <div className='flex flex-col flex-wrap gap-1  '>
                                                     <div>Demo Accounts:&nbsp;</div>
                                                     <SimpleTreeView >
                                                         {selectedProject.demo_accounts.map((item, index) => (
@@ -300,7 +302,10 @@ export default () => {
                     </DialogContent>
                 </Dialog>
             </React.Fragment>
-            <h2 className="text-5xl text-black text-center">Portfolio</h2>
+            <div className='flex flex-row items-center justify-center text-5xl' >
+                <DeveloperModeIcon fontSize="large" />
+                <p >Portfolio</p>
+            </div>
             <Swiper
                 slidesPerView={3}
                 spaceBetween={30}

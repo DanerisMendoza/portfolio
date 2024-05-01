@@ -1,11 +1,16 @@
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
+import TimelineIcon from '@mui/icons-material/Timeline';
+import BuildIcon from '@mui/icons-material/Build';
 
 export default function BasicCard() {
     return (
         <div className="w-screen flex flex-col items-center justify-center pb-48 pt-48 ">
-            <h2 className="text-5xl text-black text-center ">Skills</h2>
+            <div className='flex flex-row items-center justify-center text-5xl' >
+                <BuildIcon fontSize="large" />
+                <p >Skills</p>
+            </div>
             <div className="flex  flex-col lg:flex-row mt-8 gap-10" style={{ padding: '1rem' }}>
                 <Card >
                     <CardContent>

@@ -14,12 +14,15 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Padding } from '@mui/icons-material';
+import TimelineIcon from '@mui/icons-material/Timeline';
 
 export default function CustomizedTimeline() {
     return (
         <div className="h-screen w-screen max-w-7xl m-center pb-20 ">
-            <h2 className="text-5xl text-black text-center">My Journey</h2>
-
+            <div className='flex flex-row items-center justify-center text-5xl' >
+                <TimelineIcon fontSize="large" />
+                <p >My Journey</p>
+            </div>
             <Timeline position="alternate" className='mt-8'>
                 <TimelineItem>
                     <TimelineSeparator>
@@ -69,7 +72,7 @@ export default function CustomizedTimeline() {
                                 sx={{
                                     bgcolor: 'gray',
                                 }}
-                                
+
                             >
                                 <div className='flex flex-col justify-center p-2'>
                                     <h3 className="text-center text-base md:text-2xl text-gray-100  ">BS Computer Science at University of Caloocan City</h3>
