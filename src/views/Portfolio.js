@@ -18,6 +18,7 @@ import Toolbar from '@mui/material/Toolbar';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemButton from '@mui/material/ListItemButton';
 import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
 import Divider from '@mui/material/Divider';
 import * as React from 'react';
 import { useState, useEffect } from 'react';
@@ -40,7 +41,7 @@ export default () => {
         project_logo: "images/system.png",
         description: "Laravel + VueJS + Vuetify + Ionic",
         long_description: "Nearby e-commerce geolocation and radius based. User can have multiple user role through applying to gain more access, it consist of 4 user role Admin, Seller, Customer and Delivery. End-user can buy, sell and deliver within their registered radius vicinity.",
-        technology: ['Laravel', 'Websocket', 'PusherJs', 'VueJs', 'Vuetify', 'Vuex', 'Axios', 'Ionic/Vue', 'Capacitor', 'Leaflet', 'Firebase(Push Notification)'],
+        technology: ['Laravel', 'Websocket', 'Typescript','PusherJs', 'VueJs', 'Vuetify', 'Vuex', 'Axios', 'Ionic/Vue', 'Capacitor', 'Leaflet', 'Firebase(Push Notification)', 'Swal2'],
         platform: 'Web & Mobile',
         type: 'Academic Thesis',
         source_code: [],
@@ -52,6 +53,7 @@ export default () => {
             { role: 'Seller', username: 'thomas', password: '123' },
             { role: 'Delivery', username: 'antonio', password: '123' },
         ],
+        functionality: ['Dynamic End-User Application based on administrator preference', 'Dynamic User Access Database Structure (ERP Approach)', 'Realtime Functionality using PusherJS/Websockets', 'Product type Filtering', 'Store type Filtering', 'Passport Authentication']
     },
     {
         name: "Research Repository Management System",
@@ -264,8 +266,21 @@ export default () => {
                                             <Chip label={selectedProject.platform}></Chip>
                                         </div>
 
-                                        <div className='text-sm  text-justify pr-6'>{selectedProject.long_description}</div>
+                                        <div className='flex flex-col'>
+                                            <p>Description: </p>
+                                            <div className='text   pr-6'>{selectedProject.long_description}</div>
+                                        </div>
 
+                                        {selectedProject && selectedProject.functionality && (
+                                            <>
+                                                <div className='flex flex-col flex-wrap gap-1  '>
+                                                    <div>Functionality:</div>
+                                                    {selectedProject.functionality.map((item, index) => (
+                                                        <p key={index}>• {item}.</p>
+                                                    ))}
+                                                </div>
+                                            </>
+                                        )}
 
                                         {selectedProject && selectedProject.demo_accounts && (
                                             <>
