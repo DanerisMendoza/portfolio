@@ -135,7 +135,7 @@ export default () => {
         images_num_web: [],
     },
     {
-        name: "Web Based Ordering Management System",
+        name: "Ordering Management System",
         project_link: "",
         project_logo: "images/system.png",
         description: "jQuery + Bootstrap + PHP + MySQL + Java Native Mobile",

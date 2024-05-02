@@ -7,8 +7,8 @@ import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 class Hero extends Component {
     render() {
         return (
-            <div className="h-screen w-screen flex flex-col justify-center items-center ">
-                <div className="flex flex-col items-start  lg:h-1/3 lg:w-3/6 ml-5">
+            <div className="h-screen w-screen flex flex-col justify-center items-center p-2">
+                <div className="flex flex-col items-start  lg:h-1/3 lg:w-3/6 ml-4">
                     <h1 className="font-extrabold text-6xl text-black mr-12">
                         Daneris Mendoza
                     </h1>
