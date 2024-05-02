@@ -41,19 +41,20 @@ export default () => {
         project_logo: "images/system.png",
         description: "Laravel + VueJS + Vuetify + Ionic",
         long_description: "Nearby e-commerce geolocation and radius based. User can have multiple user role through applying to gain more access, it consist of 4 user role Admin, Seller, Customer and Delivery. End-user can buy, sell and deliver within their registered radius vicinity.",
-        technology: ['Laravel', 'Websocket', 'Typescript','PusherJs', 'VueJs', 'Vuetify', 'Vuex', 'Axios', 'Ionic/Vue', 'Capacitor', 'Leaflet', 'Firebase(Push Notification)', 'Swal2'],
+        technology: ['Laravel', 'Websocket', 'Typescript', 'PusherJs', 'VueJs', 'Vuetify', 'Vuex', 'Axios', 'Ionic/Vue', 'Capacitor', 'Leaflet', 'Firebase(Push Notification)', 'Swal2'],
         platform: 'Web & Mobile',
         type: 'Academic Thesis',
         source_code: [],
-        images_path: '/portfolio/images/e-palengke/',
-        images_num: [0, 1, 2],
+        images_path: '/portfolio/images/e-palengke',
+        images_num_web: [0, 1, 2, 3, 4],
+        images_num_mobile: [0, 1, 2, 3, 4, 5],
         demo_accounts: [
             { role: 'Admin', username: 'admin', password: 'admin' },
             { role: 'Customer', username: 'patrick', password: '123' },
             { role: 'Seller', username: 'thomas', password: '123' },
             { role: 'Delivery', username: 'antonio', password: '123' },
         ],
-        functionality: ['Dynamic End-User Application based on administrator preference', 'Dynamic User Access Database Structure (ERP Approach)', 'Realtime Functionality using PusherJS/Websockets', 'Product type Filtering', 'Store type Filtering', 'Passport Authentication']
+        functionality: ['Dynamic End-User Application based on administrator preference', 'Dynamic User Access Database Structure', 'Realtime Functionality using PusherJS/Websockets', 'Product type Filtering', 'Store type Filtering', 'Passport Authentication']
     },
     {
         name: "Research Repository Management System",
@@ -65,8 +66,8 @@ export default () => {
         platform: 'Web',
         type: 'Freelance',
         source_code: [],
-        images_path: '/portfolio/images/rms/',
-        images_num: [],
+        images_path: '/portfolio/images/rms',
+        images_num_web: [],
     },
     {
         name: "Cloud Based Disaster and Risked Geosptial Management System",
@@ -78,8 +79,8 @@ export default () => {
         platform: 'Web',
         type: 'Freelance',
         source_code: [],
-        images_path: '/portfolio/images/cbdrgms/',
-        images_num: [],
+        images_path: '/portfolio/images/cbdrgms',
+        images_num_web: [],
     },
     {
         name: "Ticketing System",
@@ -91,8 +92,8 @@ export default () => {
         platform: 'Web',
         type: 'Internship',
         source_code: [],
-        images_path: '/portfolio/images/ts/',
-        images_num: [],
+        images_path: '/portfolio/images/ts',
+        images_num_web: [],
     },
     {
         name: "Portfolio",
@@ -104,8 +105,8 @@ export default () => {
         platform: 'Web',
         type: 'Personal',
         source_code: 'https://github.com/DanerisMendoza/portfolio',
-        images_path: '/portfolio/images/portfolio/',
-        images_num: [],
+        images_path: '/portfolio/images/portfolio',
+        images_num_web: [],
     },
     {
         name: "E-library system",
@@ -117,8 +118,8 @@ export default () => {
         platform: 'Web',
         type: 'Practicum 2',
         source_code: [],
-        images_path: '/portfolio/images/ts/',
-        images_num: [],
+        images_path: '/portfolio/images/ts',
+        images_num_web: [],
     },
     {
         name: "Blockchain Student Council Voting System ",
@@ -130,8 +131,8 @@ export default () => {
         platform: 'Web & Mobile',
         type: 'Academic 4th Year Case Study',
         source_code: 'https://github.com/DanerisMendoza/voting-blockchain',
-        images_path: '/portfolio/images/weboms/',
-        images_num: [],
+        images_path: '/portfolio/images/bscvs',
+        images_num_web: [],
     },
     {
         name: "Web Based Ordering Management System",
@@ -143,8 +144,8 @@ export default () => {
         platform: 'Web & Mobile',
         type: 'Academic 3rd Year Case Study',
         source_code: 'https://github.com/DanerisMendoza/Web-based-ordering-management-system',
-        images_path: '/portfolio/images/weboms/',
-        images_num: [],
+        images_path: '/portfolio/images/weboms',
+        images_num_web: [],
     },
     {
         name: "Smart Trash Can",
@@ -156,8 +157,8 @@ export default () => {
         platform: 'Mobile',
         type: 'Academic 3rd Year Case Study',
         source_code: 'https://github.com/DanerisMendoza/smart-trashCan',
-        images_path: '/portfolio/images/cmt/',
-        images_num: [],
+        images_path: '/portfolio/images/cmt',
+        images_num_web: [],
     },
     {
         name: "Cash Management Tracker",
@@ -169,8 +170,8 @@ export default () => {
         platform: 'Mobile',
         type: 'Academic 2nd Year Case Study',
         source_code: 'https://github.com/DanerisMendoza/cashManagementTracker',
-        images_path: '/portfolio/images/cmt/',
-        images_num: [],
+        images_path: '/portfolio/images/cmt',
+        images_num_web: [],
     },
     {
         name: "Vaccination System",
@@ -182,8 +183,8 @@ export default () => {
         platform: 'Window',
         type: 'Academic 2nd Year Case Study',
         source_code: 'https://github.com/DanerisMendoza/Vaccination-Consensus-System',
-        images_path: '/portfolio/images/vc/',
-        images_num: [],
+        images_path: '/portfolio/images/vc',
+        images_num_web: [],
     },
     ];
 
@@ -227,14 +228,25 @@ export default () => {
                                     navigation
                                     className="mySwiper  w-full self-center lg:w-3/5"
                                 >
-                                    {selectedProject && selectedProject.images_num && selectedProject.images_num.length > 0 ? (
-                                        selectedProject.images_num.map((project, index) => (
-                                            <SwiperSlide key={index}>
-                                                <div className=" ">
-                                                    <img className='imgSlide lg:pb-8' style={{ width: '90%', margin: 'auto' }} src={`${selectedProject.images_path}${index}.png`} alt='app' />
-                                                </div>
-                                            </SwiperSlide>
-                                        ))
+                                    {selectedProject && (
+                                        (selectedProject.images_num_web && selectedProject.images_num_web.length > 0) ||
+                                        (selectedProject.images_num_mobile && selectedProject.images_num_mobile.length > 0)
+                                    ) ? (
+                                        <>
+                                            {/* Render web images */}
+                                            {selectedProject.images_num_web && selectedProject.images_num_web.length > 0 && selectedProject.images_num_web.map((image, index) => (
+                                                <SwiperSlide key={`web${index}`}>
+                                                    <img className='img_slide_web lg:pb-8' src={`${selectedProject.images_path}/web/${index}.png`} alt='app' />
+                                                </SwiperSlide>
+                                            ))}
+
+                                            {/* Render mobile images */}
+                                            {selectedProject.images_num_mobile && selectedProject.images_num_mobile.length > 0 && selectedProject.images_num_mobile.map((image, index) => (
+                                                <SwiperSlide key={`mobile${index}`}>
+                                                    <img className='img_slide_mobile lg:pb-8' src={`${selectedProject.images_path}/mobile/${index}.png`} alt='app' />
+                                                </SwiperSlide>
+                                            ))}
+                                        </>
                                     ) : (
                                         <SwiperSlide>
                                             <div className="flex flex-col items-center text-center ">
@@ -242,6 +254,8 @@ export default () => {
                                             </div>
                                         </SwiperSlide>
                                     )}
+
+
                                 </Swiper>
                                 <div className='h-auto flex flex-col  lg:w-2/5 project_description'>
                                     <p className='text-center p-3 lg:mb-8 lg:border border-black border-opacity-50 rounded-lg'>
@@ -268,7 +282,7 @@ export default () => {
 
                                         <div className='flex flex-col'>
                                             <p>Description: </p>
-                                            <div className='text   pr-6'>{selectedProject.long_description}</div>
+                                            <div className='pr-6'>{selectedProject.long_description}</div>
                                         </div>
 
                                         {selectedProject && selectedProject.functionality && (
@@ -299,14 +313,14 @@ export default () => {
                                         )}
                                         <div className='grow'></div>
                                         <div className='self-end flex flex-row gap-2'>
-                                            {selectedProject && selectedProject.project_link && (
-                                                <a href={selectedProject.project_link} target="_blank" className="btn grow enlarge ">
-                                                    <FontAwesomeIcon icon={faLink} size="2xl" />
-                                                </a>
-                                            )}
                                             {!Array.isArray(selectedProject.source_code) && selectedProject.source_code && (
                                                 <a href={selectedProject.source_code} target="_blank" className="btn grow enlarge ">
                                                     <FontAwesomeIcon icon={faGithub} size="2xl" />
+                                                </a>
+                                            )}
+                                            {selectedProject && selectedProject.project_link && (
+                                                <a href={selectedProject.project_link} target="_blank" className="btn grow enlarge ">
+                                                    <FontAwesomeIcon icon={faLink} size="2xl" />
                                                 </a>
                                             )}
                                         </div>
@@ -350,17 +364,17 @@ export default () => {
                                         <p className=' text-xl text-gray-400'>{project.description}</p>
                                     </div>
                                     <div className="self-center flex flex-row gap-3 items-center">
-                                        {project.project_link && (
-                                            <a href={project.project_link} target="_blank" className="btn grow enlarge">
-                                                <FontAwesomeIcon icon={faLink} size="2xl" />
-                                            </a>
-                                        )}
                                         {!Array.isArray(project.source_code) && project.source_code && (
                                             <a href={project.source_code} target="_blank" className="btn grow enlarge">
                                                 <FontAwesomeIcon icon={faGithub} size="2xl" />
                                             </a>
                                         )}
                                         <FontAwesomeIcon onClick={() => handleClickOpen(project)} className='enlarge pl-2 pr-2' style={{ color: '#000000', border: '1px solid #000000', borderRadius: '12%' }} icon={faEllipsis} size="2xl" />
+                                        {project.project_link && (
+                                            <a href={project.project_link} target="_blank" className="btn grow enlarge">
+                                                <FontAwesomeIcon icon={faLink} size="2xl" />
+                                            </a>
+                                        )}
                                     </div>
                                 </div>
                             </CardContent>

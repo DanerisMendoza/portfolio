@@ -9,26 +9,45 @@ body {
   font-family: "Lexend Deca";
 }
 
-/* mobile */
-// @media (max-width: 640px) {
-//   .imgSlide {
-//     width: 100%;
-  
-//   }
-//   .imgSlide2 {
-//     width: 40%;
-//   }
-// }
+.img_slide_web{
+  margin: auto;
+  width: 90%;
+}
 
-// /* higer width than mobile */
-// @media (min-width: 640px) {
-//   .imgSlide {
-//     // width: 60%;
-//   }
-//   .project_description{
-//     // margin-top: 0.5rem;
-//   }
-// }
+/* mobile */
+@media (max-width: 375px) {
+  .img_slide_mobile {
+    height: 10rem;
+    width: auto;
+    margin: auto;
+    object-fit: cover;
+  }
+  .imgSlide2 {
+    width: 40%;
+  }
+}
+@media (min-width: 376px) and (max-width: 1023px) {
+  .img_slide_mobile {
+    height: 26rem;
+    width: auto;
+    margin: auto;
+    object-fit: cover;
+  }
+  .imgSlide2 {
+    width: 40%;
+  }
+}
+
+/* higer width than mobile */
+@media (min-width: 1024px) {
+  .img_slide_mobile {
+    height: 37rem;
+    width: auto;
+    margin: auto;
+    object-fit: cover;
+  }
+  
+}
 
 
 
