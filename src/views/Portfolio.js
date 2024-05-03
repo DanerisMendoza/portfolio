@@ -3,7 +3,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import { Keyboard, Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { faLink, faEllipsis } from '@fortawesome/free-solid-svg-icons'
@@ -319,7 +319,7 @@ export default () => {
                     <DialogContent className='mr-3'>
                         <Card className='drop-shadow-2xl'>
                             <CardContent className='lg:drop-shadow-2xl flex flex-col lg:flex-row lg:gap-5'>
-                           
+
                                 {selectedImages && selectedImages.length > 0 && (
                                     <SimpleGallery
                                         galleryID="my-test-gallery"
@@ -331,42 +331,45 @@ export default () => {
                                     />
                                 )}
 
-                                    <Swiper
-                                        onSwiper={setSwiper}
-                                        pagination={{
-                                            dynamicBullets: true,
-                                        }}
-                                        centeredSlides={true}
-                                        modules={[Navigation, Pagination]}
-                                        navigation
-                                        className="mySwiper  w-full self-center lg:w-3/5"
-                                        onSlideChange={(data) => dispatch(setActiveIndex(data.activeIndex))}
-                                        onClick={(data) => {
-                                            dispatch(setActiveIndex(data.activeIndex))
-                                            dispatch(setIsFullScreen(true))
-                                        }}
-                                    >
-                                        {selectedProject && (
-                                            (selectedProject.images_num_web && selectedProject.images_num_web.length > 0) ||
-                                            (selectedProject.images_num_mobile && selectedProject.images_num_mobile.length > 0)
-                                        ) ? (
-                                            <>
-                                                {selectedImages.length > 0 && selectedImages.map((item, index) => (
-                                                    <SwiperSlide key={`${index}`}>
-                                                        <img className={`lg:pb-8 ${item.platform}`} src={URL.createObjectURL(item.src)} alt='app' />
-                                                    </SwiperSlide>
-                                                ))}
-                                            </>
-                                        ) : (
-                                            <SwiperSlide>
-                                                <div className="flex flex-col items-center text-center ">
-                                                    <img className='imgSlide2 lg:pb-8' src='/portfolio/images/system.png' alt='app' />
-                                                </div>
-                                            </SwiperSlide>
-                                        )}
-                                    </Swiper>
-                                
-                           
+                                <Swiper
+                                    onSwiper={setSwiper}
+                                    pagination={{
+                                        dynamicBullets: true,
+                                    }}
+                                    keyboard={{
+                                        enabled: true,
+                                    }}
+                                    centeredSlides={true}
+                                    modules={[Keyboard, Navigation, Pagination]}
+                                    navigation
+                                    className="mySwiper  w-full self-center lg:w-3/5"
+                                    onSlideChange={(data) => dispatch(setActiveIndex(data.activeIndex))}
+                                    onClick={(data) => {
+                                        dispatch(setActiveIndex(data.activeIndex))
+                                        dispatch(setIsFullScreen(true))
+                                    }}
+                                >
+                                    {selectedProject && (
+                                        (selectedProject.images_num_web && selectedProject.images_num_web.length > 0) ||
+                                        (selectedProject.images_num_mobile && selectedProject.images_num_mobile.length > 0)
+                                    ) ? (
+                                        <>
+                                            {selectedImages.length > 0 && selectedImages.map((item, index) => (
+                                                <SwiperSlide key={`${index}`}>
+                                                    <img className={`lg:pb-8 ${item.platform}`} src={URL.createObjectURL(item.src)} alt='app' />
+                                                </SwiperSlide>
+                                            ))}
+                                        </>
+                                    ) : (
+                                        <SwiperSlide>
+                                            <div className="flex flex-col items-center text-center ">
+                                                <img className='imgSlide2 lg:pb-8' src='/portfolio/images/system.png' alt='app' />
+                                            </div>
+                                        </SwiperSlide>
+                                    )}
+                                </Swiper>
+
+
 
                                 <div className='h-auto flex flex-col  lg:w-2/5 project_description'>
                                     <p className='text-center p-3 lg:mb-8 lg:border border-black border-opacity-50 rounded-lg'>
@@ -450,7 +453,8 @@ export default () => {
                 slidesPerView={3}
                 spaceBetween={30}
                 centeredSlides={true}
-                modules={modules}
+                modules={[Keyboard, Navigation, Pagination]}
+                navigation
                 pagination={{ clickable: true }}
                 breakpoints={{
                     200: {
@@ -458,6 +462,9 @@ export default () => {
                     },
                     600: { slidesPerView: 2 },
                     768: { slidesPerView: 3 }
+                }}
+                keyboard={{
+                    enabled: true,
                 }}
                 initialSlide={0}
             >
