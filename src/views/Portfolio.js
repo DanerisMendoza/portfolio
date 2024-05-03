@@ -32,9 +32,15 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import { SimpleTreeView } from '@mui/x-tree-view/SimpleTreeView';
 import { TreeItem } from '@mui/x-tree-view/TreeItem';
-
+import SimpleGallery from './SimpleGallery';
+import { useDispatch, useSelector } from 'react-redux';
+import { setActiveIndex, setIsFullScreen } from '../store/portfolio/fullscreen';
 
 export default () => {
+    const fullscreenReducer = useSelector((state) => state.fullscreenReducer);
+    const activeIndex = fullscreenReducer.activeIndex;
+    const isFullScreen = fullscreenReducer.isFullScreen;
+
     const slidesData = [{
         name: "E-Palengke",
         project_link: "https://epalengke.shop/",
@@ -191,6 +197,8 @@ export default () => {
     const modules = [Pagination];
     const [open, setOpen] = React.useState(false);
     const [selectedProject, setSelectedProject] = React.useState('');
+    const [swiper, setSwiper] = useState(null);
+
 
     const handleClickOpen = (project) => {
         setSelectedProject(project)
@@ -199,12 +207,104 @@ export default () => {
 
     const handleClose = () => {
         setOpen(false);
+        setSelectedImages([])
+        dispatch(setIsFullScreen(false))
     };
+    const [selectedImages, setSelectedImages] = useState([]);
+
+    const fetchImages = async () => {
+        try {
+            if (selectedProject !== '' && selectedProject.images_num_web && selectedProject.images_num_mobile) {
+                const imagesPathWeb = `${selectedProject.images_path}/web`;
+                const imagesPathMobile = `${selectedProject.images_path}/mobile`;
+
+                const imagePromisesWeb = selectedProject.images_num_web.map(async num => {
+                    const response = await fetch(`${imagesPathWeb}/${num}.png`);
+                    if (!response.ok) {
+                        throw new Error(`Failed to fetch web image ${num}`);
+                    }
+                    const blob = await response.blob();
+                    const dimensions = await getImageDimensions(blob);
+                    return { blob, dimensions };
+                });
+
+                const imagePromisesMobile = selectedProject.images_num_mobile.map(async num => {
+                    const response = await fetch(`${imagesPathMobile}/${num}.png`);
+                    if (!response.ok) {
+                        throw new Error(`Failed to fetch mobile image ${num}`);
+                    }
+                    const blob = await response.blob();
+                    const dimensions = await getImageDimensions(blob);
+                    return { blob, dimensions };
+                });
+
+                try {
+                    const imagesWebWithDimensions = await Promise.all(imagePromisesWeb);
+                    const imagesMobileWithDimensions = await Promise.all(imagePromisesMobile);
+                    const imagesWebObjects = imagesWebWithDimensions.map(({ blob, dimensions }) => ({
+                        src: blob,
+                        platform: 'img_slide_web',
+                        width: dimensions.width,
+                        height: dimensions.height
+                    }));
+                    const imagesMobileObjects = imagesMobileWithDimensions.map(({ blob, dimensions }) => ({
+                        src: blob,
+                        platform: 'img_slide_mobile',
+                        width: dimensions.width,
+                        height: dimensions.height
+                    }));
+                    const combinedImages = [...imagesWebObjects, ...imagesMobileObjects];
+                    console.log(combinedImages)
+                    setSelectedImages(combinedImages);
+                } catch (error) {
+                    console.error(error);
+                    // Handle error
+                }
+            }
+        } catch (error) {
+            console.error('Error fetching images:', error);
+        }
+    };
+
+    const getImageDimensions = async (blob) => {
+        return new Promise((resolve, reject) => {
+            const img = new Image();
+            img.onload = () => {
+                resolve({ width: img.width, height: img.height });
+            };
+            img.onerror = reject;
+            img.src = URL.createObjectURL(blob);
+        });
+    };
+
+
+
+    useEffect(() => {
+        // fetchImages();
+    }, []);
+
+    useEffect(() => {
+        console.log(selectedImages);
+    }, [selectedImages]);
+
+    useEffect(() => {
+        fetchImages();
+    }, [selectedProject]);
+
+    useEffect(() => {
+        if (swiper != null && activeIndex != swiper.activeIndex) {
+            swiper.slideTo(activeIndex)
+        }
+    }, [activeIndex]);
+
+    const dispatch = useDispatch();
 
     return (
         <div className="h-screen w-screen max-w-7xl m-center ">
             <React.Fragment>
+
                 <Dialog
+                    disableEscapeKeyDown
                     fullScreen
                     open={open}
                     onClose={handleClose}
@@ -219,44 +319,55 @@ export default () => {
                     <DialogContent className='mr-3'>
                         <Card className='drop-shadow-2xl'>
                             <CardContent className='lg:drop-shadow-2xl flex flex-col lg:flex-row lg:gap-5'>
-                                <Swiper
-                                    pagination={{
-                                        dynamicBullets: true,
-                                    }}
-                                    centeredSlides={true}
-                                    modules={[Navigation, Pagination]}
-                                    navigation
-                                    className="mySwiper  w-full self-center lg:w-3/5"
-                                >
-                                    {selectedProject && (
-                                        (selectedProject.images_num_web && selectedProject.images_num_web.length > 0) ||
-                                        (selectedProject.images_num_mobile && selectedProject.images_num_mobile.length > 0)
-                                    ) ? (
-                                        <>
-                                            {/* Render web images */}
-                                            {selectedProject.images_num_web && selectedProject.images_num_web.length > 0 && selectedProject.images_num_web.map((image, index) => (
-                                                <SwiperSlide key={`web${index}`}>
-                                                    <img className='img_slide_web lg:pb-8' src={`${selectedProject.images_path}/web/${index}.png`} alt='app' />
-                                                </SwiperSlide>
-                                            ))}
+                           
+                                {selectedImages && selectedImages.length > 0 && (
+                                    <SimpleGallery
+                                        galleryID="my-test-gallery"
+                                        images={selectedImages.map((item, index) => ({
+                                            largeURL: URL.createObjectURL(item.src),
+                                            width: item.width,
+                                            height: item.height,
+                                        }))}
+                                    />
+                                )}
 
-                                            {/* Render mobile images */}
-                                            {selectedProject.images_num_mobile && selectedProject.images_num_mobile.length > 0 && selectedProject.images_num_mobile.map((image, index) => (
-                                                <SwiperSlide key={`mobile${index}`}>
-                                                    <img className='img_slide_mobile lg:pb-8' src={`${selectedProject.images_path}/mobile/${index}.png`} alt='app' />
-                                                </SwiperSlide>
-                                            ))}
-                                        </>
-                                    ) : (
-                                        <SwiperSlide>
-                                            <div className="flex flex-col items-center text-center ">
-                                                <img className='imgSlide2 lg:pb-8' src='/portfolio/images/system.png' alt='app' />
-                                            </div>
-                                        </SwiperSlide>
-                                    )}
+                                    <Swiper
+                                        onSwiper={setSwiper}
+                                        pagination={{
+                                            dynamicBullets: true,
+                                        }}
+                                        centeredSlides={true}
+                                        modules={[Navigation, Pagination]}
+                                        navigation
+                                        className="mySwiper  w-full self-center lg:w-3/5"
+                                        onSlideChange={(data) => dispatch(setActiveIndex(data.activeIndex))}
+                                        onClick={(data) => {
+                                            dispatch(setActiveIndex(data.activeIndex))
+                                            dispatch(setIsFullScreen(true))
+                                        }}
+                                    >
+                                        {selectedProject && (
+                                            (selectedProject.images_num_web && selectedProject.images_num_web.length > 0) ||
+                                            (selectedProject.images_num_mobile && selectedProject.images_num_mobile.length > 0)
+                                        ) ? (
+                                            <>
+                                                {selectedImages.length > 0 && selectedImages.map((item, index) => (
+                                                    <SwiperSlide key={`${index}`}>
+                                                        <img className={`lg:pb-8 ${item.platform}`} src={URL.createObjectURL(item.src)} alt='app' />
+                                                    </SwiperSlide>
+                                                ))}
+                                            </>
+                                        ) : (
+                                            <SwiperSlide>
+                                                <div className="flex flex-col items-center text-center ">
+                                                    <img className='imgSlide2 lg:pb-8' src='/portfolio/images/system.png' alt='app' />
+                                                </div>
+                                            </SwiperSlide>
+                                        )}
+                                    </Swiper>
+                                
+                           
 
-
-                                </Swiper>
                                 <div className='h-auto flex flex-col  lg:w-2/5 project_description'>
                                     <p className='text-center p-3 lg:mb-8 lg:border border-black border-opacity-50 rounded-lg'>
                                         {selectedProject.name}
