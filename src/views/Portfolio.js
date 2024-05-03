@@ -298,6 +298,19 @@ export default () => {
     }, [activeIndex]);
 
     const dispatch = useDispatch();
+    const [isLg, setIsLg] = useState(window.innerWidth >= 1024);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsLg(window.innerWidth >= 1024);
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []); // Empty dependency array to run this effect only once
 
     return (
         <div className="h-screen w-screen max-w-7xl m-center ">
@@ -331,10 +344,17 @@ export default () => {
                                     />
                                 )}
 
+                                {!isLg && (
+                                    <p className='text-center mb-2 border border-black border-opacity-50 rounded-lg'>
+                                        {selectedProject.name}
+                                    </p>
+                                )}
+
                                 <Swiper
                                     onSwiper={setSwiper}
                                     pagination={{
                                         dynamicBullets: true,
+                                        clickable: true
                                     }}
                                     keyboard={{
                                         enabled: true,
@@ -356,14 +376,14 @@ export default () => {
                                         <>
                                             {selectedImages.length > 0 && selectedImages.map((item, index) => (
                                                 <SwiperSlide key={`${index}`}>
-                                                    <img className={`lg:pb-8 ${item.platform}`} src={URL.createObjectURL(item.src)} alt='app' />
+                                                    <img className={`pb-9 ${item.platform}`} src={URL.createObjectURL(item.src)} alt='app' />
                                                 </SwiperSlide>
                                             ))}
                                         </>
                                     ) : (
                                         <SwiperSlide>
                                             <div className="flex flex-col items-center text-center ">
-                                                <img className='imgSlide2 lg:pb-8' src='/portfolio/images/system.png' alt='app' />
+                                                <img className='imgSlide2 pb-9' src='/portfolio/images/system.png' alt='app' />
                                             </div>
                                         </SwiperSlide>
                                     )}
@@ -372,9 +392,17 @@ export default () => {
 
 
                                 <div className='h-auto flex flex-col  lg:w-2/5 project_description'>
-                                    <p className='text-center p-3 lg:mb-8 lg:border border-black border-opacity-50 rounded-lg'>
-                                        {selectedProject.name}
-                                    </p>
+                                    {!isLg && selectedImages.length > 0 && (
+                                        <p className='text-sm text-center pb-3'>
+                                            (Click Image To Fullscreen)
+                                        </p>
+                                    )}
+
+                                    {isLg && (
+                                        <p className='text-center p-3 lg:mb-8 lg:border border-black border-opacity-50 rounded-lg'>
+                                            {selectedProject.name}
+                                        </p>
+                                    )}
 
                                     <div className='h-full flex flex-col items-start gap-4 '>
                                         <div className='flex flex-row flex-wrap gap-1 ' >
@@ -450,12 +478,21 @@ export default () => {
                 <p >Portfolio</p>
             </div>
             <Swiper
+                style={{
+                    "--swiper-pagination-bullet-inactive-color": "#999999",
+                    "--swiper-pagination-bullet-inactive-opacity": "1",
+                    "--swiper-pagination-bullet-size": "10px",
+                    // "--swiper-pagination-bullet-horizontal-gap": "6px"
+                }}
                 slidesPerView={3}
                 spaceBetween={30}
                 centeredSlides={true}
                 modules={[Keyboard, Navigation, Pagination]}
                 navigation
-                pagination={{ clickable: true }}
+                pagination={{
+                    dynamicBullets: true,
+                    clickable: true
+                }}
                 breakpoints={{
                     200: {
                         slidesPerView: 1,

@@ -9,9 +9,26 @@ body {
   font-family: "Lexend Deca";
 }
 
-.img_slide_web{
+.img_slide_web {
   margin: auto;
   width: 90%;
+}
+
+// .swiper-pagination-bullet {
+//   width: 50%;
+// }
+.swiper-pagination-bullet-active {
+  // padding-left: 0.6rem;
+  // padding-right: 0.6rem;
+  background-color: rgba(255, 255, 255, 0.9) !important;
+}
+
+
+.swiper-pagination {
+  padding: 0.3rem;
+  border-radius: 12px;
+  background-color: rgba(128, 128, 128, 0.3) !important;
+  /* Adjust the alpha value (0 to 1) to change opacity */
 }
 
 /* mobile */
@@ -22,10 +39,12 @@ body {
     margin: auto;
     object-fit: cover;
   }
+
   .imgSlide2 {
     width: 40%;
   }
 }
+
 @media (min-width: 376px) and (max-width: 1023px) {
   .img_slide_mobile {
     height: 26rem;
@@ -33,6 +52,7 @@ body {
     margin: auto;
     object-fit: cover;
   }
+
   .imgSlide2 {
     width: 40%;
   }
@@ -46,7 +66,7 @@ body {
     margin: auto;
     object-fit: cover;
   }
-  
+
 }
 
 
