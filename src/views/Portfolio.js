@@ -25,6 +25,7 @@ import { useState, useEffect } from 'react';
 import AppBar from '@mui/material/AppBar';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import CodeIcon from '@mui/icons-material/Code';
 import DeveloperModeIcon from '@mui/icons-material/DeveloperMode';
 import Card from '@mui/material/Card';
@@ -76,7 +77,7 @@ export default () => {
         images_num_web: [],
     },
     {
-        name: "Cloud Based Disaster and Risked Geosptial Management System",
+        name: "Cloud Based Disaster and Risked Geospatial Management System",
         project_link: "",
         project_logo: "images/system.png",
         description: "Laravel + Vue3 + Vuetify",
@@ -197,10 +198,13 @@ export default () => {
     const modules = [Pagination];
     const [open, setOpen] = React.useState(false);
     const [selectedProject, setSelectedProject] = React.useState('');
+    const [selectedProjectIndex, setSelectedProjectIndex] = React.useState(null);
     const [swiper, setSwiper] = useState(null);
+    const [selectedImages, setSelectedImages] = useState([]);
 
 
-    const handleClickOpen = (project) => {
+    const handleClickOpen = (project, index) => {
+        setSelectedProjectIndex(index)
         setSelectedProject(project)
         setOpen(true);
     };
@@ -210,7 +214,6 @@ export default () => {
         setSelectedImages([])
         dispatch(setIsFullScreen(false))
     };
-    const [selectedImages, setSelectedImages] = useState([]);
 
     const fetchImages = async () => {
         try {
@@ -334,9 +337,34 @@ export default () => {
                                 )}
 
                                 {!isLg && (
-                                    <p className='text-center mb-2 border border-black border-opacity-50 rounded-lg'>
-                                        {selectedProject.name}
-                                    </p>
+                                    <div className='w-full flex flex-row items-center mb-2'>
+                                        <Button startIcon={<ArrowBackIosNewIcon />} onClick={() => {
+                                            const prevIndex = selectedProjectIndex - 1;
+                                            if (slidesData[prevIndex]) {
+                                                setSelectedImages([])
+                                                setSelectedProjectIndex(prevIndex);
+                                                setSelectedProject(slidesData[prevIndex]);
+                                            }
+                                        }}
+                                            style={{ color: slidesData[selectedProjectIndex - 1] ? 'black' : 'gray' }} >
+                                        </Button>
+
+                                        <p className='grow text-center p-3 border border-black border-opacity-50 rounded-lg'>
+                                            {selectedProject.name}
+                                        </p>
+
+                                        <Button startIcon={<ArrowForwardIosIcon />}
+                                            onClick={() => {
+                                                const nextIndex = selectedProjectIndex + 1;
+                                                if (slidesData[nextIndex]) {
+                                                    setSelectedImages([])
+                                                    setSelectedProjectIndex(nextIndex);
+                                                    setSelectedProject(slidesData[nextIndex]);
+                                                }
+                                            }}
+                                            style={{ color: slidesData[selectedProjectIndex + 1] ? 'black' : 'gray' }}>
+                                        </Button>
+                                    </div>
                                 )}
 
                                 <Swiper
@@ -393,9 +421,34 @@ export default () => {
                                     )}
 
                                     {isLg && (
-                                        <p className='text-center p-3 lg:mb-8 lg:border border-black border-opacity-50 rounded-lg'>
-                                            {selectedProject.name}
-                                        </p>
+                                        <div className='w-full flex flex-row items-center lg:mb-8'>
+                                            <Button startIcon={<ArrowBackIosNewIcon />} onClick={() => {
+                                                const prevIndex = selectedProjectIndex - 1;
+                                                if (slidesData[prevIndex]) {
+                                                    setSelectedImages([])
+                                                    setSelectedProjectIndex(prevIndex);
+                                                    setSelectedProject(slidesData[prevIndex]);
+                                                }
+                                            }}
+                                                style={{ color: slidesData[selectedProjectIndex - 1] ? 'black' : 'gray' }} >
+                                            </Button>
+
+                                            <p className='grow text-center p-3 border border-black border-opacity-50 rounded-lg'>
+                                                {selectedProject.name}
+                                            </p>
+
+                                            <Button startIcon={<ArrowForwardIosIcon />}
+                                                onClick={() => {
+                                                    const nextIndex = selectedProjectIndex + 1;
+                                                    if (slidesData[nextIndex]) {
+                                                        setSelectedImages([])
+                                                        setSelectedProjectIndex(nextIndex);
+                                                        setSelectedProject(slidesData[nextIndex]);
+                                                    }
+                                                }}
+                                                style={{ color: slidesData[selectedProjectIndex + 1] ? 'black' : 'gray' }}>
+                                            </Button>
+                                        </div>
                                     )}
 
                                     <div className='h-full flex flex-col items-start gap-4 '>
@@ -519,7 +572,7 @@ export default () => {
                                                 <FontAwesomeIcon icon={faGithub} size="2xl" />
                                             </a>
                                         )}
-                                        <FontAwesomeIcon onClick={() => handleClickOpen(project)} className='enlarge pl-2 pr-2' style={{ color: '#000000', border: '1px solid #000000', borderRadius: '12%' }} icon={faEllipsis} size="2xl" />
+                                        <FontAwesomeIcon onClick={() => handleClickOpen(project, index)} className='enlarge pl-2 pr-2' style={{ color: '#000000', border: '1px solid #000000', borderRadius: '12%' }} icon={faEllipsis} size="2xl" />
                                         {project.project_link && (
                                             <a href={project.project_link} target="_blank" className="btn grow enlarge">
                                                 <FontAwesomeIcon icon={faLink} size="2xl" />
