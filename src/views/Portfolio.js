@@ -53,8 +53,8 @@ export default () => {
         type: 'Academic Thesis',
         source_code: [],
         images_path: '/portfolio/images/e-palengke',
-        images_num_web: [0, 1, 2, 3, 4],
-        images_num_mobile: [0, 1, 2, 3, 4, 5],
+        images_num_web: 5,
+        images_num_mobile: 6,
         demo_accounts: [
             { role: 'Admin', username: 'admin', password: 'admin' },
             { role: 'Customer', username: 'patrick', password: '123' },
@@ -74,7 +74,7 @@ export default () => {
         type: 'Freelance',
         source_code: [],
         images_path: '/portfolio/images/rms',
-        images_num_web: [],
+        images_num_web: 0,
     },
     {
         name: "Cloud Based Disaster and Risked Geospatial Management System",
@@ -87,7 +87,7 @@ export default () => {
         type: 'Freelance',
         source_code: [],
         images_path: '/portfolio/images/cbdrgms',
-        images_num_web: [],
+        images_num_web: 0,
     },
     {
         name: "Ticketing System",
@@ -100,7 +100,7 @@ export default () => {
         type: 'Internship',
         source_code: [],
         images_path: '/portfolio/images/ts',
-        images_num_web: [],
+        images_num_web: 0,
     },
     {
         name: "Portfolio",
@@ -113,7 +113,7 @@ export default () => {
         type: 'Personal',
         source_code: 'https://github.com/DanerisMendoza/portfolio',
         images_path: '/portfolio/images/portfolio',
-        images_num_web: [],
+        images_num_web: 0,
     },
     {
         name: "E-library system",
@@ -126,7 +126,7 @@ export default () => {
         type: 'Practicum 2',
         source_code: [],
         images_path: '/portfolio/images/ts',
-        images_num_web: [],
+        images_num_web: 0,
     },
     {
         name: "Blockchain Student Council Voting System ",
@@ -139,7 +139,7 @@ export default () => {
         type: 'Academic 4th Year Case Study',
         source_code: 'https://github.com/DanerisMendoza/voting-blockchain',
         images_path: '/portfolio/images/bscvs',
-        images_num_web: [],
+        images_num_web: 0,
     },
     {
         name: "Ordering Management System",
@@ -152,7 +152,8 @@ export default () => {
         type: 'Academic 3rd Year Case Study',
         source_code: 'https://github.com/DanerisMendoza/Web-based-ordering-management-system',
         images_path: '/portfolio/images/weboms',
-        images_num_web: [],
+        images_num_web: 24,
+        images_num_mobile: 0,
     },
     {
         name: "Smart Trash Can",
@@ -165,7 +166,7 @@ export default () => {
         type: 'Academic 3rd Year Case Study',
         source_code: 'https://github.com/DanerisMendoza/smart-trashCan',
         images_path: '/portfolio/images/cmt',
-        images_num_web: [],
+        images_num_web: 0,
     },
     {
         name: "Cash Management Tracker",
@@ -178,7 +179,7 @@ export default () => {
         type: 'Academic 2nd Year Case Study',
         source_code: 'https://github.com/DanerisMendoza/cashManagementTracker',
         images_path: '/portfolio/images/cmt',
-        images_num_web: [],
+        images_num_web: 0,
     },
     {
         name: "Vaccination System",
@@ -191,7 +192,7 @@ export default () => {
         type: 'Academic 2nd Year Case Study',
         source_code: 'https://github.com/DanerisMendoza/Vaccination-Consensus-System',
         images_path: '/portfolio/images/vc',
-        images_num_web: [],
+        images_num_web: 0,
     },
     ];
 
@@ -217,29 +218,40 @@ export default () => {
 
     const fetchImages = async () => {
         try {
-            if (selectedProject !== '' && selectedProject.images_num_web && selectedProject.images_num_mobile) {
+            if (selectedProject !== '' ) {
                 const imagesPathWeb = `${selectedProject.images_path}/web`;
                 const imagesPathMobile = `${selectedProject.images_path}/mobile`;
 
-                const imagePromisesWeb = selectedProject.images_num_web.map(async num => {
-                    const response = await fetch(`${imagesPathWeb}/${num}.png`);
-                    if (!response.ok) {
-                        throw new Error(`Failed to fetch web image ${num}`);
+                const imagePromisesWeb = [];
+                for (let index = 0; index < selectedProject.images_num_web; index++) {
+                    try {
+                        const response = await fetch(`${imagesPathWeb}/${index + 1}.png`);
+                        if (!response.ok) {
+                            throw new Error(`Failed to fetch web image ${index + 1}`);
+                        }
+                        const blob = await response.blob();
+                        const dimensions = await getImageDimensions(blob);
+                        imagePromisesWeb.push({ blob, dimensions });
+                    } catch (error) {
+                        // Handle errors here if needed
+                        console.error(error);
                     }
-                    const blob = await response.blob();
-                    const dimensions = await getImageDimensions(blob);
-                    return { blob, dimensions };
-                });
-
-                const imagePromisesMobile = selectedProject.images_num_mobile.map(async num => {
-                    const response = await fetch(`${imagesPathMobile}/${num}.png`);
-                    if (!response.ok) {
-                        throw new Error(`Failed to fetch mobile image ${num}`);
+                }
+                const imagePromisesMobile = [];
+                for (let index = 0; index < selectedProject.images_num_mobile; index++) {
+                    try {
+                        const response = await fetch(`${imagesPathMobile}/${index + 1}.png`);
+                        if (!response.ok) {
+                            throw new Error(`Failed to fetch web image ${index + 1}`);
+                        }
+                        const blob = await response.blob();
+                        const dimensions = await getImageDimensions(blob);
+                        imagePromisesWeb.push({ blob, dimensions });
+                    } catch (error) {
+                        // Handle errors here if needed
+                        console.error(error);
                     }
-                    const blob = await response.blob();
-                    const dimensions = await getImageDimensions(blob);
-                    return { blob, dimensions };
-                });
+                }
 
                 try {
                     const imagesWebWithDimensions = await Promise.all(imagePromisesWeb);
@@ -387,8 +399,8 @@ export default () => {
                                     }}
                                 >
                                     {selectedProject && (
-                                        (selectedProject.images_num_web && selectedProject.images_num_web.length > 0) ||
-                                        (selectedProject.images_num_mobile && selectedProject.images_num_mobile.length > 0)
+                                        (selectedProject.images_num_web && selectedProject.images_num_web > 0) ||
+                                        (selectedProject.images_num_mobile && selectedProject.images_num_mobile > 0)
                                     ) ? (
                                         <>
                                             {selectedImages.length > 0 && selectedImages.map((item, index) => (
