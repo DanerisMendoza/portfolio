@@ -254,7 +254,6 @@ export default () => {
                         height: dimensions.height
                     }));
                     const combinedImages = [...imagesWebObjects, ...imagesMobileObjects];
-                    console.log(combinedImages)
                     setSelectedImages(combinedImages);
                 } catch (error) {
                     console.error(error);
@@ -276,16 +275,6 @@ export default () => {
             img.src = URL.createObjectURL(blob);
         });
     };
-
-
-
-    useEffect(() => {
-        // fetchImages();
-    }, []);
-
-    useEffect(() => {
-        console.log(selectedImages);
-    }, [selectedImages]);
 
     useEffect(() => {
         fetchImages();
@@ -362,7 +351,7 @@ export default () => {
                                     centeredSlides={true}
                                     modules={[Keyboard, Navigation, Pagination]}
                                     navigation
-                                    className="mySwiper  w-full self-center lg:w-3/5"
+                                    className="swiper2 w-full self-center lg:w-3/5"
                                     onSlideChange={(data) => dispatch(setActiveIndex(data.activeIndex))}
                                     onClick={(data) => {
                                         dispatch(setActiveIndex(data.activeIndex))
@@ -386,6 +375,11 @@ export default () => {
                                                 <img className='imgSlide2 pb-9' src='/portfolio/images/system.png' alt='app' />
                                             </div>
                                         </SwiperSlide>
+                                    )}
+                                    {isLg && selectedImages.length > 0 && (
+                                        <p className='text-sm text-center pb-11'>
+                                            (Click Image To Fullscreen)
+                                        </p>
                                     )}
                                 </Swiper>
 
@@ -478,15 +472,16 @@ export default () => {
                 <p >Portfolio</p>
             </div>
             <Swiper
+                className='swiper1'
                 style={{
                     "--swiper-pagination-bullet-inactive-color": "#999999",
                     "--swiper-pagination-bullet-inactive-opacity": "1",
                     "--swiper-pagination-bullet-size": "10px",
-                    // "--swiper-pagination-bullet-horizontal-gap": "6px"
                 }}
                 slidesPerView={3}
                 spaceBetween={30}
                 centeredSlides={true}
+                centeredSlidesBounds={true}
                 modules={[Keyboard, Navigation, Pagination]}
                 navigation
                 pagination={{
