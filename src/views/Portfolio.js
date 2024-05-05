@@ -36,6 +36,8 @@ import { TreeItem } from '@mui/x-tree-view/TreeItem';
 import SimpleGallery from './SimpleGallery';
 import { useDispatch, useSelector } from 'react-redux';
 import { setActiveIndex, setIsFullScreen } from '../store/portfolio/fullscreen';
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
 
 export default () => {
     const fullscreenReducer = useSelector((state) => state.fullscreenReducer);
@@ -394,7 +396,7 @@ export default () => {
                                                     const combinedImagesCount = (images_num_web || 0) + (images_num_mobile || 0);
                                                     const combinedIndexes = Array.from({ length: combinedImagesCount }, (_, index) => index);
                                                     setLoadingIndexes(combinedIndexes);
-                                                    
+
                                                     setSelectedImages([])
                                                     setSelectedProjectIndex(nextIndex);
                                                     setSelectedProject(slidesData[nextIndex]);
@@ -424,7 +426,13 @@ export default () => {
                                         dispatch(setIsFullScreen(true))
                                     }}
                                 >
-                                    {loadingIndexes.length > 0 && (<div className='text-center'>Loading Images...</div>)}
+                                    {loadingIndexes.length > 0 && (
+                                        <>
+                                            <div className='flex flex-col items-center'>
+                                                <CircularProgress />
+                                            </div>
+                                        </>
+                                    )}
 
                                     {selectedProject && (
                                         (selectedProject.images_num_web && selectedProject.images_num_web > 0) ||
