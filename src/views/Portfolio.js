@@ -97,7 +97,7 @@ export default () => {
         project_logo: "images/system.png",
         description: "Laravel + VueJS + Vuetify",
         long_description: "Maintained and implemented updates in the existing ticketing system, including multiple label filtering for tickets, geolocation filtering for nearby branches, a feature to suggest tickets to agents with a low-ticket assignment count, and bug fixes. Additionally developed a web-based application for end users to integrate with an in-house ticketing system, utilizing Laravel scheduler for synchronizing cloud and local databases.",
-        technology: ['Laravel', 'Laravel Schuduler', 'VueJS', 'Vuetify', 'Vuex', 'Axios', 'Websocket', 'Leaflet'],
+        technology: ['Laravel', 'Laravel Scheduler', 'VueJS', 'Vuetify', 'Vuex', 'Axios', 'Websocket', 'Leaflet'],
         platform: ['Web'],
         type: 'Internship',
         source_code: [],
@@ -158,7 +158,7 @@ export default () => {
         images_num_mobile: 0,
     },
     {
-        name: "Smart Trash Can",
+        name: "IOT Smart Trash Can",
         project_link: "",
         project_logo: "images/system.png",
         description: "Java Native Mobile, Internet of Things",
@@ -352,8 +352,8 @@ export default () => {
                         </Toolbar>
                     </AppBar>
                     <DialogContent className='mr-3'>
-                        <Card className='drop-shadow-2xl'>
-                            <CardContent className='lg:drop-shadow-2xl flex flex-col lg:flex-row lg:gap-5'>
+                        <Card className='lg:h-full drop-shadow-2xl'>
+                            <CardContent className='lg:h-full lg:drop-shadow-2xl flex flex-col lg:flex-row lg:gap-5'>
 
                                 {selectedImages && selectedImages.length > 0 && (
                                     <SimpleGallery
