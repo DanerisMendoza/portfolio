@@ -51,7 +51,7 @@ export default () => {
         description: "Laravel + VueJS + Vuetify + Ionic",
         long_description: "Nearby e-commerce geolocation and radius based. User can have multiple user role through applying to gain more access, it consist of 4 user role Admin, Seller, Customer and Delivery. End-user can buy, sell and deliver within their registered radius vicinity.",
         technology: ['Laravel', 'Websocket', 'Typescript', 'PusherJs', 'VueJs', 'Vuetify', 'Vuex', 'Axios', 'Ionic/Vue', 'Capacitor', 'Leaflet', 'Firebase(Push Notification)', 'Swal2'],
-        platform: 'Web & Mobile',
+        platform: ['Web', 'Mobile'],
         type: 'Academic Thesis',
         source_code: [],
         images_path: '/portfolio/images/e-palengke',
@@ -66,26 +66,26 @@ export default () => {
         functionality: ['Dynamic End-User Application based on administrator preference', 'Dynamic User Access Database Structure', 'Realtime Functionality using PusherJS/Websockets', 'Product type Filtering', 'Store type Filtering', 'Passport Authentication']
     },
     {
-        name: "Research Repository Management System",
+        name: "Research Repository",
         project_link: "",
         project_logo: "images/system.png",
         description: "Laravel + VueJS + Vuetify",
-        long_description: "Research Management hierarchy based can dynamically create college and department. Multiple user role Admin, Dean, Chairperson and Professor, Dynamic Analytics by Colleges and Department Year and Month, Research upload through pdf.",
+        long_description: "Research Management System hierarchy based can dynamically create college and department. Multiple user role Admin, Dean, Chairperson and Professor, Dynamic Analytics by Colleges and Department Year and Month, Research upload through pdf.",
         technology: ['Laravel', 'VueJs', 'Vuetify', 'Vuex', 'Axios'],
-        platform: 'Web',
+        platform: ['Web'],
         type: 'Freelance',
         source_code: [],
         images_path: '/portfolio/images/rms',
         images_num_web: 0,
     },
     {
-        name: "Cloud Based Disaster and Risked Geospatial Management System",
+        name: "Disaster & Risk Management",
         project_link: "",
         project_logo: "images/system.png",
         description: "Laravel + Vue3 + Vuetify",
-        long_description: "Realtime Geospatial Managment System user send a report after admin approval it will realtime reflect in map. Primary feature is Polygon and Radius Computation that will reflect in map.",
+        long_description: "Realtime Cloud Based Disaster and Risked Geospatial Management System. user can send a report after admin approval it will realtime reflect in map. Primary feature is Polygon and Radius Computation that will reflect in map.",
         technology: ['Laravel', 'Vue3', 'Vuetify', 'Vuex', 'Axios', 'PusherJs', 'Leaflet'],
-        platform: 'Web',
+        platform: ['Web'],
         type: 'Freelance',
         source_code: [],
         images_path: '/portfolio/images/cbdrgms',
@@ -98,7 +98,7 @@ export default () => {
         description: "Laravel + VueJS + Vuetify",
         long_description: "Maintained and implemented updates in the existing ticketing system, including multiple label filtering for tickets, geolocation filtering for nearby branches, a feature to suggest tickets to agents with a low-ticket assignment count, and bug fixes. Additionally developed a web-based application for end users to integrate with an in-house ticketing system, utilizing Laravel scheduler for synchronizing cloud and local databases.",
         technology: ['Laravel', 'Laravel Schuduler', 'VueJS', 'Vuetify', 'Vuex', 'Axios', 'Websocket', 'Leaflet'],
-        platform: 'Web',
+        platform: ['Web'],
         type: 'Internship',
         source_code: [],
         images_path: '/portfolio/images/ts',
@@ -111,46 +111,46 @@ export default () => {
         description: "ReactJS + Tailwind + MUI",
         long_description: "Compilation of my highlight projects.",
         technology: ['ReactJS', 'Tailwind', 'MUI'],
-        platform: 'Web',
+        platform: ['Web'],
         type: 'Personal',
         source_code: 'https://github.com/DanerisMendoza/portfolio',
         images_path: '/portfolio/images/portfolio',
         images_num_web: 0,
     },
     {
-        name: "E-library system",
+        name: "E-Library system",
         project_link: "",
         project_logo: "images/system.png",
         description: "jQuery + Bootstrap + PHP + MySQL",
         long_description: "I collaborated on coding with students from other computer studies courses. Our team consisted of four developers and four QA testers.",
         technology: ['jQuery', 'Bootstrap', 'PHP', 'MySQL', 'PHP Mailer', 'Cron Jobs'],
-        platform: 'Web',
+        platform: ['Web'],
         type: 'Practicum 2',
         source_code: [],
         images_path: '/portfolio/images/ts',
         images_num_web: 0,
     },
     {
-        name: "Blockchain Student Council Voting System ",
+        name: "Blockchain Voting System ",
         project_link: "",
         project_logo: "images/system.png",
         description: "Vue + Vuetify + Laravel + Solidity + PWA",
         long_description: "Implementation of Blockchain Technology in Student Council Voting System",
         technology: ['Vue', 'Vuetify', 'Laravel', 'Solidity', 'Ganache', 'Blockchain Technology'],
-        platform: 'Web & Mobile',
+        platform: ['Web', 'Mobile'],
         type: 'Academic 4th Year Case Study',
         source_code: 'https://github.com/DanerisMendoza/voting-blockchain',
         images_path: '/portfolio/images/bscvs',
         images_num_web: 0,
     },
     {
-        name: "Ordering Management System",
+        name: "WEBOMS",
         project_link: "",
         project_logo: "images/system.png",
         description: "jQuery + Bootstrap + PHP + MySQL + Java Native Mobile",
         long_description: "Ordering System for a restaurant with rfid and fpdf for reciept.",
         technology: ['PHP', 'MySQL', 'jQuery', 'Bootstrap', 'Java Native Mobile', 'Volley'],
-        platform: 'Web & Mobile',
+        platform: ['Web', 'Mobile'],
         type: 'Academic 3rd Year Case Study',
         source_code: 'https://github.com/DanerisMendoza/Web-based-ordering-management-system',
         images_path: '/portfolio/images/weboms',
@@ -164,33 +164,33 @@ export default () => {
         description: "Java Native Mobile, Internet of Things",
         long_description: "Realtime Notification for Monitoring, Open and Close Cover of Smart Trashcan Using Mobile.",
         technology: ['Java Native Mobile', 'MySQL', 'Volley'],
-        platform: 'Mobile',
+        platform: ['Mobile'],
         type: 'Academic 3rd Year Case Study',
         source_code: 'https://github.com/DanerisMendoza/smart-trashCan',
         images_path: '/portfolio/images/cmt',
         images_num_web: 0,
     },
     {
-        name: "Cash Management Tracker",
+        name: "Expenses Tracker",
         project_link: "",
         project_logo: "images/system.png",
         description: "Java Native Mobile + SQLITE",
         long_description: "Expenses tracker with Dynamic Analytics of expenses by date and category.",
         technology: ['Java Native Mobile', 'SQLITE'],
-        platform: 'Mobile',
+        platform: ['Mobile'],
         type: 'Academic 2nd Year Case Study',
         source_code: 'https://github.com/DanerisMendoza/cashManagementTracker',
         images_path: '/portfolio/images/cmt',
         images_num_web: 0,
     },
     {
-        name: "Vaccination System",
+        name: "Vaccination",
         project_link: "",
         project_logo: "images/system.png",
         description: "C# + MySQL",
         long_description: "Vaccination Simulation System with Dynamic Graph Analytics of Vaccinated and Unvaccinated User per barangay, generate and read QR code functionality.",
         technology: ['C#', 'MySQL'],
-        platform: 'Window',
+        platform: ['Window'],
         type: 'Academic 2nd Year Case Study',
         source_code: 'https://github.com/DanerisMendoza/Vaccination-Consensus-System',
         images_path: '/portfolio/images/vc',
@@ -441,12 +441,22 @@ export default () => {
                                         <>
                                             {selectedImages.length > 0 && selectedImages.map((item, index) => (
                                                 <SwiperSlide key={`web${index}`}>
-                                                    <img
-                                                        className='img_slide_web lg:pb-8'
-                                                        src={`${selectedProject.images_path}/${item.folder}/${item.index}.png`}
-                                                        alt='app'
-                                                        onLoad={() => handleImageLoad(index)} // Call handleImageLoad when the image is loaded
-                                                    />
+                                                    {selectedImages.platform === 'img_slide_web' ? (
+                                                        <img
+                                                            className='img_slide_web'
+                                                            src={`${selectedProject.images_path}/${item.folder}/${item.index}.png`}
+                                                            alt='app'
+                                                            onLoad={() => handleImageLoad(index)}
+                                                        />
+                                                    ) : (
+                                                        <img
+                                                            className='img_slide_mobile'
+                                                            src={`${selectedProject.images_path}/${item.folder}/${item.index}.png`}
+                                                            alt='app'
+                                                            onLoad={() => handleImageLoad(index)}
+                                                        />
+                                                    )}
+
                                                 </SwiperSlide>
                                             ))}
                                         </>
@@ -531,7 +541,9 @@ export default () => {
 
                                         <div className='flex flex-row gap-2 items-center'>
                                             <div>Platform:&nbsp;</div>
-                                            <Chip label={selectedProject.platform}></Chip>
+                                            {selectedProject && selectedProject.platform && selectedProject.platform.map((item, index) => (
+                                                <Chip key={index} label={item} />
+                                            ))}
                                         </div>
 
                                         <div className='flex flex-col'>

@@ -33,31 +33,36 @@ body {
 
 /* mobile */
 @media (max-width: 1023px) {
-  .img_slide_mobile,.img_slide_web{
+  .img_slide_mobile, .img_slide_web{
     height: 10rem;
     width: auto;
     margin: auto;
     object-fit: cover;
   }
   .imgSlide2 {
-    width: 40%;
+    height: 10rem;
+    width: auto;
+    margin: auto;
+    object-fit: cover;
   }
 }
 
 /* higer width than mobile */
 @media (min-width: 1024px) {
-  .img_slide_mobile{
+  .img_slide_mobile, .img_slide_web{
     height: 37rem;
     width: auto;
     margin: auto;
     object-fit: cover;
   }
-  .img_slide_web{
-    height: 37rem; 
+
+  .imgSlide2 {
+    height: 37rem;
     width: auto;
     margin: auto;
     object-fit: cover;
   }
+ 
 
 }
 
