@@ -218,7 +218,7 @@ export default () => {
 
     const fetchImages = async () => {
         try {
-            if (selectedProject !== '' ) {
+            if (selectedProject !== '') {
                 const imagesPathWeb = `${selectedProject.images_path}/web`;
                 const imagesPathMobile = `${selectedProject.images_path}/mobile`;
 
@@ -246,7 +246,7 @@ export default () => {
                         }
                         const blob = await response.blob();
                         const dimensions = await getImageDimensions(blob);
-                        imagePromisesWeb.push({ blob, dimensions });
+                        imagePromisesMobile.push({ blob, dimensions });
                     } catch (error) {
                         // Handle errors here if needed
                         console.error(error);
@@ -256,18 +256,24 @@ export default () => {
                 try {
                     const imagesWebWithDimensions = await Promise.all(imagePromisesWeb);
                     const imagesMobileWithDimensions = await Promise.all(imagePromisesMobile);
-                    const imagesWebObjects = imagesWebWithDimensions.map(({ blob, dimensions }) => ({
+                    const imagesWebObjects = imagesWebWithDimensions.map(({ blob, dimensions }, index) => ({
                         src: blob,
                         platform: 'img_slide_web',
+                        folder: 'web',
                         width: dimensions.width,
-                        height: dimensions.height
+                        height: dimensions.height,
+                        index: index + 1
                     }));
-                    const imagesMobileObjects = imagesMobileWithDimensions.map(({ blob, dimensions }) => ({
+
+                    const imagesMobileObjects = imagesMobileWithDimensions.map(({ blob, dimensions }, index) => ({
                         src: blob,
                         platform: 'img_slide_mobile',
+                        folder: 'mobile',
                         width: dimensions.width,
-                        height: dimensions.height
+                        height: dimensions.height,
+                        index: index + 1
                     }));
+
                     const combinedImages = [...imagesWebObjects, ...imagesMobileObjects];
                     setSelectedImages(combinedImages);
                 } catch (error) {
@@ -403,9 +409,10 @@ export default () => {
                                         (selectedProject.images_num_mobile && selectedProject.images_num_mobile > 0)
                                     ) ? (
                                         <>
+                                            {console.log(selectedImages)}
                                             {selectedImages.length > 0 && selectedImages.map((item, index) => (
-                                                <SwiperSlide key={`${index}`}>
-                                                    <img className={`pb-9 ${item.platform}`} src={URL.createObjectURL(item.src)} alt='app' />
+                                                <SwiperSlide key={`web${index}`}>
+                                                    <img className='img_slide_web lg:pb-8' src={`${selectedProject.images_path}/${item.folder}/${item.index}.png`} alt='app' />
                                                 </SwiperSlide>
                                             ))}
                                         </>
