@@ -202,9 +202,19 @@ export default () => {
     const [selectedProjectIndex, setSelectedProjectIndex] = React.useState(null);
     const [swiper, setSwiper] = useState(null);
     const [selectedImages, setSelectedImages] = useState([]);
+    const [loadingIndexes, setLoadingIndexes] = useState([]); // State to keep track of loading images
+
+    const handleImageLoad = (index) => {
+        setLoadingIndexes(prevIndexes => prevIndexes.filter(i => i !== index));
+    };
 
 
     const handleClickOpen = (project, index) => {
+        const { images_num_web, images_num_mobile } = project;
+        const combinedImagesCount = (images_num_web || 0) + (images_num_mobile || 0);
+        const combinedIndexes = Array.from({ length: combinedImagesCount }, (_, index) => index);
+        setLoadingIndexes(combinedIndexes);
+
         setSelectedProjectIndex(index)
         setSelectedProject(project)
         setOpen(true);
@@ -359,6 +369,11 @@ export default () => {
                                         <Button startIcon={<ArrowBackIosNewIcon />} onClick={() => {
                                             const prevIndex = selectedProjectIndex - 1;
                                             if (slidesData[prevIndex]) {
+                                                const { images_num_web, images_num_mobile } = slidesData[prevIndex];
+                                                const combinedImagesCount = (images_num_web || 0) + (images_num_mobile || 0);
+                                                const combinedIndexes = Array.from({ length: combinedImagesCount }, (_, index) => index);
+                                                setLoadingIndexes(combinedIndexes);
+
                                                 setSelectedImages([])
                                                 setSelectedProjectIndex(prevIndex);
                                                 setSelectedProject(slidesData[prevIndex]);
@@ -375,6 +390,11 @@ export default () => {
                                             onClick={() => {
                                                 const nextIndex = selectedProjectIndex + 1;
                                                 if (slidesData[nextIndex]) {
+                                                    const { images_num_web, images_num_mobile } = slidesData[nextIndex];
+                                                    const combinedImagesCount = (images_num_web || 0) + (images_num_mobile || 0);
+                                                    const combinedIndexes = Array.from({ length: combinedImagesCount }, (_, index) => index);
+                                                    setLoadingIndexes(combinedIndexes);
+                                                    
                                                     setSelectedImages([])
                                                     setSelectedProjectIndex(nextIndex);
                                                     setSelectedProject(slidesData[nextIndex]);
@@ -404,15 +424,21 @@ export default () => {
                                         dispatch(setIsFullScreen(true))
                                     }}
                                 >
+                                    {loadingIndexes.length > 0 && (<div className='text-center'>Loading Images...</div>)}
+
                                     {selectedProject && (
                                         (selectedProject.images_num_web && selectedProject.images_num_web > 0) ||
                                         (selectedProject.images_num_mobile && selectedProject.images_num_mobile > 0)
                                     ) ? (
                                         <>
-                                            {console.log(selectedImages)}
                                             {selectedImages.length > 0 && selectedImages.map((item, index) => (
                                                 <SwiperSlide key={`web${index}`}>
-                                                    <img className='img_slide_web lg:pb-8' src={`${selectedProject.images_path}/${item.folder}/${item.index}.png`} alt='app' />
+                                                    <img
+                                                        className='img_slide_web lg:pb-8'
+                                                        src={`${selectedProject.images_path}/${item.folder}/${item.index}.png`}
+                                                        alt='app'
+                                                        onLoad={() => handleImageLoad(index)} // Call handleImageLoad when the image is loaded
+                                                    />
                                                 </SwiperSlide>
                                             ))}
                                         </>
@@ -424,9 +450,11 @@ export default () => {
                                         </SwiperSlide>
                                     )}
                                     {isLg && selectedImages.length > 0 && (
-                                        <p className='text-sm text-center pb-11'>
-                                            (Click Image To Fullscreen)
-                                        </p>
+                                        <>
+                                            <p className='text-sm text-center pb-11'>
+                                                (Click Image To Fullscreen)
+                                            </p>
+                                        </>
                                     )}
                                 </Swiper>
 
@@ -447,6 +475,11 @@ export default () => {
                                                     setSelectedImages([])
                                                     setSelectedProjectIndex(prevIndex);
                                                     setSelectedProject(slidesData[prevIndex]);
+
+                                                    const { images_num_web, images_num_mobile } = slidesData[prevIndex];
+                                                    const combinedImagesCount = (images_num_web || 0) + (images_num_mobile || 0);
+                                                    const combinedIndexes = Array.from({ length: combinedImagesCount }, (_, index) => index);
+                                                    setLoadingIndexes(combinedIndexes);
                                                 }
                                             }}
                                                 style={{ color: slidesData[selectedProjectIndex - 1] ? 'black' : 'gray' }} >
@@ -460,6 +493,11 @@ export default () => {
                                                 onClick={() => {
                                                     const nextIndex = selectedProjectIndex + 1;
                                                     if (slidesData[nextIndex]) {
+                                                        const { images_num_web, images_num_mobile } = slidesData[nextIndex];
+                                                        const combinedImagesCount = (images_num_web || 0) + (images_num_mobile || 0);
+                                                        const combinedIndexes = Array.from({ length: combinedImagesCount }, (_, index) => index);
+                                                        setLoadingIndexes(combinedIndexes);
+
                                                         setSelectedImages([])
                                                         setSelectedProjectIndex(nextIndex);
                                                         setSelectedProject(slidesData[nextIndex]);
