@@ -385,7 +385,7 @@ export default () => {
                                             style={{ color: slidesData[selectedProjectIndex - 1] ? 'black' : 'gray' }} >
                                         </Button>
 
-                                        <p className='grow text-center p-3 border border-black border-opacity-50 rounded-lg'>
+                                        <p className='grow text-center p-1 border border-black border-opacity-50 rounded-lg'>
                                             {selectedProject.name}
                                         </p>
 
@@ -584,17 +584,24 @@ export default () => {
                                     </div>
 
                                     <div className='grow'></div>
-                                    <div className='self-end flex flex-row gap-2'>
-                                        {!Array.isArray(selectedProject.source_code) && selectedProject.source_code && (
-                                            <a href={selectedProject.source_code} target="_blank" className="btn grow enlarge ">
-                                                <FontAwesomeIcon icon={faGithub} size="2xl" />
-                                            </a>
-                                        )}
-                                        {selectedProject && selectedProject.project_link && (
-                                            <a href={selectedProject.project_link} target="_blank" className="btn grow enlarge ">
-                                                <FontAwesomeIcon icon={faLink} size="2xl" />
-                                            </a>
-                                        )}
+                                    <div className='flex flex-row mt-6 lg:mt-0'>
+                                        <p className='ml-2'>{(1+selectedProjectIndex)}/{slidesData.length}</p>
+                                        <div className='grow'></div>
+                                        <div className='flex flex-row gap-2'>
+                                            {/*empty icon just to maintain card height even without icon */}
+                                            <FontAwesomeIcon icon={faLink} size="2xl" style={{opacity:'0%'}}/>
+
+                                            {!Array.isArray(selectedProject.source_code) && selectedProject.source_code && (
+                                                <a href={selectedProject.source_code} target="_blank" className="btn grow enlarge ">
+                                                    <FontAwesomeIcon icon={faGithub} size="2xl" />
+                                                </a>
+                                            )}
+                                            {selectedProject && selectedProject.project_link && (
+                                                <a href={selectedProject.project_link} target="_blank" className="btn grow enlarge ">
+                                                    <FontAwesomeIcon icon={faLink} size="2xl" />
+                                                </a>
+                                            )}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
