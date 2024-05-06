@@ -53,7 +53,7 @@ export default () => {
         long_description: "Nearby e-commerce geolocation and radius based. User can have multiple user role through applying to gain more access, it consist of 4 user role Admin, Seller, Customer and Delivery. End-user can buy, sell and deliver within their registered radius vicinity.",
         technology: ['Laravel.10', 'Websocket', 'Typescript', 'PusherJs', 'VueJS.2', 'Vuetify', 'Vuex', 'Axios', 'Ionic/VueJS.3', 'Capacitor', 'Leaflet', 'Firebase(Push Notification)', 'Swal2'],
         platform: ['Web', 'Mobile'],
-        type: 'Academic Thesis',
+        type: 'Acad Thesis',
         source_code: [],
         images_path: '/portfolio/images/e-palengke',
         images_num_web: 18,
@@ -139,7 +139,7 @@ export default () => {
         long_description: "Implementation of Blockchain Technology in Student Council Voting System",
         technology: ['Vue', 'Vuetify', 'Laravel', 'Solidity', 'Ganache', 'Blockchain Technology'],
         platform: ['Web', 'Mobile'],
-        type: 'Academic 4th Year Case Study',
+        type: 'Acad 4th Year Case Study',
         source_code: 'https://github.com/DanerisMendoza/voting-blockchain',
         images_path: '/portfolio/images/bscvs',
         images_num_web: 0,
@@ -152,7 +152,7 @@ export default () => {
         long_description: "Ordering System for a restaurant with rfid and fpdf for reciept.",
         technology: ['PHP', 'MySQL', 'jQuery', 'Bootstrap', 'Java Native Mobile', 'Volley'],
         platform: ['Web', 'Mobile'],
-        type: 'Academic 3rd Year Case Study',
+        type: 'Acad 3rd Year Case Study',
         source_code: 'https://github.com/DanerisMendoza/Web-based-ordering-management-system',
         images_path: '/portfolio/images/weboms',
         images_num_web: 24,
@@ -166,7 +166,7 @@ export default () => {
         long_description: "Realtime Notification for Monitoring, Open and Close Cover of Smart Trashcan Using Mobile.",
         technology: ['Java Native Mobile', 'MySQL', 'Volley'],
         platform: ['Mobile'],
-        type: 'Academic 3rd Year Case Study',
+        type: 'Acad 3rd Year Case Study',
         source_code: 'https://github.com/DanerisMendoza/smart-trashCan',
         images_path: '/portfolio/images/cmt',
         images_num_web: 0,
@@ -179,7 +179,7 @@ export default () => {
         long_description: "Expenses tracker with Dynamic Analytics of expenses by date and category.",
         technology: ['Java Native Mobile', 'SQLITE'],
         platform: ['Mobile'],
-        type: 'Academic 2nd Year Case Study',
+        type: 'Acad 2nd Year Case Study',
         source_code: 'https://github.com/DanerisMendoza/cashManagementTracker',
         images_path: '/portfolio/images/cmt',
         images_num_web: 0,
@@ -192,7 +192,7 @@ export default () => {
         long_description: "Vaccination Simulation System with Dynamic Graph Analytics of Vaccinated and Unvaccinated User per barangay, generate and read QR code functionality.",
         technology: ['C#', 'MySQL'],
         platform: ['Window'],
-        type: 'Academic 2nd Year Case Study',
+        type: 'Acad 2nd Year Case Study',
         source_code: 'https://github.com/DanerisMendoza/Vaccination-Consensus-System',
         images_path: '/portfolio/images/vc',
         images_num_web: 0,
@@ -354,7 +354,7 @@ export default () => {
                     </AppBar>
                     <DialogContent className='mr-3'>
                         <Card className=' drop-shadow-2xl'>
-                            <CardContent className=' lg:drop-shadow-2xl flex flex-col lg:flex-row lg:gap-5'>
+                            <div className=' lg:drop-shadow-2xl flex flex-col lg:flex-row lg:gap-5 p-3 lg:p-0 '>
 
                                 {selectedImages && selectedImages.length > 0 && (
                                     <SimpleGallery
@@ -368,7 +368,7 @@ export default () => {
                                 )}
 
                                 {!isLg && (
-                                    <div className='w-full flex flex-row items-center mb-2'>
+                                    <div className='w-full flex flex-row items-center mb-2 ml-2'>
                                         <Button startIcon={<ArrowBackIosNewIcon />} onClick={() => {
                                             const prevIndex = selectedProjectIndex - 1;
                                             if (slidesData[prevIndex]) {
@@ -420,7 +420,7 @@ export default () => {
                                     centeredSlides={true}
                                     modules={[Keyboard, Navigation, Pagination]}
                                     navigation
-                                    className="swiper2 w-full self-center lg:w-3/5"
+                                    className="swiper2 w-full self-center lg:w-3/5 ml-2 lg:ml-0"
                                     onSlideChange={(data) => dispatch(setActiveIndex(data.activeIndex))}
                                     onClick={(data) => {
                                         dispatch(setActiveIndex(data.activeIndex))
@@ -479,7 +479,7 @@ export default () => {
 
 
 
-                                <div className='h-full w-full  flex flex-col  lg:w-2/5 project_description lg:bg-white lg:p-2 lg:rounded-lg' >
+                                <div className='h-full w-full  flex flex-col  lg:w-2/5 project_description lg:bg-white lg:p-2 rounded-lg ml-2 lg:ml-0' >
                                     {!isLg && selectedImages.length > 0 && (
                                         <p className='text-sm text-center pb-3'>
                                             (Click Image To Fullscreen)
@@ -595,7 +595,7 @@ export default () => {
                                         </div>
                                     </div>
                                 </div>
-                            </CardContent>
+                            </div>
                         </Card>
                     </DialogContent>
                 </Dialog>
