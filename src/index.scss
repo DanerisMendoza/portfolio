@@ -50,19 +50,23 @@ body {
 /* higer width than mobile */
 @media (min-width: 1024px) {
   .img_slide_mobile, .img_slide_web{
-    height: 37rem;
+    height: 35rem;
     width: auto;
     margin: auto;
     object-fit: cover;
   }
 
   .imgSlide2 {
-    height: 37rem;
+    height: 35rem;
     width: auto;
     margin: auto;
     object-fit: cover;
   }
  
+  .dynamic_description{
+    height: 45rem;
+    overflow: auto;
+  }
 
 }
 

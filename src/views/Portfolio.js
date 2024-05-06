@@ -38,6 +38,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setActiveIndex, setIsFullScreen } from '../store/portfolio/fullscreen';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
+import { height } from '@mui/system';
 
 export default () => {
     const fullscreenReducer = useSelector((state) => state.fullscreenReducer);
@@ -352,8 +353,8 @@ export default () => {
                         </Toolbar>
                     </AppBar>
                     <DialogContent className='mr-3'>
-                        <Card className='lg:h-full drop-shadow-2xl'>
-                            <CardContent className='lg:h-full lg:drop-shadow-2xl flex flex-col lg:flex-row lg:gap-5'>
+                        <Card className=' drop-shadow-2xl'>
+                            <CardContent className=' lg:drop-shadow-2xl flex flex-col lg:flex-row lg:gap-5'>
 
                                 {selectedImages && selectedImages.length > 0 && (
                                     <SimpleGallery
@@ -478,7 +479,7 @@ export default () => {
 
 
 
-                                <div className='h-auto flex flex-col  lg:w-2/5 project_description'>
+                                <div className='h-full w-full  flex flex-col  lg:w-2/5 project_description lg:bg-white lg:p-2 lg:rounded-lg' >
                                     {!isLg && selectedImages.length > 0 && (
                                         <p className='text-sm text-center pb-3'>
                                             (Click Image To Fullscreen)
@@ -526,7 +527,9 @@ export default () => {
                                         </div>
                                     )}
 
-                                    <div className='h-full flex flex-col items-start gap-4 '>
+     
+
+                                    <div className='h-full flex flex-col items-start gap-3 lg:ml-2 dynamic_description'  >
                                         <div className='flex flex-row flex-wrap gap-1 ' >
                                             <div>Technology Used:&nbsp;</div>
                                             {selectedProject && selectedProject.technology && selectedProject.technology.map((item, index) => (
