@@ -410,6 +410,7 @@ export default () => {
 
                                 <Swiper
                                     onSwiper={setSwiper}
+                                    className="swiper2 w-full self-center  ml-2 lg:ml-0"
                                     pagination={{
                                         dynamicBullets: true,
                                         clickable: true
@@ -420,7 +421,6 @@ export default () => {
                                     centeredSlides={true}
                                     modules={[Keyboard, Navigation, Pagination]}
                                     navigation
-                                    className="swiper2 w-full self-center lg:w-3/5 ml-2 lg:ml-0"
                                     onSlideChange={(data) => dispatch(setActiveIndex(data.activeIndex))}
                                     onClick={(data) => {
                                         dispatch(setActiveIndex(data.activeIndex))
@@ -479,7 +479,7 @@ export default () => {
 
 
 
-                                <div className='h-full w-full  flex flex-col  lg:w-2/5 project_description lg:bg-white lg:p-2 rounded-lg ml-2 lg:ml-0' >
+                                <div className='h-full w-full  flex flex-col   project_description lg:bg-white lg:p-2 rounded-lg ml-2 lg:ml-0' >
                                     {!isLg && selectedImages.length > 0 && (
                                         <p className='text-sm text-center pb-3'>
                                             (Click Image To Fullscreen)
