@@ -352,7 +352,7 @@ export default () => {
                             </Button>
                         </Toolbar>
                     </AppBar>
-                    <DialogContent className='mr-3'>
+                    <DialogContent >
                         <Card className=' drop-shadow-2xl'>
                             <div className=' lg:drop-shadow-2xl flex flex-col lg:flex-row lg:gap-5 p-3 lg:p-0 '>
 
@@ -585,7 +585,7 @@ export default () => {
 
                                     <div className='grow'></div>
                                     <div className='flex flex-row mt-6 lg:mt-0'>
-                                        <p className='ml-2'>{(1+selectedProjectIndex)}/{slidesData.length}</p>
+                                        <p className='lg:ml-2'>{(1+selectedProjectIndex)}/{slidesData.length}</p>
                                         <div className='grow'></div>
                                         <div className='flex flex-row gap-2'>
                                             {/*empty icon just to maintain card height even without icon */}
