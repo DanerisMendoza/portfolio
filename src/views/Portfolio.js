@@ -183,6 +183,7 @@ export default () => {
         source_code: 'https://github.com/DanerisMendoza/cashManagementTracker',
         images_path: '/portfolio/images/cmt',
         images_num_web: 0,
+        images_num_mobile: 7,
     },
     {
         name: "Vaccination",
@@ -194,8 +195,8 @@ export default () => {
         platform: ['Window'],
         type: 'Acad 2nd Year Case Study',
         source_code: 'https://github.com/DanerisMendoza/Vaccination-Consensus-System',
-        images_path: '/portfolio/images/vc',
-        images_num_web: 0,
+        images_path: '/portfolio/images/vaccination',
+        images_num_web: 7,
     },
     ];
 
