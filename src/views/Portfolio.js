@@ -527,7 +527,7 @@ export default () => {
                                         </div>
                                     )}
 
-     
+
 
                                     <div className='h-full flex flex-col items-start gap-3 lg:ml-2 dynamic_description'  >
                                         <div className='flex flex-row flex-wrap gap-1 ' >
@@ -580,19 +580,21 @@ export default () => {
                                                 </div>
                                             </>
                                         )}
-                                        <div className='grow'></div>
-                                        <div className='self-end flex flex-row gap-2'>
-                                            {!Array.isArray(selectedProject.source_code) && selectedProject.source_code && (
-                                                <a href={selectedProject.source_code} target="_blank" className="btn grow enlarge ">
-                                                    <FontAwesomeIcon icon={faGithub} size="2xl" />
-                                                </a>
-                                            )}
-                                            {selectedProject && selectedProject.project_link && (
-                                                <a href={selectedProject.project_link} target="_blank" className="btn grow enlarge ">
-                                                    <FontAwesomeIcon icon={faLink} size="2xl" />
-                                                </a>
-                                            )}
-                                        </div>
+
+                                    </div>
+
+                                    <div className='grow'></div>
+                                    <div className='self-end flex flex-row gap-2'>
+                                        {!Array.isArray(selectedProject.source_code) && selectedProject.source_code && (
+                                            <a href={selectedProject.source_code} target="_blank" className="btn grow enlarge ">
+                                                <FontAwesomeIcon icon={faGithub} size="2xl" />
+                                            </a>
+                                        )}
+                                        {selectedProject && selectedProject.project_link && (
+                                            <a href={selectedProject.project_link} target="_blank" className="btn grow enlarge ">
+                                                <FontAwesomeIcon icon={faLink} size="2xl" />
+                                            </a>
+                                        )}
                                     </div>
                                 </div>
                             </div>
