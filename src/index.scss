@@ -170,3 +170,11 @@ body {
     transform: scale(1.3);
   }
 }
+.enlarge_litle {
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}

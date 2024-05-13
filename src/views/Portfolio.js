@@ -9,27 +9,16 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { faLink, faEllipsis } from '@fortawesome/free-solid-svg-icons'
 import Chip from '@mui/material/Chip';
 import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
 import Button from '@mui/material/Button';
 import Toolbar from '@mui/material/Toolbar';
-import ListItemText from '@mui/material/ListItemText';
-import ListItemButton from '@mui/material/ListItemButton';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import Divider from '@mui/material/Divider';
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import AppBar from '@mui/material/AppBar';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import CodeIcon from '@mui/icons-material/Code';
 import DeveloperModeIcon from '@mui/icons-material/DeveloperMode';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import { SimpleTreeView } from '@mui/x-tree-view/SimpleTreeView';
 import { TreeItem } from '@mui/x-tree-view/TreeItem';
@@ -37,13 +26,10 @@ import SimpleGallery from './SimpleGallery';
 import { useDispatch, useSelector } from 'react-redux';
 import { setActiveIndex, setIsFullScreen } from '../store/portfolio/fullscreen';
 import CircularProgress from '@mui/material/CircularProgress';
-import Box from '@mui/material/Box';
-import { height } from '@mui/system';
+import CloseIcon from '@mui/icons-material/Close';
+import IconButton from '@mui/material/IconButton';
 
 export default () => {
-    const fullscreenReducer = useSelector((state) => state.fullscreenReducer);
-    const activeIndex = fullscreenReducer.activeIndex;
-    const isFullScreen = fullscreenReducer.isFullScreen;
 
     const slidesData = [{
         name: "E-Palengke",
@@ -53,7 +39,7 @@ export default () => {
         long_description: "Nearby e-commerce geolocation and radius based. User can have multiple user role through applying to gain more access, it consist of 4 user role Admin, Seller, Customer and Delivery. End-user can buy, sell and deliver within their registered radius vicinity.",
         technology: ['Laravel.10', 'Websocket', 'Typescript', 'PusherJs', 'VueJS.2', 'Vuetify', 'Vuex', 'Axios', 'Ionic/VueJS.3', 'Capacitor', 'Leaflet', 'Firebase(Push Notification)', 'Swal2'],
         platform: ['Web', 'Mobile'],
-        status: ['Completed', 'Currently under review in app contest','source code unavailable in public'],
+        status: ['Completed', 'Currently under review in app contest', 'Source code unavailable in public'],
         type: 'Acad Thesis',
         source_code: [],
         images_path: '/portfolio/images/e-palengke',
@@ -115,11 +101,11 @@ export default () => {
         project_logo: "images/system.png",
         description: "MERN Stack",
         long_description: "Anki and Quizlet Project Inspired, Using MERN Stack to build Memory Flash Card Repository",
-        technology: ['ReactJS', 'Tailwind CSS', 'MUI','Redux Toolkit', 'Node JS', 'Express JS', 'JWT', 'Multer', 'Mongoose', 'MongoDB'],
+        technology: ['ReactJS', 'Tailwind CSS', 'MUI', 'Redux Toolkit', 'Node JS', 'Express JS', 'JWT', 'Multer', 'Mongoose', 'MongoDB'],
         platform: ['Web'],
-        status: ['ongoing'],
+        status: ['Ongoing'],
         type: 'Personal',
-        source_code: '',
+        source_code: [{ Frontend: 'https://github.com/DanerisMendoza/memo-flash-front' }, { Backend: 'https://github.com/DanerisMendoza/memo-flash-back' }],
         images_path: '/portfolio/images/CBFC',
         images_num_web: 0,
     },
@@ -129,7 +115,7 @@ export default () => {
         project_logo: "images/system.png",
         description: "ReactJS + Tailwind CSS + MUI",
         long_description: "Compilation of my highligth projects.",
-        technology: ['ReactJS', 'Tailwind CSS', 'MUI','Redux Toolkit'],
+        technology: ['ReactJS', 'Tailwind CSS', 'MUI', 'Redux Toolkit'],
         platform: ['Web'],
         status: ['Completed'],
         type: 'Personal',
@@ -225,8 +211,10 @@ export default () => {
     },
     ];
 
-    const modules = [Pagination];
+    const fullscreenReducer = useSelector((state) => state.fullscreenReducer);
+    const activeIndex = fullscreenReducer.activeIndex;
     const [open, setOpen] = React.useState(false);
+    const [multipleLinks, setMultipleLinks] = React.useState([]);
     const [selectedProject, setSelectedProject] = React.useState('');
     const [selectedProjectIndex, setSelectedProjectIndex] = React.useState(null);
     const [swiper, setSwiper] = useState(null);
@@ -623,11 +611,14 @@ export default () => {
                                         <div className='flex flex-row gap-2'>
                                             {/*empty icon just to maintain card height even without icon */}
                                             <FontAwesomeIcon icon={faLink} size="2xl" style={{ opacity: '0%' }} />
-
-                                            {!Array.isArray(selectedProject.source_code) && selectedProject.source_code && (
-                                                <a href={selectedProject.source_code} target="_blank" className="btn grow enlarge ">
+                                            {!Array.isArray(selectedProject.source_code) && selectedProject.source_code ? (
+                                                <a href={selectedProject.source_code} target="_blank" className="btn grow enlarge">
                                                     <FontAwesomeIcon icon={faGithub} size="2xl" />
                                                 </a>
+                                            ) : selectedProject.source_code && selectedProject.source_code.length > 0 && (
+                                                <>
+                                                    <FontAwesomeIcon icon={faGithub} size="2xl" onClick={() => setMultipleLinks(selectedProject.source_code)} />
+                                                </>
                                             )}
                                             {selectedProject && selectedProject.project_link && (
                                                 <a href={selectedProject.project_link} target="_blank" className="btn grow enlarge ">
@@ -640,6 +631,37 @@ export default () => {
                             </div>
                         </Card>
                     </DialogContent>
+                </Dialog>
+                <Dialog
+                    open={multipleLinks.length > 0}
+                    sx={{
+                        "& .MuiDialog-container": {
+                            "& .MuiPaper-root": {
+                                width: "100%",
+                                maxWidth: "500px",  // Set your width here
+                            },
+                        },
+                    }}
+                >
+                    <DialogContent className='flex flex-col gap-2 w-58' >
+                        <IconButton className='self-end' aria-label="delete" onClick={() => setMultipleLinks([])}>
+                            <CloseIcon />
+                        </IconButton>
+                        {multipleLinks.map((link, index) => (
+                            <div key={index}>
+                                {Object.entries(link).map(([key, value]) => (
+                                    <div key={key} className='flex flex-col lg:flex-row gap-1 justify-center items-center p-2'>
+                                        <a href={value} target="_blank" className="btn enlarge_litle text-center text-wrap ">
+                                            <FontAwesomeIcon icon={faGithub} size="2xl" />
+                                            <p>{key} </p>
+                                            <p className='text-xs text-blue-500'>{value}</p>
+                                        </a>
+                                    </div>
+                                ))}
+                            </div>
+                        ))}
+                    </DialogContent>
+
                 </Dialog>
             </React.Fragment>
             <div className='flex flex-row items-center justify-center text-5xl' >
@@ -689,10 +711,14 @@ export default () => {
                                         <p className=' text-xl text-gray-400'>{project.description}</p>
                                     </div>
                                     <div className="self-center flex flex-row gap-3 items-center">
-                                        {!Array.isArray(project.source_code) && project.source_code && (
+                                        {!Array.isArray(project.source_code) && project.source_code ? (
                                             <a href={project.source_code} target="_blank" className="btn grow enlarge">
                                                 <FontAwesomeIcon icon={faGithub} size="2xl" />
                                             </a>
+                                        ) : project.source_code.length > 0 && (
+                                            <>
+                                                <FontAwesomeIcon icon={faGithub} size="2xl" onClick={() => setMultipleLinks(project.source_code)} />
+                                            </>
                                         )}
                                         <FontAwesomeIcon onClick={() => handleClickOpen(project, index)} className='enlarge pl-2 pr-2' style={{ color: '#000000', border: '1px solid #000000', borderRadius: '12%' }} icon={faEllipsis} size="2xl" />
                                         {project.project_link && (
