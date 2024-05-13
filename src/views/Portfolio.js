@@ -53,6 +53,7 @@ export default () => {
         long_description: "Nearby e-commerce geolocation and radius based. User can have multiple user role through applying to gain more access, it consist of 4 user role Admin, Seller, Customer and Delivery. End-user can buy, sell and deliver within their registered radius vicinity.",
         technology: ['Laravel.10', 'Websocket', 'Typescript', 'PusherJs', 'VueJS.2', 'Vuetify', 'Vuex', 'Axios', 'Ionic/VueJS.3', 'Capacitor', 'Leaflet', 'Firebase(Push Notification)', 'Swal2'],
         platform: ['Web', 'Mobile'],
+        status: ['Completed', 'Currently under review in app contest','source code unavailable in public'],
         type: 'Acad Thesis',
         source_code: [],
         images_path: '/portfolio/images/e-palengke',
@@ -74,6 +75,7 @@ export default () => {
         long_description: "Research Management System hierarchy based can dynamically create college and department. Multiple user role Admin, Dean, Chairperson and Professor, Dynamic Analytics by Colleges and Department Year and Month, Research upload through pdf.",
         technology: ['Laravel.10', 'VueJS.2', 'Vuetify', 'Vuex', 'Axios'],
         platform: ['Web'],
+        status: ['Ongoing'],
         type: 'Freelance',
         source_code: [],
         images_path: '/portfolio/images/rms',
@@ -87,6 +89,7 @@ export default () => {
         long_description: "Realtime Cloud Based Disaster and Risked Geospatial Management System. user can send a report after admin approval it will realtime reflect in map. Primary feature is Polygon and Radius Computation that will reflect in map.",
         technology: ['Laravel.10', 'VueJS.3', 'Vuetify', 'Vuex', 'Axios', 'PusherJs', 'Leaflet'],
         platform: ['Web'],
+        status: ['Completed'],
         type: 'Freelance',
         source_code: [],
         images_path: '/portfolio/images/cbdrgms',
@@ -101,18 +104,34 @@ export default () => {
         technology: ['Laravel.9', 'Laravel Scheduler', 'VueJS.2', 'Vuetify', 'Vuex', 'Axios', 'Websocket', 'Leaflet'],
         platform: ['Web'],
         type: 'Internship',
+        status: ['Project Handover'],
         source_code: [],
         images_path: '/portfolio/images/ts',
+        images_num_web: 0,
+    },
+    {
+        name: "Memory Flash Card",
+        project_link: "",
+        project_logo: "images/system.png",
+        description: "MERN Stack",
+        long_description: "Anki and Quizlet Project Inspired, Using MERN Stack to build Memory Flash Card Repository",
+        technology: ['ReactJS', 'Tailwind CSS', 'MUI','Redux Toolkit', 'Node JS', 'Express JS', 'JWT', 'Multer', 'Mongoose', 'MongoDB'],
+        platform: ['Web'],
+        status: ['ongoing'],
+        type: 'Personal',
+        source_code: '',
+        images_path: '/portfolio/images/CBFC',
         images_num_web: 0,
     },
     {
         name: "Portfolio",
         project_link: "https://danerismendoza.github.io/portfolio/",
         project_logo: "images/system.png",
-        description: "ReactJS + Tailwind + MUI",
-        long_description: "Compilation of my highlight projects.",
-        technology: ['ReactJS', 'Tailwind', 'MUI'],
+        description: "ReactJS + Tailwind CSS + MUI",
+        long_description: "Compilation of my highligth projects.",
+        technology: ['ReactJS', 'Tailwind CSS', 'MUI','Redux Toolkit'],
         platform: ['Web'],
+        status: ['Completed'],
         type: 'Personal',
         source_code: 'https://github.com/DanerisMendoza/portfolio',
         images_path: '/portfolio/images/portfolio',
@@ -122,10 +141,11 @@ export default () => {
         name: "E-Library system",
         project_link: "",
         project_logo: "images/system.png",
-        description: "jQuery + Bootstrap + PHP + MySQL",
+        description: "jQuery + Bootstrap + PHP",
         long_description: "I collaborated on coding with students from other computer studies courses. Our team consisted of four developers and four QA testers.",
         technology: ['jQuery', 'Bootstrap', 'PHP', 'MySQL', 'PHP Mailer', 'Cron Jobs'],
         platform: ['Web'],
+        status: ['Project Handover'],
         type: 'Practicum 2',
         source_code: [],
         images_path: '/portfolio/images/ts',
@@ -135,10 +155,11 @@ export default () => {
         name: "Blockchain Voting",
         project_link: "",
         project_logo: "images/system.png",
-        description: "Vue + Vuetify + Laravel + Solidity + PWA",
+        description: "Laravel + Vue + Vuetify + Solidity + PWA",
         long_description: "Implementation of Blockchain Technology in Student Council Voting System",
         technology: ['Vue', 'Vuetify', 'Laravel', 'Solidity', 'Ganache', 'Blockchain Technology'],
         platform: ['Web', 'Mobile'],
+        status: ['Completed'],
         type: 'Acad 4th Year Case Study',
         source_code: 'https://github.com/DanerisMendoza/voting-blockchain',
         images_path: '/portfolio/images/bscvs',
@@ -148,10 +169,11 @@ export default () => {
         name: "WEBOMS",
         project_link: "",
         project_logo: "images/system.png",
-        description: "jQuery + Bootstrap + PHP + MySQL + Java Native Mobile",
+        description: "jQuery + Bootstrap + PHP + Java Native Mobile",
         long_description: "Ordering System for a restaurant with rfid and fpdf for reciept.",
         technology: ['PHP', 'MySQL', 'jQuery', 'Bootstrap', 'Java Native Mobile', 'Volley'],
         platform: ['Web', 'Mobile'],
+        status: ['Completed'],
         type: 'Acad 3rd Year Case Study',
         source_code: 'https://github.com/DanerisMendoza/Web-based-ordering-management-system',
         images_path: '/portfolio/images/weboms',
@@ -159,13 +181,14 @@ export default () => {
         images_num_mobile: 0,
     },
     {
-        name: "IOT Smart Trash Can",
+        name: "Smart Trash Can",
         project_link: "",
         project_logo: "images/system.png",
-        description: "Java Native Mobile, Internet of Things",
+        description: "Java Native Mobile + Internet of Things",
         long_description: "Realtime Notification for Monitoring, Open and Close Cover of Smart Trashcan Using Mobile.",
         technology: ['Java Native Mobile', 'MySQL', 'Volley'],
         platform: ['Mobile'],
+        status: ['Completed'],
         type: 'Acad 3rd Year Case Study',
         source_code: 'https://github.com/DanerisMendoza/smart-trashCan',
         images_path: '/portfolio/images/cmt',
@@ -179,6 +202,7 @@ export default () => {
         long_description: "Expenses tracker with Dynamic Analytics of expenses by date and category.",
         technology: ['Java Native Mobile', 'SQLITE'],
         platform: ['Mobile'],
+        status: ['Completed'],
         type: 'Acad 2nd Year Case Study',
         source_code: 'https://github.com/DanerisMendoza/cashManagementTracker',
         images_path: '/portfolio/images/cmt',
@@ -193,6 +217,7 @@ export default () => {
         long_description: "Vaccination Simulation System with Dynamic Graph Analytics of Vaccinated and Unvaccinated User per barangay, generate and read QR code functionality.",
         technology: ['C#', 'MySQL'],
         platform: ['Window'],
+        status: ['Completed'],
         type: 'Acad 2nd Year Case Study',
         source_code: 'https://github.com/DanerisMendoza/Vaccination-Consensus-System',
         images_path: '/portfolio/images/vaccination',
@@ -550,6 +575,13 @@ export default () => {
                                             ))}
                                         </div>
 
+                                        <div className='flex flex-row flex-wrap gap-1 ' >
+                                            <div>Status:&nbsp;</div>
+                                            {selectedProject && selectedProject.status && selectedProject.status.map((item, index) => (
+                                                <Chip key={index} label={item} />
+                                            ))}
+                                        </div>
+
                                         <div className='flex flex-col'>
                                             <p>Description: </p>
                                             <div className='pr-6'>{selectedProject.long_description}</div>
@@ -586,11 +618,11 @@ export default () => {
 
                                     <div className='grow'></div>
                                     <div className='flex flex-row mt-6 lg:mt-0'>
-                                        <p className='lg:ml-2'>{(1+selectedProjectIndex)}/{slidesData.length}</p>
+                                        <p className='lg:ml-2'>{(1 + selectedProjectIndex)}/{slidesData.length}</p>
                                         <div className='grow'></div>
                                         <div className='flex flex-row gap-2'>
                                             {/*empty icon just to maintain card height even without icon */}
-                                            <FontAwesomeIcon icon={faLink} size="2xl" style={{opacity:'0%'}}/>
+                                            <FontAwesomeIcon icon={faLink} size="2xl" style={{ opacity: '0%' }} />
 
                                             {!Array.isArray(selectedProject.source_code) && selectedProject.source_code && (
                                                 <a href={selectedProject.source_code} target="_blank" className="btn grow enlarge ">
