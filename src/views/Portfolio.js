@@ -169,7 +169,7 @@ export default () => {
         platform: ['Web', 'Mobile'],
         status: ['Completed'],
         type: 'Acad 3rd Year Case Study',
-        source_code: 'https://github.com/DanerisMendoza/Web-based-ordering-management-system',
+        source_code: [{ Web: 'https://github.com/DanerisMendoza/Web-based-ordering-management-system' }, { Mobile: 'https://github.com/DanerisMendoza/webomsMobile' }],
         images_path: '/portfolio/images/weboms',
         images_num_web: 24,
         images_num_mobile: 0,
