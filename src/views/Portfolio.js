@@ -39,7 +39,7 @@ export default () => {
             project_logo: "images/system.png",
             description: "Laravel + VueJS + Vuetify + Ionic",
             long_description: "Nearby e-commerce geolocation and radius based. It consist of 4 user role Admin, Seller, Customer and Delivery. Aims to provide a convenient online shopping experience for homebound individuals, It also provides employment to local residents as foot-based delivery personnel, fostering income generation without any initial investment.",
-            technology: ['Laravel.10', 'MySQL', 'Websocket', 'Typescript', 'PusherJs', 'VueJS.2', 'Vuetify', 'Vuex', 'Axios', 'Ionic/VueJS.3', 'Capacitor', 'Leaflet', 'Firebase(Push Notification)', 'Swal2'],
+            technology: ['Laravel.10', 'MySQL', 'Websocket', 'Typescript', 'Javascript', 'PusherJs', 'VueJS.2', 'Vuetify', 'Vuex', 'Axios', 'Ionic/VueJS.3', 'Capacitor', 'Leaflet', 'Firebase(Push Notification)', 'Swal2'],
             platform: ['Web', 'Mobile'],
             status: ['Completed', 'Currently under review in app contest', 'Source code currently unavailable in public'],
             type: 'Acad Thesis',
@@ -86,7 +86,6 @@ export default () => {
                 'Developed a native mobile app to integrate with the web system for user ordering convenience',
                 'Modules includes Inventory, POS, Top-up, Orders, Sales Report, Feedback and User Accounts',
                 'Seamless payments by integrating hardware RFID and updating user details in the database',
-                'Implemented real-time ordering using a trick that detect database changes every 5 seconds',
             ]
         },
         {
@@ -212,7 +211,7 @@ export default () => {
             project_logo: "images/system.png",
             description: "Java Native Mobile + SQLITE",
             long_description: "Expenses tracker with Dynamic Analytics of expenses by date and category.",
-            technology: ['Java Native Mobile', 'SQLITE'],
+            technology: ['Java Native Mobile', 'SQLITE', 'Any Chart'],
             platform: ['Mobile'],
             status: ['Completed'],
             type: 'Acad 2nd Year Case Study',
@@ -416,10 +415,10 @@ export default () => {
                                                 const combinedImagesCount = (images_num_web || 0) + (images_num_mobile || 0);
                                                 const combinedIndexes = Array.from({ length: combinedImagesCount }, (_, index) => index);
                                                 setLoadingIndexes(combinedIndexes);
-
                                                 setSelectedImages([])
                                                 setSelectedProjectIndex(prevIndex);
                                                 setSelectedProject(slidesData[prevIndex]);
+                                                dispatch(setActiveIndex(0))
                                             }
                                         }}
                                             style={{ color: slidesData[selectedProjectIndex - 1] ? 'black' : 'gray' }} >
@@ -437,10 +436,10 @@ export default () => {
                                                     const combinedImagesCount = (images_num_web || 0) + (images_num_mobile || 0);
                                                     const combinedIndexes = Array.from({ length: combinedImagesCount }, (_, index) => index);
                                                     setLoadingIndexes(combinedIndexes);
-
                                                     setSelectedImages([])
                                                     setSelectedProjectIndex(nextIndex);
                                                     setSelectedProject(slidesData[nextIndex]);
+                                                    dispatch(setActiveIndex(0))
                                                 }
                                             }}
                                             style={{ color: slidesData[selectedProjectIndex + 1] ? 'black' : 'gray' }}>
@@ -581,12 +580,12 @@ export default () => {
                                             ))}
                                         </div>
 
-                                        <div className='flex flex-row gap-2 items-center'>
+                                        <div className='flex flex-row gap-1 items-center'>
                                             <div>Project Type:&nbsp;</div>
                                             <Chip label={selectedProject.type}></Chip>
                                         </div>
 
-                                        <div className='flex flex-row gap-2 items-center'>
+                                        <div className='flex flex-row gap-1 items-center'>
                                             <div>Platform:&nbsp;</div>
                                             {selectedProject && selectedProject.platform && selectedProject.platform.map((item, index) => (
                                                 <Chip key={index} label={item} />
