@@ -540,6 +540,8 @@ export default () => {
                                                     const combinedImagesCount = (images_num_web || 0) + (images_num_mobile || 0);
                                                     const combinedIndexes = Array.from({ length: combinedImagesCount }, (_, index) => index);
                                                     setLoadingIndexes(combinedIndexes);
+                                                    dispatch(setActiveIndex(0))
+
                                                 }
                                             }}
                                                 style={{ color: slidesData[selectedProjectIndex - 1] ? 'black' : 'gray' }} >
@@ -561,6 +563,7 @@ export default () => {
                                                         setSelectedImages([])
                                                         setSelectedProjectIndex(nextIndex);
                                                         setSelectedProject(slidesData[nextIndex]);
+                                                        dispatch(setActiveIndex(0))
                                                     }
                                                 }}
                                                 style={{ color: slidesData[selectedProjectIndex + 1] ? 'black' : 'gray' }}>
