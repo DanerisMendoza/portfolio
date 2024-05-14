@@ -36,10 +36,10 @@ export default () => {
         project_link: "https://epalengke.shop/",
         project_logo: "images/system.png",
         description: "Laravel + VueJS + Vuetify + Ionic",
-        long_description: "Nearby e-commerce geolocation and radius based. User can have multiple user role through applying to gain more access, it consist of 4 user role Admin, Seller, Customer and Delivery. End-user can buy, sell and deliver within their registered radius vicinity.",
-        technology: ['Laravel.10', 'Websocket', 'Typescript', 'PusherJs', 'VueJS.2', 'Vuetify', 'Vuex', 'Axios', 'Ionic/VueJS.3', 'Capacitor', 'Leaflet', 'Firebase(Push Notification)', 'Swal2'],
+        long_description: "Nearby e-commerce geolocation and radius based.  it consist of 4 user role Admin, Seller, Customer and Delivery. Aims to provide a convenient online shopping experience for homebound individuals, It also provides employment to local residents as foot-based delivery personnel, fostering income generation without any initial investment.",
+        technology: ['Laravel.10', 'MySQL', 'Websocket', 'Typescript', 'PusherJs', 'VueJS.2', 'Vuetify', 'Vuex', 'Axios', 'Ionic/VueJS.3', 'Capacitor', 'Leaflet', 'Firebase(Push Notification)', 'Swal2'],
         platform: ['Web', 'Mobile'],
-        status: ['Completed', 'Currently under review in app contest', 'Source code unavailable in public'],
+        status: ['Completed', 'Currently under review in app contest', 'Source code currently unavailable in public'],
         type: 'Acad Thesis',
         source_code: [],
         images_path: '/portfolio/images/e-palengke',
@@ -51,7 +51,15 @@ export default () => {
             { role: 'Seller', username: 'thomas', password: '123' },
             { role: 'Delivery', username: 'antonio', password: '123' },
         ],
-        functionality: ['Dynamic End-User Application based on administrator preference', 'Dynamic User Access Database Structure', 'Realtime Functionality using PusherJS/Websockets', 'Product type Filtering', 'Store type Filtering', 'Passport Authentication']
+        higlights: [
+            'Implemenetd Dynamic end-user requirements based on administrator preferences',
+            'User role access is stored in the database for code maintainability and future upgrades',
+            'Utilized PusherJS/Websockets for realtime orders',
+            'Utilizing advanced subqueries enhances order processing and filtering',
+            'Used Laravel Passport for Secure User Authentication',
+            'Utilized Modern framework advantage to build cross platform development using Ionic/Vue',
+            'Implemented Firebase Push Notifications to enhance user convenience while awaiting orders',
+        ]
     },
     {
         name: "Research Repository",
@@ -193,7 +201,7 @@ export default () => {
         source_code: 'https://github.com/DanerisMendoza/cashManagementTracker',
         images_path: '/portfolio/images/cmt',
         images_num_web: 0,
-        images_num_mobile: 7,
+        images_num_mobile: 9,
     },
     {
         name: "Vaccination",
@@ -445,6 +453,7 @@ export default () => {
                                         <>
                                             <div className='flex flex-col items-center'>
                                                 <CircularProgress />
+                                                <p>Loading Images...</p>
                                             </div>
                                         </>
                                     )}
@@ -484,7 +493,7 @@ export default () => {
                                     )}
                                     {isLg && selectedImages.length > 0 && (
                                         <>
-                                            <p className='text-sm text-center pb-11'>
+                                            <p className='text-sm text-center pb-8'>
                                                 (Click Image To Fullscreen)
                                             </p>
                                         </>
@@ -575,11 +584,11 @@ export default () => {
                                             <div className='pr-6'>{selectedProject.long_description}</div>
                                         </div>
 
-                                        {selectedProject && selectedProject.functionality && (
+                                        {selectedProject && selectedProject.higlights && (
                                             <>
                                                 <div className='flex flex-col flex-wrap gap-1  '>
-                                                    <div>Functionality:</div>
-                                                    {selectedProject.functionality.map((item, index) => (
+                                                    {/* <div>Higlights:</div> */}
+                                                    {selectedProject.higlights.map((item, index) => (
                                                         <p key={index}>• {item}.</p>
                                                     ))}
                                                 </div>
