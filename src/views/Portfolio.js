@@ -28,6 +28,7 @@ import { setActiveIndex, setIsFullScreen } from '../store/portfolio/fullscreen';
 import CircularProgress from '@mui/material/CircularProgress';
 import CloseIcon from '@mui/icons-material/Close';
 import IconButton from '@mui/material/IconButton';
+import { useTheme } from '@mui/material/styles';
 
 export default () => {
 
@@ -68,11 +69,11 @@ export default () => {
             project_logo: "images/system.png",
             description: "jQuery + Bootstrap + PHP + Java Native Mobile",
             long_description: "Ordering System for a restaurant. It consist of 4 user role Admin, Manager, Cashier and Customer, Aims to creates a list of orders to a restaurant through a web system. It also has Point of Sale (POS) with thermal printing for physical transactions and inventory for managing stocks. It has responsive design to be able to be used in any kind of devices like mobile, tablet, laptop, and pc.",
-            technology: ['PHP', 'MySQL', 'jQuery', 'Bootstrap','TCPDF', 'Java Native Mobile', 'Volley', 'Glide'],
+            technology: ['PHP', 'MySQL', 'jQuery', 'Bootstrap', 'TCPDF', 'Java Native Mobile', 'Volley', 'Glide'],
             platform: ['Web', 'Mobile'],
             status: ['Completed'],
             type: 'Acad 3rd Year Case Study',
-            source_code: [{ Web: 'https://github.com/DanerisMendoza/Web-based-ordering-management-system' }, { Mobile: 'https://github.com/DanerisMendoza/webomsMobile' }],
+            source_code: [{ Web: 'https://github.com/DanerisMendoza/WEBOMS-WEB' }, { Mobile: 'https://github.com/DanerisMendoza/WEBOMS-MOBILE' }],
             images_path: '/portfolio/images/weboms',
             images_num_web: 24,
             images_num_mobile: 8,
@@ -235,7 +236,7 @@ export default () => {
             images_num_web: 7,
         },
     ];
-
+    const theme = useTheme();
     const fullscreenReducer = useSelector((state) => state.fullscreenReducer);
     const activeIndex = fullscreenReducer.activeIndex;
     const [open, setOpen] = React.useState(false);
@@ -638,16 +639,16 @@ export default () => {
                                             {/*empty icon just to maintain card height even without icon */}
                                             <FontAwesomeIcon icon={faLink} size="2xl" style={{ opacity: '0%' }} />
                                             {!Array.isArray(selectedProject.source_code) && selectedProject.source_code ? (
-                                                <a href={selectedProject.source_code} target="_blank" className="btn grow enlarge">
+                                                <a href={selectedProject.source_code} target="_blank" className=" grow enlarge">
                                                     <FontAwesomeIcon icon={faGithub} size="2xl" />
                                                 </a>
                                             ) : selectedProject.source_code && selectedProject.source_code.length > 0 && (
                                                 <>
-                                                    <FontAwesomeIcon icon={faGithub} size="2xl" onClick={() => setMultipleLinks(selectedProject.source_code)} />
+                                                    <FontAwesomeIcon icon={faGithub} className=" grow enlarge" size="2xl" onClick={() => setMultipleLinks(selectedProject.source_code)} />
                                                 </>
                                             )}
                                             {selectedProject && selectedProject.project_link && (
-                                                <a href={selectedProject.project_link} target="_blank" className="btn grow enlarge ">
+                                                <a href={selectedProject.project_link} target="_blank" className=" grow enlarge">
                                                     <FontAwesomeIcon icon={faLink} size="2xl" />
                                                 </a>
                                             )}
@@ -663,29 +664,35 @@ export default () => {
                     sx={{
                         "& .MuiDialog-container": {
                             "& .MuiPaper-root": {
+                                margin: 'auto',
                                 width: "100%",
-                                maxWidth: "500px",  // Set your width here
+                                maxWidth: "350px",  // Set your width here
+                                [theme.breakpoints.up('sm')]: {
+                                    maxWidth: "450px", // Adjust width for lg breakpoint
+                                },
                             },
                         },
                     }}
                 >
-                    <DialogContent className='flex flex-col gap-2 w-58' >
-                        <IconButton className='self-end' aria-label="delete" onClick={() => setMultipleLinks([])}>
+                    <DialogContent className='' >
+                        <IconButton style={{ position: 'absolute', right: '0', top: '0' }} className='self-end' aria-label="delete" onClick={() => setMultipleLinks([])}>
                             <CloseIcon />
                         </IconButton>
-                        {multipleLinks.map((link, index) => (
-                            <div key={index}>
-                                {Object.entries(link).map(([key, value]) => (
-                                    <div key={key} className='flex flex-col lg:flex-row gap-1 justify-center items-center p-2'>
-                                        <a href={value} target="_blank" className="btn enlarge_litle text-center text-wrap ">
-                                            <FontAwesomeIcon icon={faGithub} size="2xl" />
-                                            <p>{key} </p>
-                                            <p className='text-xs text-blue-500'>{value}</p>
-                                        </a>
-                                    </div>
-                                ))}
-                            </div>
-                        ))}
+                        <div className='pt-4 flex flex-col gap-8'>
+                            {multipleLinks.map((link, index) => (
+                                <div key={index}>
+                                    {Object.entries(link).map(([key, value]) => (
+                                        <div key={key} className='flex flex-col lg:flex-row gap-1 justify-center items-center'>
+                                            <a href={value} target="_blank" className=" enlarge_litle text-center text-wrap ">
+                                                <FontAwesomeIcon icon={faGithub} size="2xl" />
+                                                <p>{key} </p>
+                                                <p className=' text-blue-500' style={{ fontSize: '0.8rem' }}>{value}</p>
+                                            </a>
+                                        </div>
+                                    ))}
+                                </div>
+                            ))}
+                        </div>
                     </DialogContent>
 
                 </Dialog>
@@ -738,17 +745,17 @@ export default () => {
                                     </div>
                                     <div className="self-center flex flex-row gap-3 items-center">
                                         {!Array.isArray(project.source_code) && project.source_code ? (
-                                            <a href={project.source_code} target="_blank" className="btn grow enlarge">
+                                            <a href={project.source_code} target="_blank" className=" grow enlarge">
                                                 <FontAwesomeIcon icon={faGithub} size="2xl" />
                                             </a>
                                         ) : project.source_code.length > 0 && (
                                             <>
-                                                <FontAwesomeIcon icon={faGithub} size="2xl" onClick={() => setMultipleLinks(project.source_code)} />
+                                                <FontAwesomeIcon icon={faGithub} size="2xl" className=" grow enlarge" onClick={() => setMultipleLinks(project.source_code)} />
                                             </>
                                         )}
                                         <FontAwesomeIcon onClick={() => handleClickOpen(project, index)} className='enlarge pl-2 pr-2' style={{ color: '#000000', border: '1px solid #000000', borderRadius: '12%' }} icon={faEllipsis} size="2xl" />
                                         {project.project_link && (
-                                            <a href={project.project_link} target="_blank" className="btn grow enlarge">
+                                            <a href={project.project_link} target="_blank" className=" grow enlarge">
                                                 <FontAwesomeIcon icon={faLink} size="2xl" />
                                             </a>
                                         )}
