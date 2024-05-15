@@ -39,10 +39,11 @@ export default () => {
             project_logo: "images/system.png",
             description: "Laravel + VueJS + Vuetify + Ionic",
             long_description: "Nearby e-commerce geolocation and radius based. It consist of 4 user roles: Admin, Seller, Customer and Delivery. Aims to provide a convenient online shopping experience for homebound individuals, It also provides employment to local residents as foot-based delivery personnel, fostering income generation without any initial investment.",
-            technology: ['Laravel.10', 'MySQL', 'Websocket', 'Typescript', 'Javascript', 'PusherJs', 'VueJS.2', 'Vuetify', 'Vuex', 'Axios', 'Ionic/VueJS.3', 'Vite', 'Capacitor', 'Leaflet', 'Firebase(Push Notification)', 'Swal2'],
+            technology: ['Laravel.10', 'MySQL', 'Websocket', 'Typescript', 'Javascript', 'PusherJS', 'VueJS.2', 'Vuetify', 'Vuex', 'Axios', 'Ionic/VueJS.3', 'Vite', 'Capacitor', 'Leaflet', 'Firebase(Push Notification)', 'Swal2'],
             platform: ['Web', 'Mobile'],
             status: ['Completed', 'Currently under review in app contest', 'Source code currently unavailable in public'],
             type: 'Acad Thesis',
+            role: "Full Stack Developer",
             source_code: [],
             images_path: '/portfolio/images/e-palengke',
             images_num_web: 18,
@@ -54,13 +55,53 @@ export default () => {
                 { role: 'Delivery', username: 'antonio', password: '123' },
             ],
             higlights: [
-                'Implemenetd Dynamic end-user requirements based on administrator preferences',
+                'Implemented Dynamic end-user requirements based on administrator preferences',
                 'User role access is stored in the database for code maintainability and future upgrades',
                 'Utilized PusherJS/Websockets for realtime orders',
                 'Used Laravel Eloquent and Query Builder to enhance order processing and filtering',
                 'Used Laravel Passport for Secure User Authentication',
                 'Utilized Modern framework advantage to build cross platform development using Ionic/Vue',
                 'Implemented Firebase Push Notifications to enhance user convenience while awaiting orders',
+            ]
+        },
+        {
+            name: "Research Repo",
+            project_link: "",
+            project_logo: "images/system.png",
+            description: "Laravel + VueJS + Vuetify",
+            long_description: "Cloud Based Research Repository. It consist of 5 user roles: Admin, Dean, Chairperson, Professor and Student.",
+            technology: ['Laravel.10', 'VueJS.2', 'Vuetify', 'Vuex', 'Axios'],
+            platform: ['Web'],
+            status: ['Active'],
+            type: 'Freelance',
+            role: "Full Stack Developer",
+            source_code: [],
+            images_path: '/portfolio/images/rms',
+            images_num_web: 4,
+            higlights: [
+                'Used Apex Chart for Dynamic Analytics of Colleges, Department, Year and Month',
+                'Implemented recaptcha in login to avoid request spamming',
+                'Used JSPDF, pdf-viewer and html2pdf for Research Module',
+            ]
+        },
+        {
+            name: "Disaster & Risk",
+            project_link: "",
+            project_logo: "images/system.png",
+            description: "Laravel + VueJS + Vuetify",
+            long_description: "Realtime Cloud Based Disaster and Risked Geospatial Management System. It consist of 2 user roles: End User and Admin.",
+            technology: ['Laravel.10', 'VueJS.3', 'Vite', 'Vuetify', 'Vuex', 'Axios', 'PusherJS', 'Leaflet'],
+            platform: ['Web'],
+            status: ['Active'],
+            type: 'Freelance',
+            role: "Full Stack Developer",
+            source_code: [],
+            images_path: '/portfolio/images/cbdrgms',
+            images_num_web: 11,
+            higlights: [
+                'Utilized PusherJS/Websockets for realtime end user report that will reflect in vue leaflet map',
+                'Implement customizable icon that can be use in leaflet map pin like fire, traffic, typhoon etc',
+                'Utilized Vuetify and CSS for Responsive Web And Mobile Platform',
             ]
         },
         {
@@ -73,6 +114,7 @@ export default () => {
             platform: ['Web', 'Mobile'],
             status: ['Completed'],
             type: 'Acad 3rd Year Case Study',
+            role: "Full Stack Developer",
             source_code: [{ Web: 'https://github.com/DanerisMendoza/WEBOMS-WEB' }, { Mobile: 'https://github.com/DanerisMendoza/WEBOMS-MOBILE' }],
             images_path: '/portfolio/images/weboms',
             images_num_web: 24,
@@ -89,63 +131,6 @@ export default () => {
             ]
         },
         {
-            name: "Expenses Tracker",
-            project_link: "",
-            project_logo: "images/system.png",
-            description: "Java Native Mobile + SQLITE",
-            long_description: "Expenses tracker with Dynamic Analytics of expenses by date and category, it consist of 1 user role: End User",
-            technology: ['Java Native Mobile', 'SQLITE', 'Any Chart'],
-            platform: ['Mobile'],
-            status: ['Completed'],
-            type: 'Acad 2nd Year Case Study',
-            source_code: 'https://github.com/DanerisMendoza/cashManagementTracker',
-            images_path: '/portfolio/images/cmt',
-            images_num_web: 0,
-            images_num_mobile: 9,
-            higlights: [
-                'Used AnyChart for analytics of expenses by category and date using bar and pie graph',
-                'Used SQLITE for storing of expenses and category'
-            ]
-        },
-        {
-            name: "Research Repo",
-            project_link: "",
-            project_logo: "images/system.png",
-            description: "Laravel + VueJS + Vuetify",
-            long_description: "Cloud Based Research Repository. It consist of 5 user roles: Admin, Dean, Chairperson, Professor and Student.",
-            technology: ['Laravel.10', 'VueJS.2', 'Vuetify', 'Vuex', 'Axios'],
-            platform: ['Web'],
-            status: ['Active'],
-            type: 'Freelance',
-            source_code: [],
-            images_path: '/portfolio/images/rms',
-            images_num_web: 0,
-            higlights: [
-                'Used Apex Chart for Dynamic Analytics of Colleges, Department, Year and Month',
-                'Implemented recaptcha in login to avoid request spamming',
-                'Used JSPDF, pdf-viewer and html2pdf for Research Module',
-            ]
-        },
-        {
-            name: "Disaster & Risk",
-            project_link: "",
-            project_logo: "images/system.png",
-            description: "Laravel + VueJS + Vuetify",
-            long_description: "Realtime Cloud Based Disaster and Risked Geospatial Management System. It consist of 2 user roles: End User and Admin.",
-            technology: ['Laravel.10', 'VueJS.3', 'Vite', 'Vuetify', 'Vuex', 'Axios', 'PusherJs', 'Leaflet'],
-            platform: ['Web'],
-            status: ['Active'],
-            type: 'Freelance',
-            source_code: [],
-            images_path: '/portfolio/images/cbdrgms',
-            images_num_web: 11,
-            higlights: [
-                'Utilized PusherJS/Websockets for realtime end user report that will reflect in vue leaflet map',
-                'Implement customizable icon that can be use in leaflet map pin like fire, traffic, typhoon etc',
-                'Utilized Vuetify and CSS for Responsive Web And Mobile Platform',
-            ]
-        },
-        {
             name: "Flash Card Repo",
             project_link: "",
             project_logo: "images/system.png",
@@ -155,6 +140,7 @@ export default () => {
             platform: ['Web'],
             status: ['Active'],
             type: 'Personal',
+            role: "Full Stack Developer",
             source_code: [{ Frontend: 'https://github.com/DanerisMendoza/memo-flash-front' }, { Backend: 'https://github.com/DanerisMendoza/memo-flash-back' }],
             images_path: '/portfolio/images/fcr',
             images_num_web: 5,
@@ -178,13 +164,49 @@ export default () => {
             platform: ['Web'],
             status: ['Active'],
             type: 'Personal',
+            role: "Full Stack Developer",
             source_code: 'https://github.com/DanerisMendoza/portfolio',
             images_path: '/portfolio/images/portfolio',
-            images_num_web: 0,
+            images_num_web: 1,
             higlights: [
                 'Integrate Swiper JS and PhotoSwipe to enhance the user interface for selected project images',
                 'Implemented Redux Toolkit to seamlessly integrate data from PhotoSwipe prebuilt components',
                 'Utilized MUI combined with Tailwind CSS to create a fast and responsive UI design',
+            ]
+        },
+        {
+            name: "Blockchain Voting",
+            project_link: "",
+            project_logo: "images/system.png",
+            description: "Laravel + Vue + Vuetify + Solidity + PWA",
+            long_description: "Implementation of Blockchain Technology in Student Council Voting System",
+            technology: ['Vue', 'Vuetify', 'Laravel', 'Solidity', 'Ganache', 'Blockchain Technology'],
+            platform: ['Web', 'Mobile'],
+            status: ['Completed'],
+            type: 'Acad 4th Year Case Study',
+            role: "Full Stack Developer",
+            source_code: 'https://github.com/DanerisMendoza/voting-blockchain',
+            images_path: '/portfolio/images/bscvs',
+            images_num_web: 0,
+        },
+        {
+            name: "Expenses Tracker",
+            project_link: "",
+            project_logo: "images/system.png",
+            description: "Java Native Mobile + SQLITE",
+            long_description: "Expenses tracker with Dynamic Analytics of expenses by date and category, it consist of 1 user role: End User",
+            technology: ['Java Native Mobile', 'SQLITE', 'Any Chart'],
+            platform: ['Mobile'],
+            status: ['Completed'],
+            type: 'Acad 2nd Year Case Study',
+            role: "Full Stack Developer",
+            source_code: 'https://github.com/DanerisMendoza/cashManagementTracker',
+            images_path: '/portfolio/images/cmt',
+            images_num_web: 0,
+            images_num_mobile: 9,
+            higlights: [
+                'Used AnyChart for analytics of expenses by category and date using bar and pie graph',
+                'Used SQLITE for storing of expenses and category'
             ]
         },
         // {
@@ -215,20 +237,7 @@ export default () => {
         //     images_path: '/portfolio/images/ts',
         //     images_num_web: 0,
         // },
-        {
-            name: "Blockchain Voting",
-            project_link: "",
-            project_logo: "images/system.png",
-            description: "Laravel + Vue + Vuetify + Solidity + PWA",
-            long_description: "Implementation of Blockchain Technology in Student Council Voting System",
-            technology: ['Vue', 'Vuetify', 'Laravel', 'Solidity', 'Ganache', 'Blockchain Technology'],
-            platform: ['Web', 'Mobile'],
-            status: ['Completed'],
-            type: 'Acad 4th Year Case Study',
-            source_code: 'https://github.com/DanerisMendoza/voting-blockchain',
-            images_path: '/portfolio/images/bscvs',
-            images_num_web: 0,
-        },
+
         {
             name: "Smart Trash Can",
             project_link: "",
@@ -239,6 +248,7 @@ export default () => {
             platform: ['Mobile'],
             status: ['Completed'],
             type: 'Acad 3rd Year Case Study',
+            role: "Full Stack Developer",
             source_code: 'https://github.com/DanerisMendoza/smart-trashCan',
             images_path: '/portfolio/images/cmt',
             images_num_web: 0,
@@ -258,6 +268,7 @@ export default () => {
             platform: ['Window'],
             status: ['Completed'],
             type: 'Acad 2nd Year Case Study',
+            role: "Full Stack Developer",
             source_code: 'https://github.com/DanerisMendoza/Vaccination-Consensus-System',
             images_path: '/portfolio/images/vaccination',
             images_num_web: 7,
@@ -604,35 +615,40 @@ export default () => {
 
 
 
-                                    <div className='h-full flex flex-col items-start gap-3 lg:ml-2 dynamic_description'  >
-                                        <div className='flex flex-row flex-wrap gap-1 ' >
+                                    <div className='h-full flex flex-col items-start gap-4 lg:ml-2 dynamic_description'  >
+
+                                        <div className='flex flex-row flex-wrap gap-1 items-center' >
                                             <div>Technology Used:&nbsp;</div>
                                             {selectedProject && selectedProject.technology && selectedProject.technology.map((item, index) => (
-                                                <Chip key={index} label={item} />
+                                                <Chip key={index} label={item} size="small" />
                                             ))}
                                         </div>
 
                                         <div className='flex flex-row gap-1 items-center'>
                                             <div>Project Type:&nbsp;</div>
-                                            <Chip label={selectedProject.type}></Chip>
+                                            <Chip label={selectedProject.type} size="small"></Chip>
                                         </div>
 
                                         <div className='flex flex-row gap-1 items-center'>
                                             <div>Platform:&nbsp;</div>
                                             {selectedProject && selectedProject.platform && selectedProject.platform.map((item, index) => (
-                                                <Chip key={index} label={item} />
+                                                <Chip key={index} label={item} size="small" />
                                             ))}
                                         </div>
 
-                                        <div className='flex flex-row flex-wrap gap-1 ' >
+                                        <div className='flex flex-row flex-wrap gap-1 items-center' >
                                             <div>Status:&nbsp;</div>
                                             {selectedProject && selectedProject.status && selectedProject.status.map((item, index) => (
-                                                <Chip key={index} label={item} />
+                                                <Chip key={index} label={item} size="small" />
                                             ))}
                                         </div>
 
-                                        <div className='flex flex-col'>
-                                            <p>Description: </p>
+                                        <div className='flex flex-row gap-1 items-center'>
+                                            <div>My Role:&nbsp;</div>
+                                            <Chip label={selectedProject.role} size="small"></Chip>
+                                        </div>
+
+                                        <div className='flex flex-col '>
                                             <div className='pr-6'>{selectedProject.long_description}</div>
                                         </div>
 
