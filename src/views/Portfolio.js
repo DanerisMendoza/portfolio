@@ -138,7 +138,7 @@ export default () => {
             type: 'Freelance',
             source_code: [],
             images_path: '/portfolio/images/cbdrgms',
-            images_num_web: 0,
+            images_num_web: 11,
             higlights: [
                 'Utilized PusherJS/Websockets for realtime end user report that will reflect in vue leaflet map',
                 'Implement customizable icon that can be use in leaflet map pin like fire, traffic, typhoon etc',
