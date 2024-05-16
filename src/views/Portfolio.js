@@ -105,32 +105,6 @@ export default () => {
             ]
         },
         {
-            name: "WEBOMS",
-            project_link: "",
-            project_logo: "images/system.png",
-            description: "jQuery + Bootstrap + PHP + Java Native Mobile",
-            long_description: "Ordering System for a restaurant. It consist of 4 user roles: Admin, Manager, Cashier and Customer, Aims to creates a list of orders to a restaurant through a web system. It also has Point of Sale (POS) with thermal printing for physical transactions and inventory for managing stocks. It has responsive design to be able to be used in any kind of devices like mobile, tablet, laptop, and pc.",
-            technology: ['PHP', 'MySQL', 'jQuery', 'Bootstrap', 'TCPDF', 'Java Native Mobile', 'Volley', 'Glide'],
-            platform: ['Web', 'Mobile'],
-            status: ['Completed'],
-            type: 'Acad 3rd Year Case Study',
-            role: "Full Stack Developer",
-            source_code: [{ Web: 'https://github.com/DanerisMendoza/WEBOMS-WEB' }, { Mobile: 'https://github.com/DanerisMendoza/WEBOMS-MOBILE' }],
-            images_path: '/portfolio/images/weboms',
-            images_num_web: 24,
-            images_num_mobile: 8,
-            demo_accounts: [
-                { role: 'Admin', username: 'admin', password: 'passsword' },
-            ],
-            higlights: [
-                'Implemented PHP Mailer OTP to verify user accounts and filter out fake users',
-                'Use pie and bar graphs to represent the sales report for daily, weekly, and monthly data',
-                'Developed a native mobile app to integrate with the web system for user ordering convenience',
-                'Modules includes Inventory, POS, Top-up, Orders, Sales Report, Feedback and User Accounts',
-                'Seamless payments by integrating hardware RFID and updating user details in the database',
-            ]
-        },
-        {
             name: "Flash Card Repo",
             project_link: "",
             project_logo: "images/system.png",
@@ -196,6 +170,52 @@ export default () => {
             ]
         },
         {
+            name: "WEBOMS",
+            project_link: "",
+            project_logo: "images/system.png",
+            description: "jQuery + Bootstrap + PHP + Java Native Mobile",
+            long_description: "Ordering System for a restaurant. It consist of 4 user roles: Admin, Manager, Cashier and Customer, Aims to creates a list of orders to a restaurant through a web system. It also has Point of Sale (POS) with thermal printing for physical transactions and inventory for managing stocks. It has responsive design to be able to be used in any kind of devices like mobile, tablet, laptop, and pc.",
+            technology: ['PHP', 'MySQL', 'jQuery', 'Bootstrap', 'TCPDF', 'Java Native Mobile', 'Volley', 'Glide'],
+            platform: ['Web', 'Mobile'],
+            status: ['Completed'],
+            type: 'Acad 3rd Year Case Study',
+            role: "Full Stack Developer",
+            source_code: [{ Web: 'https://github.com/DanerisMendoza/WEBOMS-WEB' }, { Mobile: 'https://github.com/DanerisMendoza/WEBOMS-MOBILE' }],
+            images_path: '/portfolio/images/weboms',
+            images_num_web: 24,
+            images_num_mobile: 8,
+            demo_accounts: [
+                { role: 'Admin', username: 'admin', password: 'passsword' },
+            ],
+            higlights: [
+                'Implemented PHP Mailer OTP to verify user accounts and filter out fake users',
+                'Use pie and bar graphs to represent the sales report for daily, weekly, and monthly data',
+                'Developed a native mobile app to integrate with the web system for user ordering convenience',
+                'Modules includes Inventory, POS, Top-up, Orders, Sales Report, Feedback and User Accounts',
+                'Seamless payments by integrating hardware RFID and updating user details in the database',
+            ]
+        },
+        {
+            name: "Smart Trash Can",
+            project_link: "",
+            project_logo: "images/system.png",
+            description: "Java Native Mobile + Internet of Things",
+            long_description: "Realtime trash level monitoring.",
+            technology: ['Java Native Mobile', 'MySQL', 'Volley', 'Internet of Things', 'ESP8266W', 'Ultrasonic', 'Servo'],
+            platform: ['Mobile'],
+            status: ['Completed'],
+            type: 'Acad 3rd Year Case Study',
+            role: "Full Stack Developer",
+            source_code: 'https://github.com/DanerisMendoza/smart-trashCan',
+            images_path: '/portfolio/images/cmt',
+            images_num_web: 0,
+            higlights: [
+                'Utilized ultrasonic sensor to measure trash levels',
+                'Used Servo to open and close trashcan lid',
+                'Used ESP8266W for server connection and realtime monitoring of trash levels',
+            ]
+        },
+        {
             name: "Expenses Tracker",
             project_link: "",
             project_logo: "images/system.png",
@@ -244,26 +264,7 @@ export default () => {
         //     images_num_web: 0,
         // },
 
-        {
-            name: "Smart Trash Can",
-            project_link: "",
-            project_logo: "images/system.png",
-            description: "Java Native Mobile + Internet of Things",
-            long_description: "Realtime trash level monitoring.",
-            technology: ['Java Native Mobile', 'MySQL', 'Volley', 'Internet of Things', 'ESP8266W', 'Ultrasonic', 'Servo'],
-            platform: ['Mobile'],
-            status: ['Completed'],
-            type: 'Acad 3rd Year Case Study',
-            role: "Full Stack Developer",
-            source_code: 'https://github.com/DanerisMendoza/smart-trashCan',
-            images_path: '/portfolio/images/cmt',
-            images_num_web: 0,
-            higlights: [
-                'Utilized ultrasonic sensor to measure trash levels',
-                'Used Servo to open and close trashcan lid',
-                'Used ESP8266W for server connection and realtime monitoring of trash levels',
-            ]
-        },
+
         {
             name: "Vaccination",
             project_link: "",
