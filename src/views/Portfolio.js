@@ -159,7 +159,7 @@ export default () => {
             project_link: "https://danerismendoza.github.io/portfolio/",
             project_logo: "images/system.png",
             description: "ReactJS + Tailwind CSS + MUI",
-            long_description: "Compilation of my highligth projects. Currently Documenting My Past Projects",
+            long_description: "Documented and compiled my previous projects.",
             technology: ['ReactJS', 'Tailwind CSS', 'MUI', 'Redux Toolkit'],
             platform: ['Web'],
             status: ['Active'],
@@ -179,15 +179,21 @@ export default () => {
             project_link: "",
             project_logo: "images/system.png",
             description: "Laravel + Vue + Vuetify + Solidity + PWA",
-            long_description: "Implementation of Blockchain Technology in Student Council Voting System",
+            long_description: "Implementation of Blockchain Technology in Student Council Voting System, I developed the PWA version (in the 'mobile' folder), while my case study partner developed the web version.",
             technology: ['Vue', 'Vuetify', 'Laravel', 'Solidity', 'Ganache', 'Blockchain Technology'],
             platform: ['Web', 'Mobile'],
             status: ['Completed'],
             type: 'Acad 4th Year Case Study',
             role: "Full Stack Developer",
             source_code: 'https://github.com/DanerisMendoza/voting-blockchain',
-            images_path: '/portfolio/images/bscvs',
-            images_num_web: 0,
+            images_path: '/portfolio/images/bv',
+            images_num_web: 5,
+            images_num_mobile: 9,
+            higlights: [
+                'Used solidity to create a smart contract for immutable voting',
+                'Utilized Ganache test network to store votes on the blockchain',
+                'Secured voting results by reading blockchain data and visualizing it with ApexCharts'
+            ]
         },
         {
             name: "Expenses Tracker",
