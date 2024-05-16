@@ -12,10 +12,14 @@ class Hero extends Component {
                     <h1 className="font-extrabold text-6xl text-black mr-12">
                         Daneris Mendoza
                     </h1>
-                    <h2 className="text-xl mr-12 text-gray-500 mt-2 mb-2">Fullstack Developer</h2>
-                    <h5 className=" text-base text-gray-500">
-                        I am a graduating computer science major from the University of Caloocan City with a strong foundation in programming and well-rounded skills. My expertise in reverse engineering, along with my proficiency in quickly learning new things, enables me to breakdown and understand complex systems easily.
-                        I began working on freelance projects during my fourth year of school and continue to do so presently.                    </h5>
+                    <h2 className="text-xl mr-12 text-gray-500 mt-2 mb-2">Freelance Fullstack Developer</h2>
+                    <h5 className=" text-base text-gray-500 lg:text-justify pr-1">
+                        I am a graduating computer science major from the University of Caloocan City with a strong foundation in programming and well-rounded skills.
+                        I excel in both frontend and backend development, both theoretically and practically.
+                        My expertise in reverse engineering, along with my proficiency in quickly learning new things,
+                        enables me to breakdown and understand complex project easily.
+                        I began working on freelance projects during my fourth year of school and continue to do so presently.
+                    </h5>
                     <div className="mt-6  flex flex-row items-center gap-2">
                         <a className="enlarge" href="mailto:danerismendoza096@gmail.com" >
                             <Button variant="contained" style={{ backgroundColor: '#000000' }} endIcon={<FontAwesomeIcon icon={faEnvelope} />}>Contact Me </Button>

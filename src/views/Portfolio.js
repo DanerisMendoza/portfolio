@@ -46,7 +46,7 @@ export default () => {
             role: "Full Stack Developer",
             source_code: [],
             images_path: '/portfolio/images/e-palengke',
-            images_num_web: 18,
+            images_num_web: 19,
             images_num_mobile: 6,
             demo_accounts: [
                 { role: 'Admin', username: 'admin', password: 'admin' },
