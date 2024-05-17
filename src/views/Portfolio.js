@@ -57,9 +57,9 @@ export default () => {
             higlights: [
                 'Implemented Dynamic end-user requirements based on administrator preferences',
                 'User role access is stored in the database for code maintainability and future upgrades',
-                'Utilized PusherJS/Websockets for realtime orders',
-                'Used Laravel Eloquent and Query Builder to enhance order processing and filtering',
                 'Used Laravel Passport for Secure User Authentication',
+                'Utilized PusherJS/Websockets for realtime orders',
+                'Utilized Laravel Eloquent ORM and Query Builder to enhance queries',
                 'Utilized Modern framework advantage to build cross platform development using Ionic/Vue',
                 'Implemented Firebase Push Notifications to enhance user convenience while awaiting orders',
             ]
@@ -442,7 +442,7 @@ export default () => {
                         </Toolbar>
                     </AppBar>
                     <DialogContent >
-                        <Card className=' drop-shadow-2xl'>
+                        <Card className=' drop-shadow-2xl '>
                             <div className=' lg:drop-shadow-2xl flex flex-col lg:flex-row lg:gap-5 p-3 lg:p-0 '>
 
                                 {selectedImages && selectedImages.length > 0 && (
@@ -622,7 +622,7 @@ export default () => {
 
 
 
-                                    <div className='h-full flex flex-col items-start gap-4 lg:ml-2 dynamic_description'  >
+                                    <div className='h-full flex flex-col items-start gap-3 lg:ml-2 dynamic_description '  >
 
                                         <div className='flex flex-row flex-wrap gap-1 items-center' >
                                             <div>Technology Used:&nbsp;</div>
@@ -689,24 +689,31 @@ export default () => {
                                     </div>
 
                                     <div className='grow'></div>
-                                    <div className='flex flex-row mt-6 lg:mt-0'>
+                                    <div className='flex flex-row mt-6 lg:mt-0 lg:pt-6 items-center text-md'>
                                         <p className='lg:ml-2'>{(1 + selectedProjectIndex)}/{slidesData.length}</p>
                                         <div className='grow'></div>
-                                        <div className='flex flex-row gap-2'>
+                                        <div className='flex flex-row gap-4 pr-3'>
                                             {/*empty icon just to maintain card height even without icon */}
-                                            <FontAwesomeIcon icon={faLink} size="2xl" style={{ opacity: '0%' }} />
+                                            <div className='flex flex-col'>
+                                                <FontAwesomeIcon icon={faLink} size="xl" style={{ opacity: '0%' }} />
+                                                <p style={{ opacity: '0%' }}>spacer</p>
+                                            </div>
                                             {!Array.isArray(selectedProject.source_code) && selectedProject.source_code ? (
-                                                <a href={selectedProject.source_code} target="_blank" className=" grow enlarge">
-                                                    <FontAwesomeIcon icon={faGithub} size="2xl" />
+                                                <a href={selectedProject.source_code} target="_blank" className=" grow enlarge_litle flex flex-col">
+                                                    <FontAwesomeIcon icon={faGithub} size="xl" />
+                                                    <p className='text-blue-500'>Source Code</p>
                                                 </a>
                                             ) : selectedProject.source_code && selectedProject.source_code.length > 0 && (
-                                                <>
-                                                    <FontAwesomeIcon icon={faGithub} className=" grow enlarge" size="2xl" onClick={() => setMultipleLinks(selectedProject.source_code)} />
-                                                </>
+                                                <div className='flex flex-col enlarge_litle'>
+                                                    <FontAwesomeIcon icon={faGithub} className=" grow " size="xl" onClick={() => setMultipleLinks(selectedProject.source_code)} />
+                                                    <p className='text-blue-500'>Source Code</p>
+                                                </div>
+
                                             )}
                                             {selectedProject && selectedProject.project_link && (
-                                                <a href={selectedProject.project_link} target="_blank" className=" grow enlarge">
-                                                    <FontAwesomeIcon icon={faLink} size="2xl" />
+                                                <a href={selectedProject.project_link} target="_blank" className=" grow enlarge_litle flex flex-col">
+                                                    <FontAwesomeIcon icon={faLink} size="xl" />
+                                                    <p className='text-blue-500'>Visit</p>
                                                 </a>
                                             )}
                                         </div>
