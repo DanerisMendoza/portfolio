@@ -705,8 +705,8 @@ export default () => {
                                                     <p className='text-blue-500'>Source Code</p>
                                                 </a>
                                             ) : selectedProject.source_code && selectedProject.source_code.length > 0 && (
-                                                <div className='flex flex-col enlarge_litle'>
-                                                    <FontAwesomeIcon icon={faGithub} className=" grow " size="xl" onClick={() => setMultipleLinks(selectedProject.source_code)} />
+                                                <div className='flex flex-col enlarge_litle' onClick={() => setMultipleLinks(selectedProject.source_code)} >
+                                                    <FontAwesomeIcon icon={faGithub} className=" grow " size="xl" />
                                                     <p className='text-blue-500'>Source Code</p>
                                                 </div>
 
