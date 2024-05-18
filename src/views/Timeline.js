@@ -80,7 +80,7 @@ export default function CustomizedTimeline() {
                             </CardMedia>
 
                             <CardContent>
-                                <h3 className="text-center text-base md:text-2xl text-gray-500"> July 2020 - July 1, 2024</h3>
+                                <h3 className="text-center text-base md:text-2xl text-gray-500"> 2020 - 2024</h3>
                             </CardContent>
                         </Card>
                     </TimelineContent>

@@ -44,6 +44,7 @@ export default () => {
             status: ['Completed', 'Currently under review in app contest', 'Source code currently unavailable in public'],
             type: 'Acad Thesis',
             role: "Full Stack Developer",
+            // source_code: [{ Frontend: 'https://github.com/DanerisMendoza/e-palengke-front' }, { Backend: 'https://github.com/DanerisMendoza/e-palengke-back' }, {Mobile:'https://github.com/DanerisMendoza/e-palengke-ionic'}],
             source_code: [],
             images_path: '/portfolio/images/e-palengke',
             images_num_web: 19,
@@ -809,17 +810,17 @@ export default () => {
                                     </div>
                                     <div className="self-center flex flex-row gap-3 items-center">
                                         {!Array.isArray(project.source_code) && project.source_code ? (
-                                            <a href={project.source_code} target="_blank" className=" grow enlarge">
+                                            <a href={project.source_code} target="_blank" className="text-blue-500 grow enlarge">
                                                 <FontAwesomeIcon icon={faGithub} size="2xl" />
                                             </a>
                                         ) : project.source_code.length > 0 && (
                                             <>
-                                                <FontAwesomeIcon icon={faGithub} size="2xl" className=" grow enlarge" onClick={() => setMultipleLinks(project.source_code)} />
+                                                <FontAwesomeIcon icon={faGithub} size="2xl" className="text-blue-500 grow enlarge" onClick={() => setMultipleLinks(project.source_code)} />
                                             </>
                                         )}
                                         <FontAwesomeIcon onClick={() => handleClickOpen(project, index)} className='enlarge pl-2 pr-2' style={{ color: '#000000', border: '1px solid #000000', borderRadius: '12%' }} icon={faEllipsis} size="2xl" />
                                         {project.project_link && (
-                                            <a href={project.project_link} target="_blank" className=" grow enlarge">
+                                            <a href={project.project_link} target="_blank" className="text-blue-500 grow enlarge">
                                                 <FontAwesomeIcon icon={faLink} size="2xl" />
                                             </a>
                                         )}
