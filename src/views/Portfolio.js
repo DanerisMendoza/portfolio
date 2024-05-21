@@ -43,7 +43,7 @@ export default () => {
             platform: ['Web', 'Mobile'],
             status: ['Completed', 'Currently under review in app contest', 'Source code currently unavailable in public'],
             type: 'Acad Thesis',
-            role: "Full Stack Developer",
+            role: ["Full Stack Developer", "Project Lead"],
             // source_code: [{ Frontend: 'https://github.com/DanerisMendoza/e-palengke-front' }, { Backend: 'https://github.com/DanerisMendoza/e-palengke-back' }, {Mobile:'https://github.com/DanerisMendoza/e-palengke-ionic'}],
             source_code: [],
             images_path: '/portfolio/images/e-palengke',
@@ -76,7 +76,7 @@ export default () => {
             platform: ['Web'],
             status: ['Active'],
             type: 'Freelance',
-            role: "Full Stack Developer",
+            role: ["Full Stack Developer"],
             source_code: [],
             images_path: '/portfolio/images/rms',
             images_num_web: 4,
@@ -97,7 +97,7 @@ export default () => {
             platform: ['Web'],
             status: ['Active'],
             type: 'Freelance',
-            role: "Full Stack Developer",
+            role: ["Full Stack Developer"],
             source_code: [],
             images_path: '/portfolio/images/cbdrgms',
             images_num_web: 11,
@@ -118,7 +118,7 @@ export default () => {
             platform: ['Web'],
             status: ['Active'],
             type: 'Personal',
-            role: "Full Stack Developer",
+            role: ["Full Stack Developer"],
             source_code: [{ Frontend: 'https://github.com/DanerisMendoza/memo-flash-front' }, { Backend: 'https://github.com/DanerisMendoza/memo-flash-back' }],
             images_path: '/portfolio/images/fcr',
             images_num_web: 5,
@@ -143,7 +143,7 @@ export default () => {
             platform: ['Web'],
             status: ['Active'],
             type: 'Personal',
-            role: "Full Stack Developer",
+            role: ["Full Stack Developer"],
             source_code: 'https://github.com/DanerisMendoza/portfolio',
             images_path: '/portfolio/images/portfolio',
             images_num_web: 1,
@@ -164,7 +164,7 @@ export default () => {
             platform: ['Web', 'Mobile'],
             status: ['Completed'],
             type: 'Acad 4th Year Case Study',
-            role: "Full Stack Developer",
+            role: ["Full Stack Developer", "Project Lead"],
             source_code: 'https://github.com/DanerisMendoza/voting-blockchain',
             images_path: '/portfolio/images/bv',
             images_num_web: 5,
@@ -186,7 +186,7 @@ export default () => {
             platform: ['Web', 'Mobile'],
             status: ['Completed'],
             type: 'Acad 3rd Year Case Study',
-            role: "Full Stack Developer",
+            role: ["Full Stack Developer", "Project Lead"],
             source_code: [{ Web: 'https://github.com/DanerisMendoza/WEBOMS-WEB' }, { Mobile: 'https://github.com/DanerisMendoza/WEBOMS-MOBILE' }],
             images_path: '/portfolio/images/weboms',
             images_num_web: 24,
@@ -213,7 +213,7 @@ export default () => {
             platform: ['Mobile'],
             status: ['Completed'],
             type: 'Acad 3rd Year Case Study',
-            role: "Full Stack Developer",
+            role: ["Full Stack Developer"],
             source_code: 'https://github.com/DanerisMendoza/smart-trashCan',
             images_path: '/portfolio/images/cmt',
             images_num_web: 0,
@@ -234,7 +234,7 @@ export default () => {
             platform: ['Mobile'],
             status: ['Completed'],
             type: 'Acad 2nd Year Case Study',
-            role: "Full Stack Developer",
+            role: ["Full Stack Developer", "Project Lead"],
             source_code: 'https://github.com/DanerisMendoza/cashManagementTracker',
             images_path: '/portfolio/images/cmt',
             images_num_web: 0,
@@ -254,6 +254,7 @@ export default () => {
         //     technology: ['Laravel.9', 'Laravel Scheduler', 'VueJS.2', 'Vuetify', 'Vuex', 'Axios', 'Websocket', 'Leaflet'],
         //     platform: ['Web'],
         //     type: 'Internship',
+        //     role: ["Full Stack Developer"],
         //     status: ['Project Handover'],
         //     source_code: [],
         //     images_path: '/portfolio/images/ts',
@@ -270,6 +271,7 @@ export default () => {
         //     platform: ['Web'],
         //     status: ['Project Handover'],
         //     type: 'Practicum 2',
+        //     role: ["Full Stack Developer"],
         //     source_code: [],
         //     images_path: '/portfolio/images/ts',
         //     images_num_web: 0,
@@ -287,7 +289,7 @@ export default () => {
             platform: ['Window'],
             status: ['Completed'],
             type: 'Acad 2nd Year Case Study',
-            role: "Full Stack Developer",
+            role: ["Full Stack Developer", "Project Lead"],
             source_code: 'https://github.com/DanerisMendoza/Vaccination-Consensus-System',
             images_path: '/portfolio/images/vaccination',
             images_num_web: 7,
@@ -389,9 +391,9 @@ export default () => {
                         index: index + 1
                     }));
                     let combinedImages = []
-                    if(selectedProject.isWebFirst){
+                    if (selectedProject.isWebFirst) {
                         combinedImages = [...imagesWebObjects, ...imagesMobileObjects];
-                    }else{
+                    } else {
                         combinedImages = [...imagesMobileObjects, ...imagesWebObjects];
                     }
                     setSelectedImages(combinedImages);
@@ -669,7 +671,9 @@ export default () => {
 
                                         <div className='flex flex-row gap-1 items-center'>
                                             <div>My Role:&nbsp;</div>
-                                            <Chip label={selectedProject.role} size="small"></Chip>
+                                            {selectedProject && selectedProject.role && selectedProject.role.map((item, index) => (
+                                                <Chip key={index} label={item} size="small" />
+                                            ))}
                                         </div>
 
                                         <div className='flex flex-col '>
