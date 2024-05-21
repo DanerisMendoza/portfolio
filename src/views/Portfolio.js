@@ -63,7 +63,8 @@ export default () => {
                 'Utilized Laravel Eloquent ORM and Query Builder to enhance queries',
                 'Utilized Modern framework advantage to build cross platform development using Ionic/Vue',
                 'Implemented Firebase Push Notifications to enhance user convenience while awaiting orders',
-            ]
+            ],
+            isWebFirst: true,
         },
         {
             name: "Research Repo",
@@ -83,7 +84,8 @@ export default () => {
                 'Used Apex Chart for Dynamic Analytics of Colleges, Department, Year and Month',
                 'Implemented recaptcha in login to avoid request spamming',
                 'Used JSPDF, pdf-viewer and html2pdf for Research Module',
-            ]
+            ],
+            isWebFirst: true,
         },
         {
             name: "Disaster & Risk",
@@ -103,7 +105,8 @@ export default () => {
                 'Utilized PusherJS/Websockets for realtime end user report that will reflect in vue leaflet map',
                 'Implement customizable icon that can be use in leaflet map pin like fire, traffic, typhoon etc',
                 'Utilized Vuetify and CSS for Responsive Web And Mobile Platform',
-            ]
+            ],
+            isWebFirst: true,
         },
         {
             name: "Flash Card Repo",
@@ -127,7 +130,8 @@ export default () => {
                 'Implemented multiple user role and dynamic navigation for access',
                 'Used MUI combined with Tailwind CSS to build a responsive UI for web and mobile',
                 'Utilized Redux Toolkit for providing easy access to data for other components',
-            ]
+            ],
+            isWebFirst: true,
         },
         {
             name: "Portfolio",
@@ -147,14 +151,15 @@ export default () => {
                 'Integrate Swiper JS and PhotoSwipe to enhance the user interface for selected project images',
                 'Implemented Redux Toolkit to seamlessly integrate data from PhotoSwipe prebuilt components',
                 'Utilized MUI combined with Tailwind CSS to create a fast and responsive UI design',
-            ]
+            ],
+            isWebFirst: true,
         },
         {
             name: "Blockchain Voting",
             project_link: "",
             project_logo: "images/system.png",
             description: "Laravel + Vue + Vuetify + Solidity + PWA",
-            long_description: "Implementation of Blockchain Technology in Student Council Voting System, I developed the PWA version (in the 'mobile' folder), while my case study partner developed the web version.",
+            long_description: "Implementation of Blockchain Technology in Student Council Voting System, I developed the PWA version (in the 'mobile' folder), I set up the backend using Laravel and the blockchain using the test network Ganache.  My case study partner developed the web version, The system consists of two user roles: admin for the web and end user for mobile (PWA).",
             technology: ['Vue', 'Vuetify', 'Laravel', 'Solidity', 'Ganache', 'Blockchain Technology'],
             platform: ['Web', 'Mobile'],
             status: ['Completed'],
@@ -168,7 +173,8 @@ export default () => {
                 'Used solidity to create a smart contract for immutable voting',
                 'Utilized Ganache test network to store votes on the blockchain',
                 'Secured voting results by reading blockchain data and visualizing it with ApexCharts'
-            ]
+            ],
+            isWebFirst: false,
         },
         {
             name: "WEBOMS",
@@ -194,7 +200,8 @@ export default () => {
                 'Developed a native mobile app to integrate with the web system for user ordering convenience',
                 'Modules includes Inventory, POS, Top-up, Orders, Sales Report, Feedback and User Accounts',
                 'Seamless payments by integrating hardware RFID and updating user details in the database',
-            ]
+            ],
+            isWebFirst: true,
         },
         {
             name: "Smart Trash Can",
@@ -214,7 +221,8 @@ export default () => {
                 'Utilized ultrasonic sensor to measure trash levels',
                 'Used Servo to open and close trashcan lid',
                 'Used ESP8266W for server connection and realtime monitoring of trash levels',
-            ]
+            ],
+            isWebFirst: true,
         },
         {
             name: "Expenses Tracker",
@@ -234,7 +242,8 @@ export default () => {
             higlights: [
                 'Used AnyChart for analytics of expenses by category and date using bar and pie graph',
                 'Used SQLITE for storing of expenses and category'
-            ]
+            ],
+            isWebFirst: true,
         },
         // {
         //     name: "Ticketing System",
@@ -249,6 +258,7 @@ export default () => {
         //     source_code: [],
         //     images_path: '/portfolio/images/ts',
         //     images_num_web: 0,
+        //     isWebFirst: true,
         // },
         // {
         //     name: "E-Library system",
@@ -263,6 +273,7 @@ export default () => {
         //     source_code: [],
         //     images_path: '/portfolio/images/ts',
         //     images_num_web: 0,
+        //     isWebFirst: true,
         // },
 
 
@@ -283,7 +294,8 @@ export default () => {
             higlights: [
                 'Implement read and generate QR code to validate end user vaccination validty',
                 'Implement Dynamic pie graph to vizualize End User vaccination status per barangay',
-            ]
+            ],
+            isWebFirst: true,
         },
     ];
     const theme = useTheme();
@@ -376,8 +388,12 @@ export default () => {
                         height: dimensions.height,
                         index: index + 1
                     }));
-
-                    const combinedImages = [...imagesWebObjects, ...imagesMobileObjects];
+                    let combinedImages = []
+                    if(selectedProject.isWebFirst){
+                        combinedImages = [...imagesWebObjects, ...imagesMobileObjects];
+                    }else{
+                        combinedImages = [...imagesMobileObjects, ...imagesWebObjects];
+                    }
                     setSelectedImages(combinedImages);
                 } catch (error) {
                     console.error(error);
