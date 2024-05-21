@@ -41,7 +41,7 @@ export default () => {
             long_description: "Nearby e-commerce geolocation and radius based. It consist of 4 user roles: Admin, Seller, Customer and Delivery. Aims to provide a convenient online shopping experience for homebound individuals, It also provides employment to local residents as foot-based delivery personnel, fostering income generation without any initial investment.",
             technology: ['Laravel.10', 'MySQL', 'Websocket', 'Typescript', 'Javascript', 'PusherJS', 'VueJS.2', 'Vuetify', 'Vuex', 'Axios', 'Ionic/VueJS.3', 'Vite', 'Capacitor', 'Leaflet', 'Firebase(Push Notification)', 'Swal2'],
             platform: ['Web', 'Mobile'],
-            status: ['Completed', 'Currently under review in app contest', 'Source code currently unavailable in public'],
+            status: ['Completed', 'Currently under review in app contest(AppCon)', 'Source code currently unavailable in public'],
             type: 'Acad Thesis',
             role: ["Full Stack Developer", "Project Lead"],
             // source_code: [{ Frontend: 'https://github.com/DanerisMendoza/e-palengke-front' }, { Backend: 'https://github.com/DanerisMendoza/e-palengke-back' }, {Mobile:'https://github.com/DanerisMendoza/e-palengke-ionic'}],
@@ -670,7 +670,7 @@ export default () => {
                                         </div>
 
                                         <div className='flex flex-row gap-1 items-center'>
-                                            <div>My Role:&nbsp;</div>
+                                            <div>Role:&nbsp;</div>
                                             {selectedProject && selectedProject.role && selectedProject.role.map((item, index) => (
                                                 <Chip key={index} label={item} size="small" />
                                             ))}
