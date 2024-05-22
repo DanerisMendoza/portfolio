@@ -9,7 +9,7 @@ class Hero extends Component {
         return (
             <div className="h-screen w-screen flex flex-col justify-center items-center p-2">
                 <div className="flex flex-col items-start  lg:h-1/3 lg:w-3/6 ml-4">
-                    <h1 className="font-extrabold text-6xl text-black mr-12 mt-4">
+                    <h1 className="font-extrabold text-6xl text-black dark:text-white mr-12 mt-4">
                         Daneris Mendoza
                     </h1>
                     <h2 className="text-xl mr-12 text-gray-500 mt-2 mb-2">Freelance Fullstack Developer</h2>
