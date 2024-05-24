@@ -487,7 +487,7 @@ export default () => {
                             </Button>
                         </Toolbar>
                     </AppBar>
-                    <DialogContent style={{ backgroundColor: isDark ? '#18191a' : 'white' }}>
+                    <DialogContent style={{ backgroundColor: isDark ? '#18191a' : 'white', padding:'0.6rem' }}>
                         <Card style={{ backgroundColor: isDark ? '#242526' : 'white' }} className='drop-shadow-2xl dark:drop-shadow-none'>
                             <div className=' lg:drop-shadow-2xl flex flex-col lg:flex-row lg:gap-5 p-3 lg:p-0 dark:drop-shadow-none'>
 
