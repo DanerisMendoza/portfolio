@@ -615,7 +615,7 @@ export default () => {
 
 
 
-                                <div className='h-full w-full  flex flex-col   project_description lg:bg-white lg:p-2 rounded-lg ml-2 lg:ml-0' style={{ backgroundColor: isDark ? '#31363f' : 'white' }}>
+                                <div className='h-full w-full  flex flex-col   project_description lg:bg-white lg:p-2 rounded-lg ml-2 lg:ml-0' style={{ backgroundColor: isDark ? (isLg ? '#31363f' : '') : 'white' }}>
                                     {!isLg && selectedImages.length > 0 && (
                                         <p className='text-sm text-center pb-3 dark:text-white'>
                                             (Click Image To Fullscreen)
