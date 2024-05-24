@@ -6,7 +6,7 @@ const initialState = {
 };
 
 const fullScreenSlice = createSlice({
-  name: 'activeIndex',
+  name: 'fullscreen',
   initialState,
   reducers: {
     setActiveIndex: (state, action) => {

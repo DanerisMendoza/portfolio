@@ -161,6 +161,11 @@ body {
     transform: scale(1.3);
   }
 }
+:root.dark .card-mini {
+  /* Styles for card-mini elements when in dark mode */
+  color: #fff; /* Example light text color */
+}
+
 
 .enlarge {
   transition: all 0.2s ease-in-out;

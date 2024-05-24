@@ -44,7 +44,7 @@ export default () => {
             status: ['Completed'],
             type: 'Acad Thesis',
             role: ["Full Stack Developer", "Project Lead"],
-            source_code: [{ Frontend: 'https://github.com/DanerisMendoza/e-palengke-front' }, { Backend: 'https://github.com/DanerisMendoza/e-palengke-back' }, {Mobile:'https://github.com/DanerisMendoza/e-palengke-ionic'}],
+            source_code: [{ Frontend: 'https://github.com/DanerisMendoza/e-palengke-front' }, { Backend: 'https://github.com/DanerisMendoza/e-palengke-back' }, { Mobile: 'https://github.com/DanerisMendoza/e-palengke-ionic' }],
             images_path: '/portfolio/images/e-palengke',
             images_num_web: 19,
             images_num_mobile: 6,
@@ -118,7 +118,7 @@ export default () => {
             status: ['Active'],
             type: 'Personal',
             role: ["Full Stack Developer"],
-            source_code: [{ Frontend: 'https://github.com/DanerisMendoza/memo-flash-front' }, { Backend: 'https://github.com/DanerisMendoza/memo-flash-back' }, {Mobile: 'https://github.com/DanerisMendoza/memo-flash-mobile'}],
+            source_code: [{ Frontend: 'https://github.com/DanerisMendoza/memo-flash-front' }, { Backend: 'https://github.com/DanerisMendoza/memo-flash-back' }, { Mobile: 'https://github.com/DanerisMendoza/memo-flash-mobile' }],
             images_path: '/portfolio/images/fcr',
             images_num_web: 5,
             higlights: [
@@ -310,6 +310,34 @@ export default () => {
     const [selectedImages, setSelectedImages] = useState([]);
     const [loadingIndexes, setLoadingIndexes] = useState([]); // State to keep track of loading images
 
+
+    const dynamicSystemLogo = (fill) => {
+        const svgContent = `
+          <svg xmlns:dc="http://purl.org/dc/elements/1.1/"
+          xmlns:cc="http://creativecommons.org/ns#"
+          xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          width="128" height="128" version="1.1"  >
+          <rect x="25.140625" y="30.265627" width="77.75" height="54.9375"  fill="${isDark ? '#31363f' : '#ffffff'}"/>
+            <path fill="${fill}" fill-opacity="1" d="m 22.171875,22.046877 c -3.97497,0 -7.1875,3.181281 -7.1875,7.15625 l 0,57 c 0,3.974969 3.21253,7.1875 7.1875,7.1875 l 83.687505,0 c 3.97497,0 7.15625,-3.212531 7.15625,-7.1875 l 0,-57 c 0,-3.974969 -3.18128,-7.15625 -7.15625,-7.15625 l -83.687505,0 z m 2.96875,8.21875 77.750005,0 0,54.9375 -77.750005,0 0,-54.9375 z m 27.53125,4.90625 -1.09375,2.34375 -0.0312,0.5 0.34375,1.65625 -2.1875,0.875 -0.875,-1.375 -0.40625,-0.375 -2.40625,-0.84375 -0.84375,0.8125 0.84375,2.4375 0.375,0.375 1.40625,0.90625 -0.90625,2.1875 -1.625,-0.34375 -0.53125,0 -2.34375,1.125 0,1.1875 2.34375,1.125 0.53125,0 1.625,-0.34375 0.90625,2.15625 -1.40625,0.9375 -0.375,0.375 -0.84375,2.4375 0.84375,0.84375 2.40625,-0.875 0.40625,-0.375 0.875,-1.375 2.1875,0.875 -0.34375,1.65625 0.0312,0.5 1.09375,2.34375 1.1875,0 1.09375,-2.34375 0.0312,-0.5 -0.3437,-1.65625 2.1875,-0.875 0.875,1.375 0.40625,0.375 2.40625,0.875 0.84375,-0.84375 -0.84375,-2.4375 -0.34375,-0.375 -1.40625,-0.9375 0.90625,-2.15625 1.59375,0.34375 0.5625,0 2.3125,-1.125 0,-1.1875 -2.3125,-1.125 -0.5625,0 -1.59375,0.34375 -0.90625,-2.1875 1.40625,-0.90625 0.34375,-0.375 0.84375,-2.4375 -0.84375,-0.8125 -2.40625,0.84375 -0.40625,0.375 -0.875,1.375 -2.1875,-0.875 0.34375,-1.65625 -0.0312,-0.5 -1.09375,-2.34375 -1.1875,0 z m 0.59375,7.3125 c 1.97188,0 3.59375,1.590615 3.59375,3.5625 0,1.971885 -1.62187,3.5625 -3.59375,3.5625 -1.97189,0 -3.5625,-1.590615 -3.5625,-3.5625 0,-1.971885 1.59061,-3.5625 3.5625,-3.5625 z m 12.25,6.9375 -1.53125,0.46875 -0.34375,3.09375 0.21875,0.8125 0.84375,1.625 -2.4375,1.78125 -1.28125,-1.34375 -0.71875,-0.40625 -3.03125,-0.625 -0.90625,1.28125 1.46875,2.6875 0.65625,0.53125 1.65625,0.8125 -0.90625,2.875 -1.84375,-0.3125 -0.8125,0.0625 -2.8125,1.28125 0,1.59375 2.8125,1.28125 0.8125,0.09375 1.84375,-0.34375 0.90625,2.875 -1.65625,0.8125 -0.65625,0.53125 -1.46875,2.71875 0.90625,1.25 3.03125,-0.59375 0.71875,-0.4375 1.28125,-1.34375 2.4375,1.78125 -0.84375,1.65625 -0.21875,0.8125 0.34375,3.0625 1.53125,0.5 2.09375,-2.28125 0.28125,-0.78125 0.28125,-1.8125 3.03125,0 0.25,1.8125 0.3125,0.78125 2.09375,2.28125 1.53125,-0.5 0.34375,-3.0625 -0.1875,-0.8125 -0.875,-1.65625 2.4375,-1.78125 1.28125,1.34375 0.71875,0.4375 3.03125,0.59375 0.9375,-1.25 -1.5,-2.71875 -0.65625,-0.53125 -1.65625,-0.8125 0.9375,-2.875 1.84375,0.34375 0.8125,-0.09375 2.78125,-1.28125 0,-1.59375 -2.78125,-1.28125 -0.8125,-0.0625 -1.84375,0.3125 -0.9375,-2.875 1.65625,-0.8125 0.65625,-0.53125 1.5,-2.6875 -0.9375,-1.28125 -3.03125,0.625 -0.71875,0.40625 -1.28125,1.34375 -2.4375,-1.78125 0.875,-1.625 0.1875,-0.8125 -0.34375,-3.09375 -1.53125,-0.46875 -2.09375,2.28125 -0.3125,0.75 -0.25,1.84375 -3.03125,0 -0.28125,-1.84375 -0.28125,-0.75 -2.09375,-2.28125 z m 4.15625,9.5 c 3.27723,0 5.96875,2.660262 5.96875,5.9375 0,3.277237 -2.69152,5.9375 -5.96875,5.9375 -3.27724,0 -5.9375,-2.660263 -5.9375,-5.9375 0,-3.277238 2.66026,-5.9375 5.9375,-5.9375 z m -29.9375,39.40625 c -4.23032,0 -7.625,3.394673 -7.625,7.624993 l 63.84375,0 c 0,-4.23032 -3.42593,-7.624993 -7.65625,-7.624993 l -48.5625,0 z"></path>
+          </svg>
+        `;
+        return `data:image/svg+xml;base64,${btoa(svgContent)}`;
+    };
+
+    const isDark = useSelector((state) => state.themeReducer.isDarkGlobal);
+    useEffect(() => {
+        if (isDark) {
+            setSystemLogo(dynamicSystemLogo("#ffffff"))
+        }
+        else {
+            setSystemLogo(dynamicSystemLogo("#000000"))
+        }
+    }, [isDark])
+
+    const [systemLogo, setSystemLogo] = useState(dynamicSystemLogo("#000000"));
     const handleImageLoad = (index) => {
         setLoadingIndexes(prevIndexes => prevIndexes.filter(i => i !== index));
     };
@@ -459,9 +487,9 @@ export default () => {
                             </Button>
                         </Toolbar>
                     </AppBar>
-                    <DialogContent >
-                        <Card className=' drop-shadow-2xl '>
-                            <div className=' lg:drop-shadow-2xl flex flex-col lg:flex-row lg:gap-5 p-3 lg:p-0 '>
+                    <DialogContent style={{ backgroundColor: isDark ? '#18191a' : 'white' }}>
+                        <Card style={{ backgroundColor: isDark ? '#242526' : 'white' }} className='drop-shadow-2xl dark:drop-shadow-none'>
+                            <div className=' lg:drop-shadow-2xl flex flex-col lg:flex-row lg:gap-5 p-3 lg:p-0 dark:drop-shadow-none'>
 
                                 {selectedImages && selectedImages.length > 0 && (
                                     <SimpleGallery
@@ -475,7 +503,7 @@ export default () => {
                                 )}
 
                                 {!isLg && (
-                                    <div className='w-full flex flex-row items-center mb-2 ml-2'>
+                                    <div className='w-full flex flex-row items-center mb-2 ml-2 '>
                                         <Button startIcon={<ArrowBackIosNewIcon />} onClick={() => {
                                             const prevIndex = selectedProjectIndex - 1;
                                             if (slidesData[prevIndex]) {
@@ -489,10 +517,10 @@ export default () => {
                                                 dispatch(setActiveIndex(0))
                                             }
                                         }}
-                                            style={{ color: slidesData[selectedProjectIndex - 1] ? 'black' : 'gray' }} >
+                                            style={{ color: slidesData[selectedProjectIndex - 1] ? (!isDark ? 'black' : 'white') : 'gray' }} >
                                         </Button>
 
-                                        <p className='grow text-center p-1 border border-black border-opacity-50 rounded-lg'>
+                                        <p className='grow text-center p-1 border border-black dark:border-white border-opacity-50 rounded-lg dark:text-white'>
                                             {selectedProject.name}
                                         </p>
 
@@ -510,7 +538,7 @@ export default () => {
                                                     dispatch(setActiveIndex(0))
                                                 }
                                             }}
-                                            style={{ color: slidesData[selectedProjectIndex + 1] ? 'black' : 'gray' }}>
+                                            style={{ color: slidesData[selectedProjectIndex + 1] ? (!isDark ? 'black' : 'white') : 'gray' }}>
                                         </Button>
                                     </div>
                                 )}
@@ -536,7 +564,7 @@ export default () => {
                                 >
                                     {loadingIndexes.length > 0 && (
                                         <>
-                                            <div className='flex flex-col items-center'>
+                                            <div className='flex flex-col items-center dark:text-white'>
                                                 <CircularProgress />
                                                 <p>Loading Images...</p>
                                             </div>
@@ -572,13 +600,13 @@ export default () => {
                                     ) : (
                                         <SwiperSlide>
                                             <div className="flex flex-col items-center text-center ">
-                                                <img className='imgSlide2 pb-9' src='/portfolio/images/system.png' alt='app' />
+                                                <img className='imgSlide2 pb-9' src={systemLogo} alt='app' />
                                             </div>
                                         </SwiperSlide>
                                     )}
                                     {isLg && selectedImages.length > 0 && (
                                         <>
-                                            <p className='text-sm text-center pb-8'>
+                                            <p className='text-sm text-center   dark:text-white pb-8'>
                                                 (Click Image To Fullscreen)
                                             </p>
                                         </>
@@ -587,15 +615,15 @@ export default () => {
 
 
 
-                                <div className='h-full w-full  flex flex-col   project_description lg:bg-white lg:p-2 rounded-lg ml-2 lg:ml-0' >
+                                <div className='h-full w-full  flex flex-col   project_description lg:bg-white lg:p-2 rounded-lg ml-2 lg:ml-0' style={{ backgroundColor: isDark ? '#31363f' : 'white' }}>
                                     {!isLg && selectedImages.length > 0 && (
-                                        <p className='text-sm text-center pb-3'>
+                                        <p className='text-sm text-center pb-3 dark:text-white'>
                                             (Click Image To Fullscreen)
                                         </p>
                                     )}
 
                                     {isLg && (
-                                        <div className='w-full flex flex-row items-center lg:mb-8'>
+                                        <div className='w-full flex flex-row items-center lg:mb-8 '>
                                             <Button startIcon={<ArrowBackIosNewIcon />} onClick={() => {
                                                 const prevIndex = selectedProjectIndex - 1;
                                                 if (slidesData[prevIndex]) {
@@ -611,10 +639,10 @@ export default () => {
 
                                                 }
                                             }}
-                                                style={{ color: slidesData[selectedProjectIndex - 1] ? 'black' : 'gray' }} >
+                                                style={{ color: slidesData[selectedProjectIndex - 1] ? (!isDark ? 'black' : 'white') : 'gray' }} >
                                             </Button>
 
-                                            <p className='grow text-center p-3 border border-black border-opacity-50 rounded-lg'>
+                                            <p className='grow text-center p-3 border border-black dark:border-white border-opacity-50 rounded-lg dark:text-white'>
                                                 {selectedProject.name}
                                             </p>
 
@@ -633,45 +661,45 @@ export default () => {
                                                         dispatch(setActiveIndex(0))
                                                     }
                                                 }}
-                                                style={{ color: slidesData[selectedProjectIndex + 1] ? 'black' : 'gray' }}>
+                                                style={{ color: slidesData[selectedProjectIndex + 1] ? (!isDark ? 'black' : 'white') : 'gray' }}>
                                             </Button>
                                         </div>
                                     )}
 
 
 
-                                    <div className='h-full flex flex-col items-start gap-3 lg:ml-2 dynamic_description '  >
+                                    <div className='h-full flex flex-col items-start gap-3 lg:ml-2 dynamic_description  dark:text-white'  >
 
                                         <div className='flex flex-row flex-wrap gap-1 items-center' >
                                             <div>Technology Used:&nbsp;</div>
                                             {selectedProject && selectedProject.technology && selectedProject.technology.map((item, index) => (
-                                                <Chip key={index} label={item} size="small" />
+                                                <Chip key={index} label={item} size="small" color="primary" />
                                             ))}
                                         </div>
 
                                         <div className='flex flex-row gap-1 items-center'>
                                             <div>Project Type:&nbsp;</div>
-                                            <Chip label={selectedProject.type} size="small"></Chip>
+                                            <Chip label={selectedProject.type} size="small" color="primary"></Chip>
                                         </div>
 
                                         <div className='flex flex-row gap-1 items-center'>
                                             <div>Platform:&nbsp;</div>
                                             {selectedProject && selectedProject.platform && selectedProject.platform.map((item, index) => (
-                                                <Chip key={index} label={item} size="small" />
+                                                <Chip key={index} label={item} size="small" color="primary" />
                                             ))}
                                         </div>
 
                                         <div className='flex flex-row flex-wrap gap-1 items-center' >
                                             <div>Status:&nbsp;</div>
                                             {selectedProject && selectedProject.status && selectedProject.status.map((item, index) => (
-                                                <Chip key={index} label={item} size="small" />
+                                                <Chip key={index} label={item} size="small" color="primary" />
                                             ))}
                                         </div>
 
                                         <div className='flex flex-row gap-1 items-center'>
                                             <div>Role:&nbsp;</div>
                                             {selectedProject && selectedProject.role && selectedProject.role.map((item, index) => (
-                                                <Chip key={index} label={item} size="small" />
+                                                <Chip key={index} label={item} size="small" color="primary" />
                                             ))}
                                         </div>
 
@@ -709,7 +737,7 @@ export default () => {
                                     </div>
 
                                     <div className='grow'></div>
-                                    <div className='flex flex-row mt-6 lg:mt-0 lg:pt-6 items-center text-md'>
+                                    <div className='flex flex-row mt-6 lg:mt-0 lg:pt-6 items-center text-md dark:text-white'>
                                         <p className='lg:ml-2'>{(1 + selectedProjectIndex)}/{slidesData.length}</p>
                                         <div className='grow'></div>
                                         <div className='flex flex-row gap-4 pr-3'>
@@ -781,16 +809,17 @@ export default () => {
 
                 </Dialog>
             </React.Fragment>
-            <div className='flex flex-row items-center justify-center text-5xl' >
+            <div className='flex flex-row items-center justify-center text-5xl dark:text-white' >
                 <DeveloperModeIcon fontSize="large" />
                 <p >Portfolio</p>
             </div>
             <Swiper
-                className='swiper1'
+                className='swiper1 '
                 style={{
                     "--swiper-pagination-bullet-inactive-color": "#999999",
                     "--swiper-pagination-bullet-inactive-opacity": "1",
                     "--swiper-pagination-bullet-size": "10px",
+                    // background:'#242526'
                 }}
                 slidesPerView={3}
                 spaceBetween={30}
@@ -817,15 +846,23 @@ export default () => {
 
                 {slidesData.map((project, index) => (
                     <SwiperSlide key={project.name} style={{ height: '33rem', display: 'flex', alignItems: 'center', padding: '1rem' }} >
-                        <Card>
-                            <CardContent>
-                                <div className="flex flex-col justify-start bg-white w-full h-96 p-6  m-center  drop-shadow-2xl ">
-                                    <Chip label={project.type} className="mb-2 self-end ">
+                        <Card className='rounded-xl w-full' style={{
+                            // ff = white && 00 = black
+                            backgroundColor: isDark ? '#31363F' : '#ffffff',
+                        }}>
+                            <CardContent >
+                                <div className="flex flex-col justify-start bg-white w-full h-96 p-6  m-center   " style={{
+                                    // ff = white && 00 = black
+                                    backgroundColor: isDark ? '#31363F' : '#ffffff',
+                                }}>
+                                    <Chip label={project.type} className="mb-2 self-end  dark:text-white">
                                     </Chip>
-                                    <div className="grow flex flex-col items-center text-center">
-                                        <img src="/portfolio/images/system.png" alt='app' style={{ width: '40%' }} />
-                                        <p className=' text-2xl font-semibold'>{project.name}</p>
-                                        <p className=' text-xl text-gray-400'>{project.description}</p>
+                                    <div className="grow flex flex-col items-center text-center  dark:text-white">
+                                        {/* <img src="/portfolio/images/system.png" alt='app' style={{ width: '40%' }} /> */}
+                                        <img src={systemLogo} alt='app' />
+
+                                        <p className=' text-2xl font-semibold  dark:text-white'>{project.name}</p>
+                                        <p className=' text-xl text-gray-400  dark:text-white'>{project.description}</p>
                                     </div>
                                     <div className="self-center flex flex-row gap-3 items-center">
                                         {!Array.isArray(project.source_code) && project.source_code ? (
@@ -837,7 +874,7 @@ export default () => {
                                                 <FontAwesomeIcon icon={faGithub} size="2xl" className="text-blue-500 grow enlarge" onClick={() => setMultipleLinks(project.source_code)} />
                                             </>
                                         )}
-                                        <FontAwesomeIcon onClick={() => handleClickOpen(project, index)} className='enlarge pl-2 pr-2' style={{ color: '#000000', border: '1px solid #000000', borderRadius: '12%' }} icon={faEllipsis} size="2xl" />
+                                        <FontAwesomeIcon onClick={() => handleClickOpen(project, index)} className='enlarge pl-2 pr-2 ' style={{ color: isDark ? '#ffffff' : '#000000', border: isDark ? '1px solid #ffffff' : '1px solid #000000', borderRadius: '12%' }} icon={faEllipsis} size="2xl" />
                                         {project.project_link && (
                                             <a href={project.project_link} target="_blank" className="text-blue-500 grow enlarge">
                                                 <FontAwesomeIcon icon={faLink} size="2xl" />

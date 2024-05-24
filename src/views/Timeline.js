@@ -15,11 +15,13 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Padding } from '@mui/icons-material';
 import TimelineIcon from '@mui/icons-material/Timeline';
+import { useDispatch, useSelector } from 'react-redux';
 
 export default function CustomizedTimeline() {
+    const isDark = useSelector((state) => state.themeReducer.isDarkGlobal);
     return (
         <div className="h-screen w-screen max-w-7xl m-center pb-20 ">
-            <div className='flex flex-row items-center justify-center text-5xl' >
+            <div className='flex flex-row items-center justify-center text-5xl  dark:text-white' >
                 <TimelineIcon fontSize="large" />
                 <p >My Journey</p>
             </div>
@@ -27,16 +29,16 @@ export default function CustomizedTimeline() {
                 <TimelineItem>
                     <TimelineSeparator>
                         <TimelineDot color="primary" variant="outlined" className="enlarge">
-                            <LaptopMacIcon fontSize="large" />
+                            <LaptopMacIcon fontSize="large" style={{color: isDark ? 'white': 'black'}}/>
                         </TimelineDot>
                         <TimelineConnector />
                     </TimelineSeparator>
                     <TimelineContent >
-                        <Card className='bg-white drop-shadow-2xl'>
+                        <Card className=''>
                             <CardMedia
                                 sx={{
                                     height: 100,
-                                    bgcolor: 'gray',
+                                    bgcolor: isDark ? '#31363F': '#31363F',
                                 }}
                             >
                                 <div className='h-full flex flex-col justify-center '>
@@ -62,15 +64,15 @@ export default function CustomizedTimeline() {
                     <TimelineSeparator>
                         <TimelineConnector />
                         <TimelineDot className="enlarge">
-                            <School fontSize="large" />
+                            <School fontSize="large"  style={{color: isDark ? 'white': 'black'}}/>
                         </TimelineDot>
                         <TimelineConnector />
                     </TimelineSeparator>
                     <TimelineContent >
-                        <Card className='bg-white drop-shadow-2xl'>
+                        <Card className=''>
                             <CardMedia
                                 sx={{
-                                    bgcolor: 'gray',
+                                    bgcolor: isDark ? '#31363F': '#31363F',
                                 }}
 
                             >
@@ -90,16 +92,16 @@ export default function CustomizedTimeline() {
                     <TimelineSeparator>
                         <TimelineConnector />
                         <TimelineDot color="primary" variant="outlined" className="enlarge">
-                            <Work fontSize="large" />
+                            <Work fontSize="large"  style={{color: isDark ? 'white': 'black'}}/>
                         </TimelineDot>
 
                     </TimelineSeparator>
                     <TimelineContent >
-                        <Card className='bg-white drop-shadow-2xl'>
+                        <Card className=''>
                             <CardMedia
                                 sx={{
                                     height: 100,
-                                    bgcolor: 'gray',
+                                    bgcolor: isDark ? '#31363F': '#31363F',
                                 }}
                             >
                                 <div className='h-full flex flex-col justify-center '>

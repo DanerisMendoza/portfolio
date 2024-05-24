@@ -3,21 +3,23 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import TimelineIcon from '@mui/icons-material/Timeline';
 import BuildIcon from '@mui/icons-material/Build';
+import { useDispatch, useSelector } from 'react-redux';
 
 export default function BasicCard() {
+    const isDark = useSelector((state) => state.themeReducer.isDarkGlobal);
     return (
-        <div className="w-screen flex flex-col items-center justify-center pb-48 pt-48 ">
+        <div className="w-screen flex flex-col items-center justify-center pb-48 pt-48   dark:text-white">
             <div className='flex flex-row items-center justify-center text-5xl' >
                 <BuildIcon fontSize="large" />
                 <p >Skills</p>
             </div>
             <div className="flex  flex-col lg:flex-row mt-8 gap-10" style={{ padding: '1rem' }}>
-                <Card >
+                <Card style={{ background: isDark ? '#31363F' : 'white' }}>
                     <CardContent>
                         <div
-                            className="bg-white drop-shadow-2xl " style={{ height: '28rem' }}
+                            style={{ height: '28rem', }}
                         >
-                            <h2 className="text-2xl  text-center pt-5">Frontend</h2>
+                            <h2 className="text-2xl  text-center   dark:text-white pt-5">Frontend</h2>
                             <div
                                 className=" grid grid-cols-4 gap-4 m-auto lg:px-10 px-5 pt-10"
                             >
@@ -131,12 +133,12 @@ export default function BasicCard() {
                     </CardContent>
                 </Card>
 
-                <Card >
+                <Card style={{ background: isDark ? '#31363F' : 'white' }}>
                     <CardContent>
                         <div
-                            className="bg-white drop-shadow-2xl" style={{ height: '28rem' }}
+                            style={{ height: '28rem' }}
                         >
-                            <h2 className="text-2xl  text-center pt-5">Backend</h2>
+                            <h2 className="text-2xl   dark:text-white  text-center pt-5">Backend</h2>
                             <div
                                 className=" grid grid-cols-4 gap-4 m-auto lg:px-10 px-5 pt-10"
                             >
@@ -186,12 +188,12 @@ export default function BasicCard() {
                     </CardContent>
                 </Card>
 
-                <Card >
+                <Card style={{ background: isDark ? '#31363F' : 'white' }}>
                     <CardContent>
                         <div
-                            className="bg-white drop-shadow-2xl " style={{ height: '28rem' }}
+                            style={{ height: '28rem' }}
                         >
-                            <h2 className="text-2xl  text-center pt-5">Others</h2>
+                            <h2 className="text-2xl    dark:text-white text-center pt-5">Others</h2>
                             <div
                                 className=" grid grid-cols-4 gap-4 m-auto lg:px-10 px-5 pt-10"
                             >
