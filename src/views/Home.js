@@ -36,7 +36,7 @@ function Home() {
   const [wavy, setWavyColor] = useState(dynamicWavy("#000000"));
   const [wavy2, setWavy2Color] = useState(dynamicWavy2("#000000"));
   const isDark = useSelector((state) => state.themeReducer.isDarkGlobal);
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState(localStorage.getItem("daneris-theme") ? localStorage.getItem("daneris-theme"): 'light');
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -48,12 +48,10 @@ function Home() {
   useEffect(() => {
     if (theme === 'dark') {
       document.documentElement.classList.add("dark")
-      document.documentElement.classList.remove("light")
       dispatch(setIsDarkGlobal(true))
     }
     else {
       document.documentElement.classList.remove("dark")
-      document.documentElement.classList.add("light")
       dispatch(setIsDarkGlobal(false))
     }
   }, [theme])
@@ -80,10 +78,12 @@ function Home() {
   const handleChange = () => {
     if (theme === 'dark') {
       setTheme('light')
+      localStorage.setItem("daneris-theme", 'light');
       setWavyColor(dynamicWavy('#000000'));
       setWavy2Color(dynamicWavy2('#000000'));
     }
     else {
+      localStorage.setItem("daneris-theme", 'dark');
       setTheme('dark')
       setWavyColor(dynamicWavy('#242526'));
       setWavy2Color(dynamicWavy2('#242526'));
