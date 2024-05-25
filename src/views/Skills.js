@@ -9,12 +9,19 @@ export default function BasicCard() {
     const isDark = useSelector((state) => state.themeReducer.isDarkGlobal);
     return (
         <div className="w-screen flex flex-col items-center justify-center pb-48 pt-48   dark:text-white">
-            <div className='flex flex-row items-center justify-center text-5xl' >
+            <div className='flex flex-row items-center justify-center text-5xl'
+                data-aos="fade-up"
+                data-aos-delay="100"
+                data-aos-duration="800">
                 <BuildIcon fontSize="large" />
                 <p >Skills</p>
             </div>
             <div className="flex  flex-col lg:flex-row mt-8 gap-10" style={{ padding: '1rem' }}>
-                <Card style={{ background: isDark ? '#31363F' : 'white' }}>
+                <Card style={{ background: isDark ? '#31363F' : 'white' }}
+                    data-aos="fade-down"
+                    data-aos-delay="500"
+                    data-aos-duration="600"
+                >
                     <CardContent>
                         <div
                             style={{ height: '28rem', }}
@@ -133,7 +140,11 @@ export default function BasicCard() {
                     </CardContent>
                 </Card>
 
-                <Card style={{ background: isDark ? '#31363F' : 'white' }}>
+                <Card style={{ background: isDark ? '#31363F' : 'white' }}
+                    data-aos="fade-down"
+                    data-aos-delay="600"
+                    data-aos-duration="600"
+                >
                     <CardContent>
                         <div
                             style={{ height: '28rem' }}
@@ -188,7 +199,11 @@ export default function BasicCard() {
                     </CardContent>
                 </Card>
 
-                <Card style={{ background: isDark ? '#31363F' : 'white' }}>
+                <Card style={{ background: isDark ? '#31363F' : 'white' }}
+                    data-aos="fade-down"
+                    data-aos-delay="700"
+                    data-aos-duration="600"
+                >
                     <CardContent>
                         <div
                             style={{ height: '28rem' }}

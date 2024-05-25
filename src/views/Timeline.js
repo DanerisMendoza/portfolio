@@ -21,7 +21,10 @@ export default function CustomizedTimeline() {
     const isDark = useSelector((state) => state.themeReducer.isDarkGlobal);
     return (
         <div className="h-screen w-screen max-w-7xl m-center pb-20 ">
-            <div className='flex flex-row items-center justify-center text-5xl  dark:text-white' >
+            <div className='flex flex-row items-center justify-center text-5xl  dark:text-white'
+                data-aos="fade-up"
+                data-aos-delay="100"
+                data-aos-duration="800">
                 <TimelineIcon fontSize="large" />
                 <p >My Journey</p>
             </div>
@@ -29,20 +32,24 @@ export default function CustomizedTimeline() {
                 <TimelineItem>
                     <TimelineSeparator>
                         <TimelineDot color="primary" variant="outlined" className="enlarge">
-                            <LaptopMacIcon fontSize="large" style={{color: isDark ? 'white': 'black'}}/>
+                            <LaptopMacIcon fontSize="large" style={{ color: isDark ? 'white' : 'black' }} />
                         </TimelineDot>
                         <TimelineConnector />
                     </TimelineSeparator>
-                    <TimelineContent >
+                    <TimelineContent
+                        data-aos="fade-left"
+                        data-aos-delay="500"
+                        data-aos-duration="600"
+                    >
                         <Card className=''>
                             <CardMedia
                                 sx={{
                                     height: 100,
-                                    bgcolor: isDark ? '#31363F': '#31363F',
+                                    bgcolor: isDark ? '#31363F' : '#31363F',
                                 }}
                             >
                                 <div className='h-full flex flex-col justify-center '>
-                                    <h3 className="text-center text-base  md:text-2xl text-gray-100 pt-2"> Freelance</h3>
+                                    <h3 className="text-center text-base  md:text-2xl text-gray-100 pt-2"> Freelance Full Stack Developer</h3>
                                 </div>
                             </CardMedia>
 
@@ -64,15 +71,19 @@ export default function CustomizedTimeline() {
                     <TimelineSeparator>
                         <TimelineConnector />
                         <TimelineDot className="enlarge">
-                            <School fontSize="large"  style={{color: isDark ? 'white': 'black'}}/>
+                            <School fontSize="large" style={{ color: isDark ? 'white' : 'black' }} />
                         </TimelineDot>
                         <TimelineConnector />
                     </TimelineSeparator>
-                    <TimelineContent >
+                    <TimelineContent
+                        data-aos="fade-right"
+                        data-aos-delay="500"
+                        data-aos-duration="600"
+                    >
                         <Card className=''>
                             <CardMedia
                                 sx={{
-                                    bgcolor: isDark ? '#31363F': '#31363F',
+                                    bgcolor: isDark ? '#31363F' : '#31363F',
                                 }}
 
                             >
@@ -92,16 +103,19 @@ export default function CustomizedTimeline() {
                     <TimelineSeparator>
                         <TimelineConnector />
                         <TimelineDot color="primary" variant="outlined" className="enlarge">
-                            <Work fontSize="large"  style={{color: isDark ? 'white': 'black'}}/>
+                            <Work fontSize="large" style={{ color: isDark ? 'white' : 'black' }} />
                         </TimelineDot>
 
                     </TimelineSeparator>
-                    <TimelineContent >
+                    <TimelineContent
+                        data-aos="fade-left"
+                        data-aos-delay="500"
+                        data-aos-duration="600">
                         <Card className=''>
                             <CardMedia
                                 sx={{
                                     height: 100,
-                                    bgcolor: isDark ? '#31363F': '#31363F',
+                                    bgcolor: isDark ? '#31363F' : '#31363F',
                                 }}
                             >
                                 <div className='h-full flex flex-col justify-center '>

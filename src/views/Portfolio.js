@@ -462,13 +462,11 @@ export default () => {
         const handleResize = () => {
             setIsLg(window.innerWidth >= 1024);
         };
-
         window.addEventListener('resize', handleResize);
-
         return () => {
             window.removeEventListener('resize', handleResize);
         };
-    }, []); // Empty dependency array to run this effect only once
+    }, []);
 
     return (
         <div className="h-screen w-screen max-w-7xl m-center ">
@@ -487,7 +485,7 @@ export default () => {
                             </Button>
                         </Toolbar>
                     </AppBar>
-                    <DialogContent style={{ backgroundColor: isDark ? '#18191a' : 'white', padding:'0.6rem' }}>
+                    <DialogContent style={{ backgroundColor: isDark ? '#18191a' : 'white', padding: '0.6rem' }}>
                         <Card style={{ backgroundColor: isDark ? '#242526' : 'white' }} className='drop-shadow-2xl dark:drop-shadow-none'>
                             <div className=' lg:drop-shadow-2xl flex flex-col lg:flex-row lg:gap-5 p-3 lg:p-0 dark:drop-shadow-none'>
 
@@ -809,11 +807,18 @@ export default () => {
 
                 </Dialog>
             </React.Fragment>
-            <div className='flex flex-row items-center justify-center text-5xl dark:text-white' >
+            <div className='flex flex-row items-center justify-center text-5xl dark:text-white'
+                data-aos="fade-up"
+                data-aos-delay="100"
+                data-aos-duration="800"
+            >
                 <DeveloperModeIcon fontSize="large" />
                 <p >Portfolio</p>
             </div>
             <Swiper
+                data-aos="fade-left"
+                data-aos-delay="500"
+                data-aos-duration="600"
                 className='swiper1 '
                 style={{
                     "--swiper-pagination-bullet-inactive-color": "#999999",

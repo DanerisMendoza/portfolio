@@ -12,6 +12,8 @@ import { grey, yellow, blue } from '@mui/material/colors';
 import { useEffect, useState } from 'react';
 import { setIsDarkGlobal } from '../store/theme';
 import { useDispatch, useSelector } from 'react-redux';
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Home() {
   const dynamicWavy = (fill) => {
@@ -38,7 +40,12 @@ function Home() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log(theme)
+    AOS.init({
+      duration : 2000
+    });
+  }, []);
+  
+  useEffect(() => {
     if (theme === 'dark') {
       document.documentElement.classList.add("dark")
       document.documentElement.classList.remove("light")
