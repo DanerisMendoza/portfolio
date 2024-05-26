@@ -95,9 +95,9 @@ function Home() {
   }
 
   return (
-    <>
+    <div className='parent '>
       <img src={wavy} className='wavy' alt="wavy1" />
-      <div className='flex flex-col'
+      <div className='flex flex-col '
         style={{
           // ff = white && 00 = black
           backgroundColor: isDark ? '#18191a' : '#ffffff',
@@ -116,7 +116,7 @@ function Home() {
         </div>
       </div>
       <img src={wavy2} className='wavy' alt="wavy2" />
-    </>
+    </div>
   );
 }
 

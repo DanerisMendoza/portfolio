@@ -11,7 +11,7 @@ function Hero() {
     const isDark = useSelector((state) => state.themeReducer.isDarkGlobal);
 
     return (
-        <div className="h-screen w-screen flex flex-col justify-center items-center p-2">
+        <div className="h-screen w-screen flex flex-col sm:justify-center items-center p-2">
             <div className="flex flex-col items-start  lg:h-1/3 lg:w-3/6 ml-4 ">
                 <h1 className="font-extrabold text-6xl text-black dark:text-white mr-12 mt-4"
                     data-aos="fade-right"
@@ -28,11 +28,11 @@ function Hero() {
                     data-aos="fade-right"
                     data-aos-delay="700"
                     data-aos-duration="500">
-                    I am a computer science major from the University of Caloocan City, currently awaiting graduation with a strong foundation in programming and well-rounded skills.
+                    I am a computer science major with a strong foundation in programming and well-rounded skills.
                     I am also a hardworking freelance full-stack developer who is quick at creating effective solutions. I began working on freelance projects during my fourth year of school and continue to do so presently.
                     I excel in both frontend and backend development, both theoretically and practically. My expertise in reverse engineering, along with my proficiency in quickly learning new things, enables me to break down and understand complex projects easily.
                 </h5>
-                <div className="mt-6  flex flex-row items-center gap-2 dark:text-white "
+                <div className="mt-4 md:mt-6  flex flex-row items-center gap-2 dark:text-white "
                     data-aos="fade-right"
                     data-aos-delay="800"
                     data-aos-duration="500">
