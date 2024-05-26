@@ -36,15 +36,19 @@ function Home() {
   const [wavy, setWavyColor] = useState(dynamicWavy("#000000"));
   const [wavy2, setWavy2Color] = useState(dynamicWavy2("#000000"));
   const isDark = useSelector((state) => state.themeReducer.isDarkGlobal);
-  const [theme, setTheme] = useState(localStorage.getItem("daneris-theme") ? localStorage.getItem("daneris-theme"): 'light');
+  const [theme, setTheme] = useState(localStorage.getItem("daneris-theme") ? localStorage.getItem("daneris-theme") : 'light');
   const dispatch = useDispatch();
 
   useEffect(() => {
     AOS.init({
-      duration : 2000
+      duration: 2000
     });
+    if (localStorage.getItem("daneris-theme") !== null && localStorage.getItem("daneris-theme") === 'dark') {
+      setWavyColor(dynamicWavy('#242526'));
+      setWavy2Color(dynamicWavy2('#242526'));
+    }
   }, []);
-  
+
   useEffect(() => {
     if (theme === 'dark') {
       document.documentElement.classList.add("dark")
