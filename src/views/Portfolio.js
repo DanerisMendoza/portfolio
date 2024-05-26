@@ -308,7 +308,7 @@ export default () => {
     const [selectedProjectIndex, setSelectedProjectIndex] = React.useState(null);
     const [swiper, setSwiper] = useState(null);
     const [selectedImages, setSelectedImages] = useState([]);
-    const [loadingIndexes, setLoadingIndexes] = useState([]); // State to keep track of loading images
+    const [imagesLoading, setImagesLoading] = useState(true); // State to keep track of loading images
 
 
     const dynamicSystemLogo = (fill) => {
@@ -338,16 +338,14 @@ export default () => {
     }, [isDark])
 
     const [systemLogo, setSystemLogo] = useState(dynamicSystemLogo("#000000"));
-    const handleImageLoad = (index) => {
-        setLoadingIndexes(prevIndexes => prevIndexes.filter(i => i !== index));
-    };
+
 
 
     const handleClickOpen = (project, index) => {
         const { images_num_web, images_num_mobile } = project;
         const combinedImagesCount = (images_num_web || 0) + (images_num_mobile || 0);
         const combinedIndexes = Array.from({ length: combinedImagesCount }, (_, index) => index);
-        setLoadingIndexes(combinedIndexes);
+        setImagesLoading(true);
 
         setSelectedProjectIndex(index)
         setSelectedProject(project)
@@ -502,19 +500,21 @@ export default () => {
 
                                 {!isLg && (
                                     <div className='w-full flex flex-row items-center mb-2 ml-2 '>
-                                        <Button startIcon={<ArrowBackIosNewIcon />} onClick={() => {
-                                            const prevIndex = selectedProjectIndex - 1;
-                                            if (slidesData[prevIndex]) {
-                                                const { images_num_web, images_num_mobile } = slidesData[prevIndex];
-                                                const combinedImagesCount = (images_num_web || 0) + (images_num_mobile || 0);
-                                                const combinedIndexes = Array.from({ length: combinedImagesCount }, (_, index) => index);
-                                                setLoadingIndexes(combinedIndexes);
-                                                setSelectedImages([])
-                                                setSelectedProjectIndex(prevIndex);
-                                                setSelectedProject(slidesData[prevIndex]);
-                                                dispatch(setActiveIndex(0))
-                                            }
-                                        }}
+                                        <Button startIcon={<ArrowBackIosNewIcon />}
+                                            disabled={imagesLoading}
+                                            onClick={() => {
+                                                const prevIndex = selectedProjectIndex - 1;
+                                                if (slidesData[prevIndex]) {
+                                                    const { images_num_web, images_num_mobile } = slidesData[prevIndex];
+                                                    const combinedImagesCount = (images_num_web || 0) + (images_num_mobile || 0);
+                                                    const combinedIndexes = Array.from({ length: combinedImagesCount }, (_, index) => index);
+                                                    setImagesLoading(true)
+                                                    setSelectedImages([])
+                                                    setSelectedProjectIndex(prevIndex);
+                                                    setSelectedProject(slidesData[prevIndex]);
+                                                    dispatch(setActiveIndex(0))
+                                                }
+                                            }}
                                             style={{ color: slidesData[selectedProjectIndex - 1] ? (!isDark ? 'black' : 'white') : 'gray' }} >
                                         </Button>
 
@@ -523,13 +523,14 @@ export default () => {
                                         </p>
 
                                         <Button startIcon={<ArrowForwardIosIcon />}
+                                            disabled={imagesLoading}
                                             onClick={() => {
                                                 const nextIndex = selectedProjectIndex + 1;
                                                 if (slidesData[nextIndex]) {
                                                     const { images_num_web, images_num_mobile } = slidesData[nextIndex];
                                                     const combinedImagesCount = (images_num_web || 0) + (images_num_mobile || 0);
                                                     const combinedIndexes = Array.from({ length: combinedImagesCount }, (_, index) => index);
-                                                    setLoadingIndexes(combinedIndexes);
+                                                    setImagesLoading(true)
                                                     setSelectedImages([])
                                                     setSelectedProjectIndex(nextIndex);
                                                     setSelectedProject(slidesData[nextIndex]);
@@ -560,7 +561,7 @@ export default () => {
                                         dispatch(setIsFullScreen(true))
                                     }}
                                 >
-                                    {loadingIndexes.length > 0 && (
+                                    {imagesLoading && (
                                         <>
                                             <div className='flex flex-col items-center dark:text-white'>
                                                 <CircularProgress />
@@ -581,14 +582,14 @@ export default () => {
                                                             className='img_slide_web'
                                                             src={`${selectedProject.images_path}/${item.folder}/${item.index}.png`}
                                                             alt='app'
-                                                            onLoad={() => handleImageLoad(index)}
+                                                            onLoad={() => setImagesLoading(false)}
                                                         />
                                                     ) : (
                                                         <img
                                                             className='img_slide_mobile'
                                                             src={`${selectedProject.images_path}/${item.folder}/${item.index}.png`}
                                                             alt='app'
-                                                            onLoad={() => handleImageLoad(index)}
+                                                            onLoad={() => setImagesLoading(false)}
                                                         />
                                                     )}
 
@@ -598,11 +599,11 @@ export default () => {
                                     ) : (
                                         <SwiperSlide>
                                             <div className="flex flex-col items-center text-center ">
-                                                <img className='imgSlide2 pb-9' src={systemLogo} alt='app' />
+                                                <img className='imgSlide2 pb-9' src={systemLogo} alt='app' onLoad={() => setImagesLoading(false)} />
                                             </div>
                                         </SwiperSlide>
                                     )}
-                                    {isLg && selectedImages.length > 0 && (
+                                    {isLg && imagesLoading && (
                                         <>
                                             <p className='text-sm text-center   dark:text-white pb-8'>
                                                 (Click Image To Fullscreen)
@@ -614,7 +615,7 @@ export default () => {
 
 
                                 <div className='h-full w-full  flex flex-col   project_description lg:bg-white lg:p-2 rounded-lg ml-2 lg:ml-0' style={{ backgroundColor: isDark ? (isLg ? '#31363f' : '') : 'white' }}>
-                                    {!isLg && selectedImages.length > 0 && (
+                                    {!isLg && imagesLoading && (
                                         <p className='text-sm text-center pb-3 dark:text-white'>
                                             (Click Image To Fullscreen)
                                         </p>
@@ -622,21 +623,18 @@ export default () => {
 
                                     {isLg && (
                                         <div className='w-full flex flex-row items-center lg:mb-8 '>
-                                            <Button startIcon={<ArrowBackIosNewIcon />} onClick={() => {
-                                                const prevIndex = selectedProjectIndex - 1;
-                                                if (slidesData[prevIndex]) {
-                                                    setSelectedImages([])
-                                                    setSelectedProjectIndex(prevIndex);
-                                                    setSelectedProject(slidesData[prevIndex]);
-
-                                                    const { images_num_web, images_num_mobile } = slidesData[prevIndex];
-                                                    const combinedImagesCount = (images_num_web || 0) + (images_num_mobile || 0);
-                                                    const combinedIndexes = Array.from({ length: combinedImagesCount }, (_, index) => index);
-                                                    setLoadingIndexes(combinedIndexes);
-                                                    dispatch(setActiveIndex(0))
-
-                                                }
-                                            }}
+                                            <Button startIcon={<ArrowBackIosNewIcon />}
+                                                disabled={imagesLoading}
+                                                onClick={() => {
+                                                    const prevIndex = selectedProjectIndex - 1;
+                                                    if (slidesData[prevIndex]) {
+                                                        setSelectedImages([])
+                                                        setSelectedProjectIndex(prevIndex);
+                                                        setSelectedProject(slidesData[prevIndex]);
+                                                        setImagesLoading(true)
+                                                        dispatch(setActiveIndex(0))
+                                                    }
+                                                }}
                                                 style={{ color: slidesData[selectedProjectIndex - 1] ? (!isDark ? 'black' : 'white') : 'gray' }} >
                                             </Button>
 
@@ -645,14 +643,11 @@ export default () => {
                                             </p>
 
                                             <Button startIcon={<ArrowForwardIosIcon />}
+                                                disabled={imagesLoading}
                                                 onClick={() => {
                                                     const nextIndex = selectedProjectIndex + 1;
                                                     if (slidesData[nextIndex]) {
-                                                        const { images_num_web, images_num_mobile } = slidesData[nextIndex];
-                                                        const combinedImagesCount = (images_num_web || 0) + (images_num_mobile || 0);
-                                                        const combinedIndexes = Array.from({ length: combinedImagesCount }, (_, index) => index);
-                                                        setLoadingIndexes(combinedIndexes);
-
+                                                        setImagesLoading(true)
                                                         setSelectedImages([])
                                                         setSelectedProjectIndex(nextIndex);
                                                         setSelectedProject(slidesData[nextIndex]);
