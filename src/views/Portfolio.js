@@ -29,6 +29,11 @@ import CircularProgress from '@mui/material/CircularProgress';
 import CloseIcon from '@mui/icons-material/Close';
 import IconButton from '@mui/material/IconButton';
 import { useTheme } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import { green } from '@mui/material/colors';
+import Fab from '@mui/material/Fab';
+import CheckIcon from '@mui/icons-material/Check';
+import SaveIcon from '@mui/icons-material/Save';
 
 export default () => {
 
@@ -120,7 +125,7 @@ export default () => {
             role: ["Full Stack Developer"],
             source_code: [{ Frontend: 'https://github.com/DanerisMendoza/memo-flash-front' }, { Backend: 'https://github.com/DanerisMendoza/memo-flash-back' }, { Mobile: 'https://github.com/DanerisMendoza/memo-flash-mobile' }],
             images_path: '/portfolio/images/fcr',
-            images_num_web: 5,
+            images_num_web: 8,
             higlights: [
                 'Utilized MERN Stack while maintaining structure of my past projects',
                 'Implement MVC Architecture in NodeJS',
@@ -500,45 +505,75 @@ export default () => {
 
                                 {!isLg && (
                                     <div className='w-full flex flex-row items-center mb-2 ml-2 '>
-                                        <Button startIcon={<ArrowBackIosNewIcon />}
-                                            disabled={imagesLoading}
-                                            onClick={() => {
-                                                const prevIndex = selectedProjectIndex - 1;
-                                                if (slidesData[prevIndex]) {
-                                                    const { images_num_web, images_num_mobile } = slidesData[prevIndex];
-                                                    const combinedImagesCount = (images_num_web || 0) + (images_num_mobile || 0);
-                                                    const combinedIndexes = Array.from({ length: combinedImagesCount }, (_, index) => index);
-                                                    setImagesLoading(true)
-                                                    setSelectedImages([])
-                                                    setSelectedProjectIndex(prevIndex);
-                                                    setSelectedProject(slidesData[prevIndex]);
-                                                    dispatch(setActiveIndex(0))
-                                                }
-                                            }}
-                                            style={{ color: slidesData[selectedProjectIndex - 1] ? (!isDark ? 'black' : 'white') : 'gray' }} >
-                                        </Button>
+                                        <Box sx={{ m: 1, position: 'relative' }}>
+                                            {imagesLoading ? <Button startIcon={<ArrowBackIosNewIcon />}
+                                                disabled={imagesLoading}
+                                                style={{ color: 'gray' }}
+                                            >
+                                            </Button> : <Button startIcon={<ArrowBackIosNewIcon />}
+                                                disabled={imagesLoading}
+                                                onClick={() => {
+                                                    const prevIndex = selectedProjectIndex - 1;
+                                                    if (slidesData[prevIndex]) {
+                                                        setSelectedImages([])
+                                                        setSelectedProjectIndex(prevIndex);
+                                                        setSelectedProject(slidesData[prevIndex]);
+                                                        setImagesLoading(true)
+                                                        dispatch(setActiveIndex(0))
+                                                    }
+                                                }}
+                                                style={{ color: slidesData[selectedProjectIndex - 1] ? (!isDark ? 'black' : 'white') : 'gray' }} >
+                                            </Button>}
+                                            {imagesLoading && (
+                                                <CircularProgress
+                                                    size={30}
+                                                    sx={{
+                                                        color: 'primary',
+                                                        position: 'absolute',
+                                                        top: 1,
+                                                        left: 12,
+                                                        zIndex: 1,
+                                                    }}
+                                                />
+                                            )}
+                                        </Box>
 
                                         <p className='grow text-center p-1 border border-black dark:border-white border-opacity-50 rounded-lg dark:text-white'>
                                             {selectedProject.name}
                                         </p>
 
-                                        <Button startIcon={<ArrowForwardIosIcon />}
-                                            disabled={imagesLoading}
-                                            onClick={() => {
-                                                const nextIndex = selectedProjectIndex + 1;
-                                                if (slidesData[nextIndex]) {
-                                                    const { images_num_web, images_num_mobile } = slidesData[nextIndex];
-                                                    const combinedImagesCount = (images_num_web || 0) + (images_num_mobile || 0);
-                                                    const combinedIndexes = Array.from({ length: combinedImagesCount }, (_, index) => index);
-                                                    setImagesLoading(true)
-                                                    setSelectedImages([])
-                                                    setSelectedProjectIndex(nextIndex);
-                                                    setSelectedProject(slidesData[nextIndex]);
-                                                    dispatch(setActiveIndex(0))
-                                                }
-                                            }}
-                                            style={{ color: slidesData[selectedProjectIndex + 1] ? (!isDark ? 'black' : 'white') : 'gray' }}>
-                                        </Button>
+                                        <Box sx={{ m: 1, position: 'relative' }}>
+                                            {imagesLoading ? <Button startIcon={<ArrowForwardIosIcon />}
+                                                disabled={imagesLoading}
+                                                style={{ color: 'gray' }}
+                                            >
+                                            </Button> : <Button startIcon={<ArrowForwardIosIcon />}
+                                                disabled={imagesLoading}
+                                                onClick={() => {
+                                                    const nextIndex = selectedProjectIndex + 1;
+                                                    if (slidesData[nextIndex]) {
+                                                        setImagesLoading(true)
+                                                        setSelectedImages([])
+                                                        setSelectedProjectIndex(nextIndex);
+                                                        setSelectedProject(slidesData[nextIndex]);
+                                                        dispatch(setActiveIndex(0))
+                                                    }
+                                                }}
+                                                style={{ color: slidesData[selectedProjectIndex + 1] ? (!isDark ? 'black' : 'white') : 'gray' }}>
+                                            </Button>}
+                                            {imagesLoading && (
+                                                <CircularProgress
+                                                    size={30}
+                                                    sx={{
+                                                        color: 'primary',
+                                                        position: 'absolute',
+                                                        top: 1,
+                                                        left: 9,
+                                                        zIndex: 1,
+                                                    }}
+                                                />
+                                            )}
+                                        </Box>
                                     </div>
                                 )}
 
@@ -603,7 +638,7 @@ export default () => {
                                             </div>
                                         </SwiperSlide>
                                     )}
-                                    {isLg && imagesLoading && (
+                                    {isLg && !imagesLoading && (
                                         <>
                                             <p className='text-sm text-center   dark:text-white pb-8'>
                                                 (Click Image To Fullscreen)
@@ -615,7 +650,7 @@ export default () => {
 
 
                                 <div className='h-full w-full  flex flex-col   project_description lg:bg-white lg:p-2 rounded-lg ml-2 lg:ml-0' style={{ backgroundColor: isDark ? (isLg ? '#31363f' : '') : 'white' }}>
-                                    {!isLg && imagesLoading && (
+                                    {!isLg && !imagesLoading && (
                                         <p className='text-sm text-center pb-3 dark:text-white'>
                                             (Click Image To Fullscreen)
                                         </p>
@@ -623,39 +658,76 @@ export default () => {
 
                                     {isLg && (
                                         <div className='w-full flex flex-row items-center lg:mb-8 '>
-                                            <Button startIcon={<ArrowBackIosNewIcon />}
-                                                disabled={imagesLoading}
-                                                onClick={() => {
-                                                    const prevIndex = selectedProjectIndex - 1;
-                                                    if (slidesData[prevIndex]) {
-                                                        setSelectedImages([])
-                                                        setSelectedProjectIndex(prevIndex);
-                                                        setSelectedProject(slidesData[prevIndex]);
-                                                        setImagesLoading(true)
-                                                        dispatch(setActiveIndex(0))
-                                                    }
-                                                }}
-                                                style={{ color: slidesData[selectedProjectIndex - 1] ? (!isDark ? 'black' : 'white') : 'gray' }} >
-                                            </Button>
+
+                                            <Box sx={{ m: 1, position: 'relative' }}>
+                                                {imagesLoading ? <Button startIcon={<ArrowBackIosNewIcon />}
+                                                    disabled={imagesLoading}
+                                                    style={{ color: 'gray' }}
+                                                >
+                                                </Button> : <Button startIcon={<ArrowBackIosNewIcon />}
+                                                    disabled={imagesLoading}
+                                                    onClick={() => {
+                                                        const prevIndex = selectedProjectIndex - 1;
+                                                        if (slidesData[prevIndex]) {
+                                                            setSelectedImages([])
+                                                            setSelectedProjectIndex(prevIndex);
+                                                            setSelectedProject(slidesData[prevIndex]);
+                                                            setImagesLoading(true)
+                                                            dispatch(setActiveIndex(0))
+                                                        }
+                                                    }}
+                                                    style={{ color: slidesData[selectedProjectIndex - 1] ? (!isDark ? 'black' : 'white') : 'gray' }} >
+                                                </Button>}
+                                                {imagesLoading && (
+                                                    <CircularProgress
+                                                        size={30}
+                                                        sx={{
+                                                            color: 'primary',
+                                                            position: 'absolute',
+                                                            top: 1,
+                                                            left: 12,
+                                                            zIndex: 1,
+                                                        }}
+                                                    />
+                                                )}
+                                            </Box>
 
                                             <p className='grow text-center p-3 border border-black dark:border-white border-opacity-50 rounded-lg dark:text-white'>
                                                 {selectedProject.name}
                                             </p>
 
-                                            <Button startIcon={<ArrowForwardIosIcon />}
-                                                disabled={imagesLoading}
-                                                onClick={() => {
-                                                    const nextIndex = selectedProjectIndex + 1;
-                                                    if (slidesData[nextIndex]) {
-                                                        setImagesLoading(true)
-                                                        setSelectedImages([])
-                                                        setSelectedProjectIndex(nextIndex);
-                                                        setSelectedProject(slidesData[nextIndex]);
-                                                        dispatch(setActiveIndex(0))
-                                                    }
-                                                }}
-                                                style={{ color: slidesData[selectedProjectIndex + 1] ? (!isDark ? 'black' : 'white') : 'gray' }}>
-                                            </Button>
+                                            <Box sx={{ m: 1, position: 'relative' }}>
+                                                {imagesLoading ? <Button startIcon={<ArrowForwardIosIcon />}
+                                                    disabled={imagesLoading}
+                                                    style={{ color: 'gray' }}
+                                                >
+                                                </Button> : <Button startIcon={<ArrowForwardIosIcon />}
+                                                    disabled={imagesLoading}
+                                                    onClick={() => {
+                                                        const nextIndex = selectedProjectIndex + 1;
+                                                        if (slidesData[nextIndex]) {
+                                                            setImagesLoading(true)
+                                                            setSelectedImages([])
+                                                            setSelectedProjectIndex(nextIndex);
+                                                            setSelectedProject(slidesData[nextIndex]);
+                                                            dispatch(setActiveIndex(0))
+                                                        }
+                                                    }}
+                                                    style={{ color: slidesData[selectedProjectIndex + 1] ? (!isDark ? 'black' : 'white') : 'gray' }}>
+                                                </Button>}
+                                                {imagesLoading && (
+                                                    <CircularProgress
+                                                        size={30}
+                                                        sx={{
+                                                            color: 'primary',
+                                                            position: 'absolute',
+                                                            top: 1,
+                                                            left: 9,
+                                                            zIndex: 1,
+                                                        }}
+                                                    />
+                                                )}
+                                            </Box>
                                         </div>
                                     )}
 
